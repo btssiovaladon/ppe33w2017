@@ -6,3 +6,5 @@ Ce dossier sert à partager les ressources entres les équipes.
 
 _ressources constitue l'unique répertoire au moment du clonage du projet PPE3.3 
 depuis GitHub.
+
+.gitignore permet d'exclure index.php des commits
