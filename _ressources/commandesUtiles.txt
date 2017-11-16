@@ -1,0 +1,11 @@
+git status ==> Etat du dépot
+git log -3 => 3 derniers commit
+
+Premier clonage du dépôt distant:
+git clone git@github.com:btssiovaladon/ppe33w2017.git
+git add --all
+git commit -m "Arborescence"
+
+Après 1er clonage, seulement utiliser ces commandes:
+git push origin master ==> Envoyer des données sur le dépôt distant
+git pull origin master ==> Recevoir des données du dépôt distant
