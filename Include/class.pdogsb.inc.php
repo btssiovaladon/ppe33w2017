@@ -46,7 +46,7 @@ class PdoGsb{
 		}
 		return PdoGsb::$monPdoGsb;  
 	}
-	
+
 /**
 * Retourne tous les amis participants à une activité
  
@@ -60,6 +60,36 @@ class PdoGsb{
 		$res = PdoGsb::$monPdo->query($req);
 		$lesAmis = $res->fetchAll();
 		return $lesAmis; 
+	}
+	
+
+	/**
+		retourne toutes les actions
+	**/
+	
+	public function getAction(){
+		$req = "select DISTINCT numaction,libelleAction FROM ACTION";
+			$rs = PdoGsb::$monPdo->query($req);
+			$lignes=array();
+			if($rs == true){
+				$lignes = $rs->fetchAll();
+			}
+			return $lignes;
+		
+	}
+
+/**
+* Retourne le chef d'une activité
+ 
+* @param $idActivité
+* @return un tableau contenant toutes les informations du chef
+*/
+	public function getChefActivité($idActivité){
+		$req = "select p.NUMAMIS as numero, NOMAMIS as nom, PRENOMAMIS as prenom, ADRESSERUEAMIS as adresse, CODEPOSTALAMIS as codePostal, TELEPHONEAMIS as telephone, MAILAMIS as mail from amis a INNER JOIN action ac on ac.NUMAMIS=a.NUMAMIS
+		where NUMACTION ='$idActivité'";	
+		$res = PdoGsb::$monPdo->query($req);
+		$lesAmis = $res->fetchAll();
+		return $leChef; 
 	}
 	
 /**
