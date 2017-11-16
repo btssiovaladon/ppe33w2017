@@ -51,7 +51,7 @@ class PdoGsb{
 * Retourne tous les amis participants à une activité
  
 * @param $idActivité
-* @return un tableau associatif contenant toutes les informations des participants
+* @return un tableau contenant toutes les informations des participants
 */
 	public function getAllAmisParActivité($idActivité){
 		$req = "select p.NUMAMIS as numero, NOMAMIS as nom, PRENOMAMIS as prenom, ADRESSERUEAMIS as adresse, CODEPOSTALAMIS as codePostal, TELEPHONEAMIS as telephone, MAILAMIS as mail from amis a INNER JOIN participer p on p.NUMAMIS=a.NUMAMIS
@@ -61,5 +61,19 @@ class PdoGsb{
 		$lesAmis = $res->fetchAll();
 		return $lesAmis; 
 	}
+	
+/**
+* Retourne toutes les activités
+ 
+* @param 
+* @return un tableau contenant toutes les activités
+*/
+	public function getAllActivite(){
+		$req = "select NUMACTION as numero, NUMAMIS as numeroAmis, NUMEROCOMMISSION as numeroCommission, LIBELLEACTION as nom, MONTANTACTION as montant, DATEACTION as date, DUREEACTION as duree from action";
+		$res = PdoGsb::$monPdo->query($req);
+		$lesAmis = $res->fetchAll();
+		return $lesAmis; 
+	}
+	
 }
 ?>
