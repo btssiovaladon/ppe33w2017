@@ -63,6 +63,20 @@ class PdoGsb{
 	}
 	
 /**
+* Retourne le chef d'une activité
+ 
+* @param $idActivité
+* @return un tableau contenant toutes les informations du chef
+*/
+	public function getChefActivité($idActivité){
+		$req = "select p.NUMAMIS as numero, NOMAMIS as nom, PRENOMAMIS as prenom, ADRESSERUEAMIS as adresse, CODEPOSTALAMIS as codePostal, TELEPHONEAMIS as telephone, MAILAMIS as mail from amis a INNER JOIN action ac on ac.NUMAMIS=a.NUMAMIS
+		where NUMACTION ='$idActivité'";	
+		$res = PdoGsb::$monPdo->query($req);
+		$lesAmis = $res->fetchAll();
+		return $leChef; 
+	}
+	
+/**
 * Retourne toutes les activités
  
 * @param 
