@@ -25,7 +25,7 @@ class PdoGsb{
 /**
  * Constructeur privé, crée l'instance de PDO qui sera sollicitée
  * pour toutes les méthodes de la classe
- */	
+ */				
 	private function __construct(){
     	PdoGsb::$monPdo = new PDO(PdoGsb::$serveur.';'.PdoGsb::$bdd, PdoGsb::$user, PdoGsb::$mdp); 
 		PdoGsb::$monPdo->query("SET CHARACTER SET utf8");
@@ -46,4 +46,5 @@ class PdoGsb{
 		}
 		return PdoGsb::$monPdoGsb;  
 	}
+}
 ?>
