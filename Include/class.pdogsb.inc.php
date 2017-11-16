@@ -25,7 +25,7 @@ class PdoGsb{
 /**
  * Constructeur privé, crée l'instance de PDO qui sera sollicitée
  * pour toutes les méthodes de la classe
- */				
+ */	
 	private function __construct(){
     	PdoGsb::$monPdo = new PDO(PdoGsb::$serveur.';'.PdoGsb::$bdd, PdoGsb::$user, PdoGsb::$mdp); 
 		PdoGsb::$monPdo->query("SET CHARACTER SET utf8");
@@ -46,5 +46,37 @@ class PdoGsb{
 		}
 		return PdoGsb::$monPdoGsb;  
 	}
+<<<<<<< HEAD
+=======
+	
+/**
+* Retourne tous les amis participants à une activité
+ 
+* @param $idActivité
+* @return un tableau contenant toutes les informations des participants
+*/
+	public function getAllAmisParActivité($idActivité){
+		$req = "select p.NUMAMIS as numero, NOMAMIS as nom, PRENOMAMIS as prenom, ADRESSERUEAMIS as adresse, CODEPOSTALAMIS as codePostal, TELEPHONEAMIS as telephone, MAILAMIS as mail from amis a INNER JOIN participer p on p.NUMAMIS=a.NUMAMIS
+		where NUMACTION ='$idActivité'
+		order by NOMAMIS";	
+		$res = PdoGsb::$monPdo->query($req);
+		$lesAmis = $res->fetchAll();
+		return $lesAmis; 
+	}
+	
+/**
+* Retourne toutes les activités
+ 
+* @param 
+* @return un tableau contenant toutes les activités
+*/
+	public function getAllActivite(){
+		$req = "select NUMACTION as numero, NUMAMIS as numeroAmis, NUMEROCOMMISSION as numeroCommission, LIBELLEACTION as nom, MONTANTACTION as montant, DATEACTION as date, DUREEACTION as duree from action";
+		$res = PdoGsb::$monPdo->query($req);
+		$lesAmis = $res->fetchAll();
+		return $lesAmis; 
+	}
+	
+>>>>>>> 8993b80e938a6a835cfcabf7ea1288de40ee1066
 }
 ?>
