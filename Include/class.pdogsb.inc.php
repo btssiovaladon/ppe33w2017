@@ -88,10 +88,22 @@ class PdoGsb{
 		$lesAmis = $res->fetchAll();
 		return $lesAmis; 
 	}
+	/*
+	*Modification des données d'un repas 
+	*
+	*@param $idRepas
+	*@retourne le diner contenant la mise à jour des données
+	*/
 	public function modifierRepas($idRepas){
 		$req =" UPDATE `repas` SET HEUREREPAS= '',DATEREPAS = '',PRIXREPAS ='',NBRPLACESREPAS='',LIEUREPAS='' WHERENUMREPAS=''";
 		$rs = $this->monPdo->query($req);
 }
+/*
+	*Suppression des données d'un repas 
+	*
+	*@param $idRepas
+	*@supprime le diner par l'identifiant 
+	*/
 	public function supprimerRepas($idRepas){
    		$req = " DELETE FROM `repas` WHERE NUMREPAS='$idRepas'";
    		$rs =$this->monPdo->query($req);
