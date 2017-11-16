@@ -31,4 +31,11 @@ function connecter($id,$nom,$prenom,$type){
 function deconnecter(){
 	session_destroy();
 }
+function modifierRepas($idRepas){
+	$req = "UPDATE `repas` SET HEUREREPAS= '',DATEREPAS = '',PRIXREPAS ='',NBRPLACESREPAS='',LIEUREPAS='' WHERENUMREPAS=''";
+	$rs = $this->monPdo->query($req);
+}
+function supprimerRepas($idRepas)
+   $req = " DELETE FROM `repas` WHERE NUMREPAS='$idRepas'";
+   $rs =$this->monPdo->query($req);
 ?>
