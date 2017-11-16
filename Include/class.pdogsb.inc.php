@@ -47,8 +47,6 @@ class PdoGsb{
 		return PdoGsb::$monPdoGsb;  
 	}
 
-	
-
 /**
 * Retourne tous les amis participants à une activité
  
@@ -56,7 +54,7 @@ class PdoGsb{
 * @return un tableau contenant toutes les informations des participants
 */
 	public function getAllAmisParActivité($idActivité){
-		$req = "select p.NUMAMIS as numero, NOMAMIS as nom, PRENOMAMIS as prenom, ADRESSERUEAMIS as adresse, CODEPOSTALAMIS as codePostal, TELEPHONEAMIS as telephone, MAILAMIS as mail from amis a INNER JOIN participer p on p.NUMAMIS=a.NUMAMIS
+		$req = "select p.NUMAMIS as numero, NOMAMIS as nom, PRENOMAMIS as prenom, ADRESSERUEAMIS as adresse, ADRESSEVILLEAMIS as ville, CODEPOSTALAMIS as codePostal, TELEPHONEAMIS as telephone, MAILAMIS as mail from amis a INNER JOIN participer p on p.NUMAMIS=a.NUMAMIS
 		where NUMACTION ='$idActivité'
 		order by NOMAMIS";	
 		$res = PdoGsb::$monPdo->query($req);
@@ -64,30 +62,14 @@ class PdoGsb{
 		return $lesAmis; 
 	}
 	
-
-	/**
-		retourne toutes les actions
-	**/
-	
-	public function getAction(){
-		$req = "select DISTINCT numaction,libelleAction FROM ACTION";
-			$rs = PdoGsb::$monPdo->query($req);
-			$lignes=array();
-			if($rs == true){
-				$lignes = $rs->fetchAll();
-			}
-			return $lignes;
-		
-	}
-
 /**
 * Retourne le chef d'une activité
  
 * @param $idActivité
 * @return un tableau contenant toutes les informations du chef
 */
-	public function getChefActivité($idActivité){
-		$req = "select p.NUMAMIS as numero, NOMAMIS as nom, PRENOMAMIS as prenom, ADRESSERUEAMIS as adresse, CODEPOSTALAMIS as codePostal, TELEPHONEAMIS as telephone, MAILAMIS as mail from amis a INNER JOIN action ac on ac.NUMAMIS=a.NUMAMIS
+	public function getChefActivite($idActivité){
+		$req = "select p.NUMAMIS as numero, NOMAMIS as nom, PRENOMAMIS as prenom, ADRESSERUEAMIS as adresse,ADRESSEVILLEAMIS as ville, CODEPOSTALAMIS as codePostal, TELEPHONEAMIS as telephone, MAILAMIS as mail from amis a INNER JOIN action ac on ac.NUMAMIS=a.NUMAMIS
 		where NUMACTION ='$idActivité'";	
 		$res = PdoGsb::$monPdo->query($req);
 		$lesAmis = $res->fetchAll();
