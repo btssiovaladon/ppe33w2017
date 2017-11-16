@@ -46,20 +46,20 @@ class PdoGsb{
 		}
 		return PdoGsb::$monPdoGsb;  
 	}
-	/**
+	
+/**
 * Retourne tous les amis participants à une activité
  
 * @param $idActivité
 * @return un tableau associatif contenant toutes les informations des participants
 */
-	public function getAllFicheFraisValide($idActivité){
-		$req = "select fichefrais.nbjustificatifs as nbjustificatifs, fichefrais.montantValide as montantValide,fichefrais.mois as mois, 
-		fichefrais.dateModif as dateModif from fichefrais
-		where fichefrais.idvisiteur ='$idVisiteur' and fichefrais.idEtat='VA'
-		order by fichefrais.mois";	
+	public function getAllAmisParActivité($idActivité){
+		$req = "select p.NUMAMIS as numero, NOMAMIS as nom, PRENOMAMIS as prenom, ADRESSERUEAMIS as adresse, CODEPOSTALAMIS as codePostal, TELEPHONEAMIS as telephone, MAILAMIS as mail from amis a INNER JOIN participer p on p.NUMAMIS=a.NUMAMIS
+		where NUMACTION ='$idActivité'
+		order by NOMAMIS";	
 		$res = PdoGsb::$monPdo->query($req);
-		$lesLignes = $res->fetchAll();
-		return $lesLignes; 
+		$lesAmis = $res->fetchAll();
+		return $lesAmis; 
 	}
 }
 ?>
