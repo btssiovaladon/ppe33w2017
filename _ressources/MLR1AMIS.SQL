@@ -56,8 +56,8 @@ CREATE TABLE `amis` (
   `TELEPHONEAMIS` char(10) DEFAULT NULL,
   `MAILAMIS` char(32) DEFAULT NULL,
   `DATEENTREEAMIS` date DEFAULT NULL,
-  `NUMPARRAIN1` smallint(6) DEFAULT NULL,
-  `NUMPARRAIN2` smallint(6) DEFAULT NULL
+  `NUMPARRAIN1` smallint(2) DEFAULT NULL,
+  `NUMPARRAIN2` smallint(2) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -206,13 +206,7 @@ ALTER TABLE `inviter`
 ALTER TABLE `parametre`
   ADD PRIMARY KEY (`NUM_PARAMETRE`);
 
---
--- Index pour la table `parrainer`
---
-ALTER TABLE `parrainer`
-  ADD PRIMARY KEY (`NUMAMIS`,`NUMAMIS_1`),
-  ADD KEY `I_FK_PARRAINER_AMIS` (`NUMAMIS`),
-  ADD KEY `I_FK_PARRAINER_AMIS1` (`NUMAMIS_1`);
+
 
 --
 -- Index pour la table `participer`
