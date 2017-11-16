@@ -1,5 +1,4 @@
 <?php 
-$pdo = PdoGsb::$monPdoGsb;
 if(!isset($_REQUEST['action'])){
 	$_REQUEST['action'] = 'choix';
 }

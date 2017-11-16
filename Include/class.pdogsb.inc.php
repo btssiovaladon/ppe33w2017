@@ -69,7 +69,10 @@ class PdoGsb{
 	public function getAction(){
 		$req = "select DISTINCT numaction,libelleAction FROM ACTION";
 			$rs = PdoGsb::$monPdo->query($req);
-			$lignes = $rs->fetchALL();
+			$lignes=array();
+			if($rs == true){
+				$lignes = $rs->fetchAll();
+			}
 			return $lignes;
 		
 	}

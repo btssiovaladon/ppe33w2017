@@ -1,7 +1,7 @@
 <?php
 
 require_once("include/class.pdogsb.inc.php");
-
+$pdo=PdoGsb::getPdoGsb();
 if(!isset($_REQUEST['uc'])){
 	$_REQUEST['uc']='action';
 }
