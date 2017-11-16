@@ -61,5 +61,18 @@ class PdoGsb{
 		$lesAmis = $res->fetchAll();
 		return $lesAmis; 
 	}
+	
+	/**
+		retourne toutes les actions
+	**/
+	
+	public function getAction(){
+		$req = "select DISTINCT numaction,libelleAction FROM ACTION";
+			$rs = PdoGsb::$monPdo->query($req);
+			$lignes = $rs->fetchALL();
+			return $lignes;
+		
+	}
+
 }
 ?>
