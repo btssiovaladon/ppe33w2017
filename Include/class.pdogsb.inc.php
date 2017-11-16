@@ -46,7 +46,7 @@ class PdoGsb{
 		}
 		return PdoGsb::$monPdoGsb;  
 	}
-	
+
 /**
 * Retourne tous les amis participants à une activité
  
@@ -62,6 +62,22 @@ class PdoGsb{
 		return $lesAmis; 
 	}
 	
+
+	/**
+		retourne toutes les actions
+	**/
+	
+	public function getAction(){
+		$req = "select DISTINCT numaction,libelleAction FROM ACTION";
+			$rs = PdoGsb::$monPdo->query($req);
+			$lignes=array();
+			if($rs == true){
+				$lignes = $rs->fetchAll();
+			}
+			return $lignes;
+		
+	}
+
 /**
 * Retourne le chef d'une activité
  
