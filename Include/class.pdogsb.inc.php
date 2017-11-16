@@ -46,4 +46,5 @@ class PdoGsb{
 		}
 		return PdoGsb::$monPdoGsb;  
 	}
+}
 ?>
