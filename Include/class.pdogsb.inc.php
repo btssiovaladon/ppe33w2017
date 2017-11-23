@@ -84,10 +84,10 @@ class PdoGsb{
 * @return un tableau contenant toutes les informations du chef
 */
 	public function getChefActivite($idActivité){
-		$req = "select p.NUMAMIS as numero, NOMAMIS as nom, PRENOMAMIS as prenom, ADRESSERUEAMIS as adresse,ADRESSEVILLEAMIS as ville, CODEPOSTALAMIS as codePostal, TELEPHONEAMIS as telephone, MAILAMIS as mail from amis a INNER JOIN action ac on ac.NUMAMIS=a.NUMAMIS
+		$req = "select ac.NUMAMIS as numero, NOMAMIS as nom, PRENOMAMIS as prenom, ADRESSERUEAMIS as adresse,ADRESSEVILLEAMIS as ville, CODEPOSTALAMIS as codePostal, TELEPHONEAMIS as telephone, MAILAMIS as mail from amis a INNER JOIN action ac on ac.NUMAMIS=a.NUMAMIS
 		where NUMACTION ='$idActivité'";	
 		$res = PdoGsb::$monPdo->query($req);
-		$lesAmis = $res->fetch();
+		$leChef = $res->fetch();
 		return $leChef; 
 	}
 	
@@ -100,9 +100,10 @@ class PdoGsb{
 	public function getAllActivite(){
 		$req = "select NUMACTION as numero, NUMAMIS as numeroAmis, NUMEROCOMMISSION as numeroCommission, LIBELLEACTION as nom, MONTANTACTION as montant, DATEACTION as date, DUREEACTION as duree from action";
 		$res = PdoGsb::$monPdo->query($req);
-		$lesAmis = $res->fetchAll();
-		return $lesAmis; 
+		$lesActivites = $res->fetchAll();
+		return $lesActivites; 
 	}
+	
 	/*
 	*Modification des données d'un repas 
 	*
@@ -113,6 +114,7 @@ class PdoGsb{
 		$req =" UPDATE `repas` SET HEUREREPAS= '$heure',DATEREPAS = '$date',PRIXREPAS ='$prix',NBRPLACESREPAS='$places',LIEUREPAS='$lieu' WHERE NUMREPAS='$idRepas'";
 		$rs = $this->monPdo->query($req);
 }
+
 /*
 	*Suppression des données d'un repas 
 	*
@@ -174,7 +176,71 @@ class PdoGsb{
 			}
 			return $lignes;
 	}
-	
+
+	/*
+	*
+	*
+	*/
+	public function getRepas(){
+		$req="SELECT * FROM REPAS";
+		$rs =PdoGsb::$monPdo->query($req);
+			$ligne=array();
+			if($rs == true){
+				$ligne = $rs->fetchAll()
+			}
+			return $ligne;
+
+	}
+
+	/*
+	*nombre d'action donnee dans participer
+	*
+	*@idAction
+	*/
+	public function getnbActionParticiper($idAction){
+		$req = "SELECT COUNT(NUMACTION) AS nbAction FROM PARTICIPER WHERE NUMACTION = '$idAction'";
+		$res = PdoGsb::$monPdo->query($req);
+		$action = $res->fetch();
+		return $action;
+	}
+		
+	/*
+	*Suppression des données d'une action 
+	*
+	*@param $idAction
+	*/
+	public function supprimerAction($idAction){
+   		$req = " DELETE FROM ACTION WHERE NUMACTION='$idAction'";
+   		$rs =$this->monPdo->query($req);
+}
+
+/** Retourne le nom d'une activité
+
+* @param $numAction le numéro de l'action
+* @return le nom de l'activité
+*/
+	public function getNomActivite($numAction){
+		$req = "select LIBELLEACTION as nom from action where NUMACTION='$numAction'";
+		$res = PdoGsb::$monPdo->query($req);
+		$nomAct = $res->fetch();
+		return $nomAct; 
+
+	}
+/**
+ * Crée un nouveau diner à partir des informations fournies en paramètre
+ 
+ * @param $dateDiner
+ * @param $heure
+ * @param $prix
+ * @param $nbPlace
+ * @param $lieu
+*/
+	public function creeNouveauDiner($dateDiner,$heure,$prix,$nbPlace,$lieu){
+		$dateFr = dateFrancaisVersAnglais($dateDiner);
+		$req = "insert into repas
+		values(NULL,'$heure','$dateDiner','$prix','$nbPlace','$lieu')";
+		PdoGsb::$monPdo->exec($req);
+	}
 }
 
 ?>
