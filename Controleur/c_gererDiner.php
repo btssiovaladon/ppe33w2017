@@ -1,5 +1,4 @@
 <?php
-include("vues/v_sommaire.php");
 $mois = getMois(date("d/m/Y"));
 $numAnnee =substr( $mois,0,4);
 $numMois =substr( $mois,4,2);
@@ -13,11 +12,15 @@ switch($action){
 		$lieu = $_REQUEST['lieuDiner'];
 		valideInfosDiner($dateDiner,$heure,$prix,$nbPlace,$lieu);
 		if (nbErreurs() != 0 ){
-			include("vues/v_erreurs.php");
+			include("Vue/v_erreurs.php");
 		}
 		else{
 			$pdo->creeNouveauDiner($dateDiner,$heure,$prix,$nbPlace,$lieu);
 		}
+		break;
+	}
+	case 'a_creerDiner':{
+		include("Vue/v_ajoutDiner.php");
 		break;
 	}
 

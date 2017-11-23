@@ -2,7 +2,7 @@
 	$listeamis = $pdo -> getAllAmis()
 	$listeactivite = $pdo -> getAllActivite()
 	$listeeineamis = array();
-	for($i=0;$i<sizeof($listeamis['
+	
 ?>
 <div>
 	<h2>Affecter des AMIS aux activités </h2>
