@@ -6,6 +6,10 @@ switch($amis){
 		//si verif ok appel vue
 		include("Vue/v_creationAmis.php");
 		break;
+	
+	}
+	case 'modifierAmis':{
+	
 	}
 }
 ?>

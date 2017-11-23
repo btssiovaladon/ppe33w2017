@@ -65,7 +65,7 @@
 	   <li class='active has-sub'><a href='#'><span>Gestion des AMIS</span></a>
 		  <ul>
 			 <li class='has-sub'><a href='#'><span>Créer d'un AMIS</span></a></li>
-			 <li class='has-sub'><a href='#'><span>Modifier/Supprimer un AMIS</span></a></li>
+			 <li class='has-sub'><a href='controleur\c_gererAmis.php'><span>Modifier/Supprimer un AMIS</span></a></li>
 		  </ul>
 	   </li>
 	   

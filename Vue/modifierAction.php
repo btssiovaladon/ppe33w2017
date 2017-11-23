@@ -3,9 +3,9 @@
 ?>
 
 
-<form action="indexFloManu.php?uc=c_action&action=modificationAction" method="POST">
+<form action="indexThomas.php?uc=c_action&action=modificationAction" method="POST">
 	<fieldset>
-		<legend>Modifier un ami </legend>
+		<legend>Modifier une action </legend>
 		
 		
 		Liste commission : <select name="actionCommission" required>
