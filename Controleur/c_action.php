@@ -18,6 +18,12 @@ switch($action){
 	
 	break;
 	
+	case 'a_inscription':{
+		$code = $_REQUEST['codeActivité'];
+		include("Vue/v_inscriptionActivitéAmis.php");
+		break;
+	}
+	
 	
 }
 
