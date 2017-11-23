@@ -192,6 +192,7 @@ class PdoGsb{
 
 	}
 
+
 	/*
 	*nombre d'action donnee dans participer
 	*
@@ -214,6 +215,7 @@ class PdoGsb{
    		$rs =$this->monPdo->query($req);
 }
 
+
 	/**
  * Crée un nouveau diner à partir des informations fournies en paramètre
  
@@ -223,7 +225,6 @@ class PdoGsb{
  * @param $nbPlace
  * @param $lieu
 */
-
 
 /** Retourne le nom d'une activité
 
@@ -252,7 +253,6 @@ class PdoGsb{
 		values(NULL,'$heure','$dateDiner','$prix','$nbPlace','$lieu')";
 		PdoGsb::$monPdo->exec($req);
 	}
-
 }
 
 ?>
