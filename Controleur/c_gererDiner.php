@@ -19,6 +19,10 @@ switch($action){
 		}
 		break;
 	}
+	case 'a_creerDiner':{
+		include("Vue/v_ajoutDiner.php");
+		break;
+	}
 
 	case 'supprimerDiner':{
 		$idRepas= $_REQUEST['idDiner'];
