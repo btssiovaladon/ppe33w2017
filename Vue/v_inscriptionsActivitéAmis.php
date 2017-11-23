@@ -1,6 +1,6 @@
 <?php
-	$listeamis = $pdo -> getAllAmis()
-	$listeactivite = $pdo -> getAllActivite()
+	$listeamis = $pdo -> getAllAmis();
+	$listeactivite = $pdo -> getAllActivite();
 	
 ?>
 <div>
@@ -16,14 +16,3 @@
 		</p>
 	</form>
 </div>
-
-<script>
-	var litseamis = <?php echo json_encode($listeamis['nom']); ?>;
-	$("#rech").autocomplete({
-		source : listeamis,
-		autofocus:true
-	});
-	$(document).ready(function(){ 
-        $("#tableauamis").tablesorter(); 
-    }); 
-</script>
