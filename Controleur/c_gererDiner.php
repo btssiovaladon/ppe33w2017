@@ -13,7 +13,7 @@ switch($action){
 		$lieu = $_REQUEST['lieuDiner'];
 		valideInfosDiner($dateDiner,$heure,$prix,$nbPlace,$lieu);
 		if (nbErreurs() != 0 ){
-			include("vues/v_erreurs.php");
+			include("Vue/v_erreurs.php");
 		}
 		else{
 			$pdo->creeNouveauDiner($dateDiner,$heure,$prix,$nbPlace,$lieu);
