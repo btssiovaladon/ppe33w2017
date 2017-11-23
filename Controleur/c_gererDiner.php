@@ -20,6 +20,7 @@ switch($action){
 		}
 		break;
 	}
+<<<<<<< HEAD
 	case 'supprimerDiner':{
 		$idFrais = $_REQUEST['idDiner'];
 	    $pdo->supprimerDiner($idDiner);
@@ -32,4 +33,7 @@ switch($action){
 
 
 
+=======
+}
+>>>>>>> fe2015c531a3f283bbfc0ee9665e938dcea63e7a
 ?>
