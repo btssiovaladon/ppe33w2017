@@ -20,14 +20,20 @@ switch($action){
 		}
 		break;
 	}
+<<<<<<< HEAD
 	case 'supprimerDiner':{
 		$idFrais = $_REQUEST['idDiner'];
 	    $pdo->supprimerDiner($idDiner);
 		break;
 	}
+	case 'modifierDiner':{
+		
+	}
 }
-$lesFraisForfait= $pdo->getLesFraisForfait($idVisiteur,$mois);
-include("vues/v_listeFraisForfait.php");
-include("vues/v_listeFraisHorsForfait.php");
 
+
+
+=======
+}
+>>>>>>> fe2015c531a3f283bbfc0ee9665e938dcea63e7a
 ?>
