@@ -175,6 +175,19 @@ class PdoGsb{
 			return $lignes;
 	}
 	
+	/**
+* Retourne le nom d'une activité
+ 
+* @param $numAction le numéro de l'action
+* @return le nom de l'activité
+*/
+	public function getNomActivite($numAction){
+		$req = "select LIBELLEACTION as nom from action where NUMACTION='$numAction'";
+		$res = PdoGsb::$monPdo->query($req);
+		$nomAct = $res->fetch();
+		return $nomAct; 
+	}
+	
 }
 
 ?>
