@@ -11,5 +11,9 @@ switch($amis){
 	case 'modifierAmis':{
 	
 	}
+	/*case 'validerCreationFrais':{
+		
+		
+		break;*/
 }
 ?>
