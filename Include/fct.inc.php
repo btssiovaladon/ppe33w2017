@@ -31,4 +31,6 @@ function connecter($id,$nom,$prenom,$type){
 function deconnecter(){
 	session_destroy();
 }
+
+
 ?>
