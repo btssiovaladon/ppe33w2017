@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php
 //$mois = getMois(date("d/m/Y"));
 //$numAnnee =substr( $mois,0,4);
@@ -26,14 +25,13 @@ switch($action){
 			$pdo->supprimerDiner($idRepas);
 			break;
 		}
-		break;
-	}
+
 	case 'a_creerDiner':{
 		include("Vue/v_ajoutDiner.php");
 		break;
 	}
 	case 'modifierDiner':{
-		if(isset($_POST['dateDiner']) && ($__POST['heureDiner') && ($_POST['prixDiner']) && ($_POST['nbplaceDiner']) && ($_POST['lieuDiner'])){
+		if(isset($_POST['dateDiner']) && ($__POST['heureDiner']) && ($_POST['prixDiner']) && ($_POST['nbplaceDiner']) && ($_POST['lieuDiner'])){
 
 			$idRepas=$_POST['idRepas'];
 			$date=$_POST['dateDiner'];
@@ -50,6 +48,5 @@ switch($action){
 			}
 			break;
 		}
-	}
 	}
 ?>
