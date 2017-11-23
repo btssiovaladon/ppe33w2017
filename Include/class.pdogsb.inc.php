@@ -189,10 +189,8 @@ class PdoGsb{
  * @param $lieu
 */
 
-
 /** Retourne le nom d'une activité
-*
- 
+
 * @param $numAction le numéro de l'action
 * @return le nom de l'activité
 */
@@ -202,8 +200,23 @@ class PdoGsb{
 		$nomAct = $res->fetch();
 		return $nomAct; 
 
-	}	
 	}
+/**
+ * Crée un nouveau diner à partir des informations fournies en paramètre
+ 
+ * @param $dateDiner
+ * @param $heure
+ * @param $prix
+ * @param $nbPlace
+ * @param $lieu
+*/
+	public function creeNouveauDiner($dateDiner,$heure,$prix,$nbPlace,$lieu){
+		$dateFr = dateFrancaisVersAnglais($dateDiner);
+		$req = "insert into repas
+		values(NULL,'$heure','$dateDiner','$prix','$nbPlace','$lieu')";
+		PdoGsb::$monPdo->exec($req);
+	}
+
 }
 
 ?>
