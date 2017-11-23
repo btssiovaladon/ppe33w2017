@@ -7,10 +7,10 @@ $action = $_REQUEST['action'];
 switch($action){	
 	case 'modificationAction' :
 	$action = $pdo->getInfoAction($_POST['idAction']);
-	$commi = $pdo->getAllCommission();
-	$amis = $pdo->getAllAmis();
+	$lesCommi = $pdo->getAllCommission();
+	$lesAmis = $pdo->getAllAmis();
 		if(isset($_POST['modifierInfo'])){
-			
+			$pdo->modifierAction($_POST[''], $_POST[''], $_POST[''], $_POST[''], $_POST[''], $_POST[''], $action['NUMACTION']);
 		}
 	break;
 	
