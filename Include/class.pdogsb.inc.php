@@ -110,23 +110,11 @@ class PdoGsb{
 	*@param $idRepas
 	*/
 
-
 	public function modifierRepas($idRepas, $heure, $date, $prix, $places, $lieu){
 		$req =" UPDATE `repas` SET HEUREREPAS= '$heure',DATEREPAS = '$date',PRIXREPAS ='$prix',NBRPLACESREPAS='$places',LIEUREPAS='$lieu' WHERE NUMREPAS='$idRepas'";
 		$rs = $this->monPdo->query($req);
-}	
+}
 
-	/*
-
-	
-	
-	public function modifierRepas($idRepas,$heure,$date,$prix,$places,$lieu){
-		$req =" UPDATE `repas` SET HEUREREPAS='$heure',DATEREPAS='$date',PRIXREPAS='$prix',NBRPLACESREPAS='$places',LIEUREPAS='$lieu' WHERE NUMREPAS='$idRepas'";
-	}
-
-=======
->>>>>>> a4ef41472f70e221dc9fb3f782455b142d21c832
->>>>>>> 830a985e31f89a13fb1d864be07bcd287b4a7f5a
 
 /*
 	*Suppression des données d'un repas 
@@ -190,22 +178,24 @@ class PdoGsb{
 			return $lignes;
 	}
 
-
-	/*
-	*
-	*
-	*/
 	public function getRepas(){
 		$req="SELECT * FROM REPAS";
 		$rs =PdoGsb::$monPdo->query($req);
+<<<<<<< HEAD
+		$ligne=array();
+		if($rs == true){
+			$ligne = $rs->fetchAll()
+		}
+		return $ligne;
+=======
 			$ligne=array();
 			if($rs == true){
 				$ligne = $rs->fetchAll();
 			}
 			return $ligne;
+>>>>>>> 0d3082806ae608f2c1ec6d5b18ba3d0936dd6d3f
 
 	}
-
 
 	/*
 	*nombre d'action donnee dans participer
@@ -228,17 +218,6 @@ class PdoGsb{
    		$req = " DELETE FROM ACTION WHERE NUMACTION='$idAction'";
    		$rs =$this->monPdo->query($req);
 }
-
-
-	/**
- * Crée un nouveau diner à partir des informations fournies en paramètre
- 
- * @param $dateDiner
- * @param $heure
- * @param $prix
- * @param $nbPlace
- * @param $lieu
-*/
 
 /** Retourne le nom d'une activité
 
@@ -267,7 +246,6 @@ class PdoGsb{
 		values(NULL,'$heure','$dateDiner','$prix','$nbPlace','$lieu')";
 		PdoGsb::$monPdo->exec($req);
 	}
-
 }
 
 ?>

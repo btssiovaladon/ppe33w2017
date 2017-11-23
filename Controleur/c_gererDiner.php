@@ -6,7 +6,7 @@ $URL = "http://localhost/AMIS/ppe33w2017/";
 $action = $_REQUEST['action'];
 switch($action){
 	case 'validerCreationDiner':{
-		$dateDiner = $_REQUEST['dateFrais'];
+		$dateDiner = $_REQUEST['dateDiner'];
 		$heure = $_REQUEST['heureDiner'];
 		$prix = $_REQUEST['prixDiner'];
 		$nbPlace = $_REQUEST['nbplaceDiner'];

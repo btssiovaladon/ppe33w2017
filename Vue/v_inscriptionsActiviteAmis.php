@@ -1,6 +1,6 @@
 <?php
-	$listeamis = $pdo -> getAllAmis()
-	$listeactivite = $pdo -> getAllActivite()
+	$listeamis = $pdo -> getAllAmis();
+	$listeactivite = $pdo -> getAllActivite();
 	
 ?>
 <div>
