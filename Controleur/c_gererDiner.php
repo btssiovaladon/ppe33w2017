@@ -20,14 +20,5 @@ switch($action){
 		}
 		break;
 	}
-	case 'supprimerDiner':{
-		$idFrais = $_REQUEST['idDiner'];
-	    $pdo->supprimerDiner($idDiner);
-		break;
-	}
 }
-$lesFraisForfait= $pdo->getLesFraisForfait($idVisiteur,$mois);
-include("vues/v_listeFraisForfait.php");
-include("vues/v_listeFraisHorsForfait.php");
-
 ?>
