@@ -23,7 +23,7 @@
 	   
 	   <li class='active has-sub'><a href='#'><span>Gestion des dîners</span></a>
 		  <ul>
-			 <li class='has-sub'><a href="index.php?Controleur=c_gererDiner&action=a_creerDiner"><span>Créer un dîner</span></a></li>
+			 <li class='has-sub'><a href="index.php?uc=c_gererDiner&action=a_creerDiner"><span>Créer un dîner</span></a></li>
 			 <li class='has-sub'><a href='#'><span>Modifier/Supprimer un dîner</span></a></li>
 			 <li class='has-sub'><a href='#'><span>Inscription à un dîner</span></a></li>
 			 <li class='has-sub'><a href='#'><span>Editer la liste des participants à un dîner</span></a></li>
