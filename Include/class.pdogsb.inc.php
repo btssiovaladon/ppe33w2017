@@ -174,7 +174,21 @@ class PdoGsb{
 			}
 			return $lignes;
 	}
-	
+
+	/*
+	*
+	*
+	*/
+	public getRepas(){
+		$req="SELECT * FROM REPAS";
+		$rs =PdoGsb::$monPdo->query($req);
+			$ligne=array();
+			if($rs == true){
+				$ligne = $rs->fetchAll()
+			}
+			return $ligne;
+
+	}
 }
 
 ?>
