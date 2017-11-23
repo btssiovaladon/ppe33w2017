@@ -10,8 +10,11 @@ if(!isset($_REQUEST['uc']) || !$estConnecte){
 }	 
 $uc = $_REQUEST['uc'];
 switch($uc){
-	case 'connexion':{
+	case 'c_connexion':{
 		//include("controleurs/c_connexion.php");break;
+	}
+	case 'c_actions':{
+		
 	}
 }
 //include("Vue/v_pied.php") ;

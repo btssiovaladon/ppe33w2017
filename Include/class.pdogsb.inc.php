@@ -62,6 +62,21 @@ class PdoGsb{
 		return $lesAmis; 
 	}
 	
+	/**
+		retourne toutes les actions
+	**/
+	
+	public function getAction(){
+		$req = "select DISTINCT numaction,libelleAction FROM ACTION";
+			$rs = PdoGsb::$monPdo->query($req);
+			$lignes=array();
+			if($rs == true){
+				$lignes = $rs->fetchAll();
+			}
+			return $lignes;
+		
+	}
+
 /**
 * Retourne le chef d'une activité
  
@@ -92,11 +107,11 @@ class PdoGsb{
 	*Modification des données d'un repas 
 	*
 	*@param $idRepas
-	*@retourne le diner contenant la mise à jour des données
 	*/
 
-	public function modifierRepas($idRepas,$heure,$date,$prix,$places,$lieu){
-		$req =" UPDATE `repas` SET HEUREREPAS='$heure',DATEREPAS='$date',PRIXREPAS='$prix',NBRPLACESREPAS='$places',LIEUREPAS='$lieu' WHERE NUMREPAS='$idRepas'";
+	public function modifierRepas($idRepas, $heure, $date, $prix, $places, $lieu){
+		$req =" UPDATE `repas` SET HEUREREPAS= '$heure',DATEREPAS = '$date',PRIXREPAS ='$prix',NBRPLACESREPAS='$places',LIEUREPAS='$lieu' WHERE NUMREPAS='$idRepas'";
+		$rs = $this->monPdo->query($req);
 }
 /*
 	*Suppression des données d'un repas 
@@ -108,6 +123,57 @@ class PdoGsb{
    		$req = " DELETE FROM `repas` WHERE NUMREPAS='$idRepas'";
    		$rs =$this->monPdo->query($req);
 }
+		
+	/*
+	*Recupere les informations d'une action fourni
+	*
+	*@idAction
+	*/
+	public function getInfoAction($idAction){
+		$req = "SELECT * FROM ACTION WHERE NUMACTION = '$idAction'";
+		$res = PdoGsb::$monPdo->query($req);
+		$action = $res->fetch();
+		return $action;
+	}
+	
+	/*
+	*Modification des données d'une action
+	*
+	*
+	*/
+	public function modifierAction($numAmis, $numComi, $libelle, $montant, $date, $duree, $numAction){
+		$req =" UPDATE ACTION SET NUMAMIS= ?,NUMEROCOMMISSION = ?,LIBELLEACTION =?, MONTANTACTION=?, DATEACTION=?, DUREEACTION=? WHERE NUMACTION=?";
+		$prep = PdoGsb::$monPdoGsb->prepare($req);
+		$prep->execute(array($numAmis,$numComi,$libelle,$montant,$date,$duree,$numAction));
+}
+
+	/*
+	*retourne toutes les commissions
+	*
+	*/
+	public function getAllCommission(){
+		$req="SELECT * FROM COMMISSION";
+		$rs = PdoGsb::$monPdo->query($req);
+			$lignes=array();
+			if($rs == true){
+				$lignes = $rs->fetchAll();
+			}
+			return $lignes;
+	}
+	
+	/*
+	*retourne tous les amis
+	*
+	*/
+	public function getAllAmis(){
+		$req="SELECT * FROM AMIS";
+		$rs = PdoGsb::$monPdo->query($req);
+			$lignes=array();
+			if($rs == true){
+				$lignes = $rs->fetchAll();
+			}
+			return $lignes;
+	}
 	
 }
 

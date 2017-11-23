@@ -4,14 +4,14 @@ if(!isset($_REQUEST['action'])){
 }
 $action = $_REQUEST['action'];
 
-switch($action){
-	case 'choix':
-		$actions=$pdo->getAction();
-		include('vue/choix_action.php');
-	break;
-	
+switch($action){	
 	case 'modificationAction' :
-	
+	$action = $pdo->getInfoAction($_POST['idAction']);
+	$commi = $pdo->getAllCommission();
+	$amis = $pdo->getAllAmis();
+		if(isset($_POST['modifierInfo'])){
+			
+		}
 	break;
 	
 	case 'supprAction' :
