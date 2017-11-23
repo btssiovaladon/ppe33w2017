@@ -23,13 +23,16 @@ function estConnecte(){
  */
 function connecter($id,$nom,$prenom,$type){
 //A compléter
-	
+	$_SESSION['idAmis']=$id;
+	$_SESSION['nomAmis']=$nom;
+	$_SESSION['prenomAmis']=$prenom;
 }
 /**
  * Détruit la session active
  */
 function deconnecter(){
 	session_destroy();
+	$_SESSION=array();
 }
 
 /**
@@ -125,11 +128,11 @@ function valideInfosDiner($dateDiner,$heure,$prix,$nbPlace,$lieu){
 		ajouterErreur("Le champ date ne doit pas être vide");
 	}
 	else{
-		if(!estDatevalide($dateFrais)){
+		if(!estDatevalide($dateDiner)){
 			ajouterErreur("Date invalide");
 		}	
 		else{
-			if(estDateDepassee($dateFrais)){
+			if(estDateDepassee($dateDiner)){
 				ajouterErreur("date d'enregistrement du diner dépassé, plus de 1 an");
 			}			
 		}
