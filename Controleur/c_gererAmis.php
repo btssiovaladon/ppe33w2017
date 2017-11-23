@@ -7,5 +7,9 @@ switch($amis){
 		include("Vue/v_creationAmis.php");
 		break;
 	}
+	/*case 'validerCreationFrais':{
+		
+		
+		break;*/
 }
 ?>
