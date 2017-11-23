@@ -1,6 +1,4 @@
 <?php
-require_once("include/class.pdogsb.inc.php");
-$pdo=PdoGsb::getPdoGsb();
 $activite=1;
 $lesAmis= $pdo->getAllAmisParActivité($activite);
 $leChef=$pdo->getChefActivite($activite);
