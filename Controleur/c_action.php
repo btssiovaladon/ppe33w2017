@@ -10,12 +10,16 @@ switch($action){
 	$lesCommi = $pdo->getAllCommission();
 	$lesAmis = $pdo->getAllAmis();
 		if(isset($_POST['modifierInfo'])){
-			$pdo->modifierAction($_POST[''], $_POST[''], $_POST[''], $_POST[''], $_POST[''], $_POST[''], $action['NUMACTION']);
+			$pdo->modifierAction($_POST['actionAmis'], $_POST['actionCommission'], $_POST['libelleAction'], $_POST['montantAction'], $_POST['dateAction'], $_POST['DureeAction'], $action['NUMACTION']);
 		}
 	break;
 	
 	case 'supprAction' :
-	
+		if($pdo->getnbActionParticiper($_POST['idAction'])==0){
+			pdo->supprimerAction($_POST['idAction']);
+		}else{
+			echo "supression impossible";
+		}
 	break;
 	
 	case 'a_inscription':{

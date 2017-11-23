@@ -113,7 +113,7 @@ class PdoGsb{
 		$req =" UPDATE `repas` SET HEUREREPAS= '$heure',DATEREPAS = '$date',PRIXREPAS ='$prix',NBRPLACESREPAS='$places',LIEUREPAS='$lieu' WHERE NUMREPAS='$idRepas'";
 		$rs = $this->monPdo->query($req);
 }
-/*
+	/*
 	*Suppression des données d'un repas 
 	*
 	*@param $idRepas
@@ -175,6 +175,28 @@ class PdoGsb{
 			return $lignes;
 	}
 	
+	/*
+	*nombre d'action donnee dans participer
+	*
+	*@idAction
+	*/
+	public function getnbActionParticiper($idAction){
+		$req = "SELECT COUNT(NUMACTION) AS nbAction FROM PARTICIPER WHERE NUMACTION = '$idAction'";
+		$res = PdoGsb::$monPdo->query($req);
+		$action = $res->fetch();
+		return $action;
+	}
+	
+	
+	/*
+	*Suppression des données d'une action 
+	*
+	*@param $idAction
+	*/
+	public function supprimerAction($idAction){
+   		$req = " DELETE FROM ACTION WHERE NUMACTION='$idAction'";
+   		$rs =$this->monPdo->query($req);
+}
 }
 
 ?>
