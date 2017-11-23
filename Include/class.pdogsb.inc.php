@@ -175,6 +175,22 @@ class PdoGsb{
 			return $lignes;
 	}
 	
+	/**
+ * Crée un nouveau diner à partir des informations fournies en paramètre
+ 
+ * @param $dateDiner
+ * @param $heure
+ * @param $prix
+ * @param $nbPlace
+ * @param $lieu
+*/
+	public function creeNouveauDiner($dateDiner,$heure,$prix,$nbPlace,$lieu){
+		$dateFr = dateFrancaisVersAnglais($dateDiner);
+		$req = "insert into repas
+		values(NULL,'$heure','$dateDiner','$prix','$nbPlace','$lieu')";
+		PdoGsb::$monPdo->exec($req);
+	}
+	
 }
 
 ?>
