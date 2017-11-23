@@ -1,3 +1,13 @@
+<?php
+require_once("include/class.pdogsb.inc.php");
+$pdo=PdoGsb::getPdoGsb();
+$activite=1;
+$lesAmis= $pdo->getAllAmisParActivité($activite);
+$leChef=$pdo->getChefActivite($activite);
+$nomActivite=$pdo->getNomActivite($activite);
+?>
+<h1>Activité <?php echo $nomActivite['nom']?></h1>
+<h2>Liste des participants à cette activité</h2>
 <table>
 	<th>Nom</th>
 	<th>Prénom</th>
@@ -8,7 +18,7 @@
 	<th>Telephone</th>
 	<th>Adresse mail</th>
 <?php 
-	for($i=0;$i<count($lesAmis+1);$i++){
+	for($i=0;$i<count($lesAmis);$i++){
 ?>
 		<tr>
 			<td><?php echo $lesAmis[$i]['nom'];?></td>
@@ -24,13 +34,13 @@
 	}
 ?>
 	<tr>
-		<td><?php echo $leChef[0]['nom'];?></td>
-		<td><?php echo $leChef[0]['prenom']; ?></td> 
+		<td><?php echo $leChef['nom'];?></td>
+		<td><?php echo $leChef['prenom']; ?></td> 
 		<td>Chef</td>
-		<td><?php echo $leChef[0]['adresse'];?></td>
-		<td><?php echo $leChef[0]['codePostal']; ?></td> 
-		<td><?php echo $leChef[0]['ville']; ?></td>
-		<td><?php echo $leChef[0]['telephone'];?></td>
-		<td><?php echo $leChef[0]['mail']; ?></td>
+		<td><?php echo $leChef['adresse'];?></td>
+		<td><?php echo $leChef['codePostal']; ?></td> 
+		<td><?php echo $leChef['ville']; ?></td>
+		<td><?php echo $leChef['telephone'];?></td>
+		<td><?php echo $leChef['mail']; ?></td>
 	</tr>
 </table>

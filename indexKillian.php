@@ -14,7 +14,8 @@ switch($uc){
 		//include("controleurs/c_connexion.php");break;
 	}
 	case 'c_actions':{
-		
+		include("Controleur/c_action.php");
+		break;
 	}
 }
 //include("Vue/v_pied.php") ;

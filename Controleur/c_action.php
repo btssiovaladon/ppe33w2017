@@ -1,7 +1,8 @@
 <?php 
-if(!isset($_REQUEST['action'])){
-	$_REQUEST['action'] = 'choix';
-}
+// if(!isset($_REQUEST['action'])){
+	// $_REQUEST['action'] = 'choix';
+// }
+$URL = "http://localhost/AMIS/ppe33w2017/";
 $action = $_REQUEST['action'];
 
 switch($action){	
@@ -19,8 +20,8 @@ switch($action){
 	break;
 	
 	case 'a_inscription':{
-		$code = $_REQUEST['codeActivité'];
-		include("Vue/v_inscriptionActivitéAmis.php");
+		// $code = $_REQUEST['codeActivité'];
+		include("Vue/v_inscriptionsActivitéAmis.php");
 		break;
 	}
 	

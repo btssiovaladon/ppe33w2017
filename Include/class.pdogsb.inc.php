@@ -108,11 +108,20 @@ class PdoGsb{
 	*
 	*@param $idRepas
 	*/
+<<<<<<< HEAD
+	
+	
+	public function modifierRepas($idRepas,$heure,$date,$prix,$places,$lieu){
+		$req =" UPDATE `repas` SET HEUREREPAS='$heure',DATEREPAS='$date',PRIXREPAS='$prix',NBRPLACESREPAS='$places',LIEUREPAS='$lieu' WHERE NUMREPAS='$idRepas'";
+	}
+
+=======
 
 	public function modifierRepas($idRepas, $heure, $date, $prix, $places, $lieu){
 		$req =" UPDATE `repas` SET HEUREREPAS= '$heure',DATEREPAS = '$date',PRIXREPAS ='$prix',NBRPLACESREPAS='$places',LIEUREPAS='$lieu' WHERE NUMREPAS='$idRepas'";
 		$rs = $this->monPdo->query($req);
 }
+>>>>>>> b2b604604a8a912f761392aa790e44972ebd7f4b
 /*
 	*Suppression des données d'un repas 
 	*
@@ -176,6 +185,7 @@ class PdoGsb{
 	}
 	
 	/**
+<<<<<<< HEAD
  * Crée un nouveau diner à partir des informations fournies en paramètre
  
  * @param $dateDiner
@@ -189,6 +199,18 @@ class PdoGsb{
 		$req = "insert into repas
 		values(NULL,'$heure','$dateDiner','$prix','$nbPlace','$lieu')";
 		PdoGsb::$monPdo->exec($req);
+=======
+* Retourne le nom d'une activité
+ 
+* @param $numAction le numéro de l'action
+* @return le nom de l'activité
+*/
+	public function getNomActivite($numAction){
+		$req = "select LIBELLEACTION as nom from action where NUMACTION='$numAction'";
+		$res = PdoGsb::$monPdo->query($req);
+		$nomAct = $res->fetch();
+		return $nomAct; 
+>>>>>>> 222e7c2fa7579ff562d2233c5c78a96320ff1c24
 	}
 	
 }

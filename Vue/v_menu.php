@@ -14,7 +14,7 @@
 			 <li class='has-sub'><a href='#'><span>Saisir une action</span></a></li>
 			 <li class='has-sub'><a href='#'><span>Modifier une action</span></a></li>
 			 <li class='has-sub'><a href='#'><span>Supprimer une action</span></a></li>
-			 <li class='has-sub'><a href='#'><span>Inscrire un AMIS à une action</span></a></li>
+			 <li class='has-sub'><a href="index.php?Controleur=c_action&action=a_inscription" title="Inscription AMIS à une activité"><span>Inscrire un AMIS à une action</span></a></li>
 			 <li class='has-sub'><a href='#'><span>Editer la liste des participants par action</span></a></li>
 			 <li class='has-sub'><a href='#'><span>Consulter les membres de l'action</span></a></li>
 			 <li class='has-sub'><a href='#'><span>Editer une étiquette</span></a></li>
