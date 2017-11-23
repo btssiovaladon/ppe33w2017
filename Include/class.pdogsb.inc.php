@@ -46,7 +46,7 @@ class PdoGsb{
 		}
 		return PdoGsb::$monPdoGsb;  
 	}
-	
+
 /**
 * Retourne tous les amis participants à une activité
  
@@ -54,7 +54,7 @@ class PdoGsb{
 * @return un tableau contenant toutes les informations des participants
 */
 	public function getAllAmisParActivité($idActivité){
-		$req = "select p.NUMAMIS as numero, NOMAMIS as nom, PRENOMAMIS as prenom, ADRESSERUEAMIS as adresse, CODEPOSTALAMIS as codePostal, TELEPHONEAMIS as telephone, MAILAMIS as mail from amis a INNER JOIN participer p on p.NUMAMIS=a.NUMAMIS
+		$req = "select p.NUMAMIS as numero, NOMAMIS as nom, PRENOMAMIS as prenom, ADRESSERUEAMIS as adresse, ADRESSEVILLEAMIS as ville, CODEPOSTALAMIS as codePostal, TELEPHONEAMIS as telephone, MAILAMIS as mail from amis a INNER JOIN participer p on p.NUMAMIS=a.NUMAMIS
 		where NUMACTION ='$idActivité'
 		order by NOMAMIS";	
 		$res = PdoGsb::$monPdo->query($req);
@@ -83,8 +83,8 @@ class PdoGsb{
 * @param $idActivité
 * @return un tableau contenant toutes les informations du chef
 */
-	public function getChefActivité($idActivité){
-		$req = "select p.NUMAMIS as numero, NOMAMIS as nom, PRENOMAMIS as prenom, ADRESSERUEAMIS as adresse, CODEPOSTALAMIS as codePostal, TELEPHONEAMIS as telephone, MAILAMIS as mail from amis a INNER JOIN action ac on ac.NUMAMIS=a.NUMAMIS
+	public function getChefActivite($idActivité){
+		$req = "select p.NUMAMIS as numero, NOMAMIS as nom, PRENOMAMIS as prenom, ADRESSERUEAMIS as adresse,ADRESSEVILLEAMIS as ville, CODEPOSTALAMIS as codePostal, TELEPHONEAMIS as telephone, MAILAMIS as mail from amis a INNER JOIN action ac on ac.NUMAMIS=a.NUMAMIS
 		where NUMACTION ='$idActivité'";	
 		$res = PdoGsb::$monPdo->query($req);
 		$lesAmis = $res->fetchAll();
@@ -103,6 +103,77 @@ class PdoGsb{
 		$lesAmis = $res->fetchAll();
 		return $lesAmis; 
 	}
+	/*
+	*Modification des données d'un repas 
+	*
+	*@param $idRepas
+	*/
+	public function modifierRepas($idRepas){
+		$req =" UPDATE `repas` SET HEUREREPAS= '',DATEREPAS = '',PRIXREPAS ='',NBRPLACESREPAS='',LIEUREPAS='' WHERENUMREPAS=''";
+		$rs = $this->monPdo->query($req);
+}
+/*
+	*Suppression des données d'un repas 
+	*
+	*@param $idRepas
+	*@supprime le diner par l'identifiant 
+	*/
+	public function supprimerRepas($idRepas){
+   		$req = " DELETE FROM `repas` WHERE NUMREPAS='$idRepas'";
+   		$rs =$this->monPdo->query($req);
+}
+		
+	/*
+	*Recupere les informations d'une action fourni
+	*
+	*@idAction
+	*/
+	public function getInfoAction($idAction){
+		$req = "SELECT * FROM ACTION WHERE NUMACTION = '$idAction'";
+		$res = PdoGsb::$monPdo->query($req);
+		$action = $res->fetch();
+		return $action;
+	}
+	
+	/*
+	*Modification des données d'une action
+	*
+	*
+	*/
+	public function modifierAction($numAmis, $numComi, $libelle, $montant, $date, $duree, $numAction){
+		$req =" UPDATE ACTION SET NUMAMIS= ?,NUMEROCOMMISSION = ?,LIBELLEACTION =?, MONTANTACTION=?, DATEACTION=?, DUREEACTION=? WHERE NUMACTION=?";
+		$prep = PdoGsb::$monPdoGsb->prepare($req);
+		$prep->execute(array($numAmis,$numComi,$libelle,$montant,$date,$duree,$numAction));
+}
+
+	/*
+	*retourne toutes les commissions
+	*
+	*/
+	public function getAllCommission(){
+		$req="SELECT * FROM COMMISSION";
+		$rs = PdoGsb::$monPdo->query($req);
+			$lignes=array();
+			if($rs == true){
+				$lignes = $rs->fetchAll();
+			}
+			return $lignes;
+	}
+	
+	/*
+	*retourne tous les amis
+	*
+	*/
+	public function getAllAmis(){
+		$req="SELECT * FROM AMIS";
+		$rs = PdoGsb::$monPdo->query($req);
+			$lignes=array();
+			if($rs == true){
+				$lignes = $rs->fetchAll();
+			}
+			return $lignes;
+	}
 	
 }
+
 ?>
