@@ -178,11 +178,8 @@ class PdoGsb{
 			return $lignes;
 	}
 	
-<<<<<<< HEAD
-/**
-=======
+
 	/**
->>>>>>> 5ede919b0e83631143fd437740937e07d80cf2e4
  * Crée un nouveau diner à partir des informations fournies en paramètre
  
  * @param $dateDiner
