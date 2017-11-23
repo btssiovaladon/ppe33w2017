@@ -100,8 +100,8 @@ class PdoGsb{
 	public function getAllActivite(){
 		$req = "select NUMACTION as numero, NUMAMIS as numeroAmis, NUMEROCOMMISSION as numeroCommission, LIBELLEACTION as nom, MONTANTACTION as montant, DATEACTION as date, DUREEACTION as duree from action";
 		$res = PdoGsb::$monPdo->query($req);
-		$lesAmis = $res->fetchAll();
-		return $lesAmis; 
+		$lesActivites = $res->fetchAll();
+		return $lesActivites; 
 	}
 	/*
 	*Modification des données d'un repas 
