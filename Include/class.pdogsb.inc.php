@@ -62,7 +62,6 @@ class PdoGsb{
 		return $lesAmis; 
 	}
 	
-<<<<<<< HEAD
 	/**
 		retourne toutes les actions
 	**/
@@ -78,7 +77,6 @@ class PdoGsb{
 		
 	}
 
-=======
 /**
 * Retourne le chef d'une activité
  
@@ -106,6 +104,5 @@ class PdoGsb{
 		return $lesAmis; 
 	}
 	
->>>>>>> 315b923301ac2bff57272d068e2daba6b44387b2
 }
 ?>
