@@ -1,9 +1,8 @@
-// <?php
-	// $listeamis = $pdo -> getAllAmis()
-	// $listeactivite = $pdo -> getAllActivite()
-	// $listeeineamis = array();
+<?php
+	$listeamis = $pdo -> getAllAmis()
+	$listeactivite = $pdo -> getAllActivite()
 	
-// ?>
+?>
 <div>
 	<h2>Affecter des AMIS aux activités </h2>
 	<p>
