@@ -23,13 +23,16 @@ function estConnecte(){
  */
 function connecter($id,$nom,$prenom,$type){
 //A compléter
-	
+	$_SESSION['idAmis']=$id;
+	$_SESSION['nomAmis']=$nom;
+	$_SESSION['prenomAmis']=$prenom;
 }
 /**
  * Détruit la session active
  */
 function deconnecter(){
 	session_destroy();
+	$_SESSION=array();
 }
 
 /**
