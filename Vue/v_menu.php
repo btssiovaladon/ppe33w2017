@@ -33,7 +33,7 @@
 	   
 	   <li class='active has-sub'><a href='#'><span>Gestion du bureau et des commissions</span></a>
 		  <ul>
-			 <li class='has-sub'><a href='#'><span>Saisir un bureau</span></a></li>
+			 <li class='has-sub'><a href='Vue/v_saisieBureau.php'><span>Saisir un bureau</span></a></li>
 			 <li class='has-sub'><a href='#'><span>Modifier un bureau</span></a></li>
 			 <li class='has-sub'><a href='#'><span>Créer une commission</span></a></li>
 			 <li class='has-sub'><a href='#'><span>Modifier/Supprimer une commission</span></a></li>
