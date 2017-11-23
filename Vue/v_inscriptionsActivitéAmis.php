@@ -1,13 +1,12 @@
 <?php
 	$listeamis = $pdo -> getAllAmis()
 	$listeactivite = $pdo -> getAllActivite()
-	$listeeineamis = array();
-	for($i=0;$i<sizeof($listeamis['
+	
 ?>
 <div>
 	<h2>Affecter des AMIS aux activités </h2>
 	<p>
-		<h4>Activité <?php echo $listeactivite['']; ?></h4>
+		<h4>Activité <?php // echo $listeactivite['']; ?></h4>
 	</p>
 	<form id="formulaire" action="#" method="GET">
 		<p>
