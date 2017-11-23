@@ -46,5 +46,69 @@ class PdoGsb{
 		}
 		return PdoGsb::$monPdoGsb;  
 	}
+<<<<<<< HEAD
+=======
+	
+/**
+* Retourne tous les amis participants à une activité
+ 
+* @param $idActivité
+* @return un tableau contenant toutes les informations des participants
+*/
+	public function getAllAmisParActivité($idActivité){
+		$req = "select p.NUMAMIS as numero, NOMAMIS as nom, PRENOMAMIS as prenom, ADRESSERUEAMIS as adresse, CODEPOSTALAMIS as codePostal, TELEPHONEAMIS as telephone, MAILAMIS as mail from amis a INNER JOIN participer p on p.NUMAMIS=a.NUMAMIS
+		where NUMACTION ='$idActivité'
+		order by NOMAMIS";	
+		$res = PdoGsb::$monPdo->query($req);
+		$lesAmis = $res->fetchAll();
+		return $lesAmis; 
+	}
+	
+<<<<<<< HEAD
+	/**
+		retourne toutes les actions
+	**/
+	
+	public function getAction(){
+		$req = "select DISTINCT numaction,libelleAction FROM ACTION";
+			$rs = PdoGsb::$monPdo->query($req);
+			$lignes=array();
+			if($rs == true){
+				$lignes = $rs->fetchAll();
+			}
+			return $lignes;
+		
+	}
+
+=======
+/**
+* Retourne le chef d'une activité
+ 
+* @param $idActivité
+* @return un tableau contenant toutes les informations du chef
+*/
+	public function getChefActivité($idActivité){
+		$req = "select p.NUMAMIS as numero, NOMAMIS as nom, PRENOMAMIS as prenom, ADRESSERUEAMIS as adresse, CODEPOSTALAMIS as codePostal, TELEPHONEAMIS as telephone, MAILAMIS as mail from amis a INNER JOIN action ac on ac.NUMAMIS=a.NUMAMIS
+		where NUMACTION ='$idActivité'";	
+		$res = PdoGsb::$monPdo->query($req);
+		$lesAmis = $res->fetchAll();
+		return $leChef; 
+	}
+	
+/**
+* Retourne toutes les activités
+ 
+* @param 
+* @return un tableau contenant toutes les activités
+*/
+	public function getAllActivite(){
+		$req = "select NUMACTION as numero, NUMAMIS as numeroAmis, NUMEROCOMMISSION as numeroCommission, LIBELLEACTION as nom, MONTANTACTION as montant, DATEACTION as date, DUREEACTION as duree from action";
+		$res = PdoGsb::$monPdo->query($req);
+		$lesAmis = $res->fetchAll();
+		return $lesAmis; 
+	}
+	
+>>>>>>> 315b923301ac2bff57272d068e2daba6b44387b2
+>>>>>>> e0a0518cd9c2e4fd4f3b72466c9a316ac85a7352
 }
 ?>
