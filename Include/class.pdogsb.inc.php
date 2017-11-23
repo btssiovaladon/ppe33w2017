@@ -110,15 +110,11 @@ class PdoGsb{
 	*@param $idRepas
 	*/
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a4ef41472f70e221dc9fb3f782455b142d21c832
 	public function modifierRepas($idRepas, $heure, $date, $prix, $places, $lieu){
 		$req =" UPDATE `repas` SET HEUREREPAS= '$heure',DATEREPAS = '$date',PRIXREPAS ='$prix',NBRPLACESREPAS='$places',LIEUREPAS='$lieu' WHERE NUMREPAS='$idRepas'";
 		$rs = $this->monPdo->query($req);
 }
-<<<<<<< HEAD
+
 	/*
 
 	
@@ -127,8 +123,7 @@ class PdoGsb{
 		$req =" UPDATE `repas` SET HEUREREPAS='$heure',DATEREPAS='$date',PRIXREPAS='$prix',NBRPLACESREPAS='$places',LIEUREPAS='$lieu' WHERE NUMREPAS='$idRepas'";
 	}
 
-=======
->>>>>>> a4ef41472f70e221dc9fb3f782455b142d21c832
+
 
 /*
 	*Suppression des données d'un repas 
@@ -191,10 +186,6 @@ class PdoGsb{
 			}
 			return $lignes;
 	}
-<<<<<<< HEAD
-
-=======
->>>>>>> a4ef41472f70e221dc9fb3f782455b142d21c832
 
 	/*
 	*
@@ -211,10 +202,6 @@ class PdoGsb{
 
 	}
 
-<<<<<<< HEAD
-	
-=======
->>>>>>> a4ef41472f70e221dc9fb3f782455b142d21c832
 	/*
 	*nombre d'action donnee dans participer
 	*
@@ -236,7 +223,6 @@ class PdoGsb{
    		$req = " DELETE FROM ACTION WHERE NUMACTION='$idAction'";
    		$rs =$this->monPdo->query($req);
 }
-<<<<<<< HEAD
 
 	/**
  * Crée un nouveau diner à partir des informations fournies en paramètre
@@ -247,8 +233,7 @@ class PdoGsb{
  * @param $nbPlace
  * @param $lieu
 */
-=======
->>>>>>> a4ef41472f70e221dc9fb3f782455b142d21c832
+
 
 /** Retourne le nom d'une activité
 
@@ -277,10 +262,6 @@ class PdoGsb{
 		values(NULL,'$heure','$dateDiner','$prix','$nbPlace','$lieu')";
 		PdoGsb::$monPdo->exec($req);
 	}
-<<<<<<< HEAD
-
-=======
->>>>>>> a4ef41472f70e221dc9fb3f782455b142d21c832
 }
 
 ?>

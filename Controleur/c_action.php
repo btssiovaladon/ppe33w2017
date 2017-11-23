@@ -27,7 +27,7 @@ switch($action){
 	
 	case 'a_inscription':{
 		// $code = $_REQUEST['codeActivité'];
-		include("Vue/v_inscriptionsActivitéAmis.php");
+		include("Vue/v_inscriptionsActiviteAmis.php");
 		break;
 	}
 	
