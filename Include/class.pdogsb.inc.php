@@ -184,11 +184,11 @@ class PdoGsb{
 	public function getRepas(){
 		$req="SELECT * FROM REPAS";
 		$rs =PdoGsb::$monPdo->query($req);
-			$ligne=array();
-			if($rs == true){
-				$ligne = $rs->fetchAll()
-			}
-			return $ligne;
+		$ligne=array();
+		if($rs == true){
+			$ligne = $rs->fetchAll()
+		}
+		return $ligne;
 
 	}
 
