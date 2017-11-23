@@ -6,7 +6,7 @@ $URL = "http://localhost/AMIS/ppe33w2017/";
 $action = $_REQUEST['action'];
 
 switch($action){	
-	case 'modificationAction' :
+	case 'modificationAction' :{
 	$action = $pdo->getInfoAction($_POST['idAction']);
 	$lesCommi = $pdo->getAllCommission();
 	$lesAmis = $pdo->getAllAmis();
@@ -14,20 +14,21 @@ switch($action){
 			$pdo->modifierAction($_POST[''], $_POST[''], $_POST[''], $_POST[''], $_POST[''], $_POST[''], $action['NUMACTION']);
 		}
 	break;
+	}
 	
-	case 'supprAction' :
+	case 'supprAction' :{
 	
 	break;
+	}
 	
 	case 'a_inscription':{
 		// $code = $_REQUEST['codeActivité'];
 		include("Vue/v_inscriptionsActivitéAmis.php");
+		include("Vue/v_imprimerActiviteAmis.php");
 		break;
 	}
 	
 	
 	
 }
-
-
 ?>
