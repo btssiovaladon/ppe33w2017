@@ -1,5 +1,4 @@
 <?php
-include("vues/v_sommaire.php");
 $mois = getMois(date("d/m/Y"));
 $numAnnee =substr( $mois,0,4);
 $numMois =substr( $mois,4,2);
