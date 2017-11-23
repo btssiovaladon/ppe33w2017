@@ -110,10 +110,18 @@ class PdoGsb{
 	*@param $idRepas
 	*/
 
+<<<<<<< HEAD
 	public function modifierRepas($idRepas, $heure, $date, $prix, $places, $lieu){
 		$req =" UPDATE `repas` SET HEUREREPAS= '$heure',DATEREPAS = '$date',PRIXREPAS ='$prix',NBRPLACESREPAS='$places',LIEUREPAS='$lieu' WHERE NUMREPAS='$idRepas'";
 		$rs = $this->monPdo->query($req);
 }
+=======
+
+	public function modifierRepas($idRepas, $heure, $date, $prix, $places, $lieu){
+		$req =" UPDATE `repas` SET HEUREREPAS= '$heure',DATEREPAS = '$date',PRIXREPAS ='$prix',NBRPLACESREPAS='$places',LIEUREPAS='$lieu' WHERE NUMREPAS='$idRepas'";
+		$rs = $this->monPdo->query($req);
+}	
+>>>>>>> 3ee1f90afb288633ab55468ce887276c5cc9c54d
 
 	/*
 
@@ -123,7 +131,13 @@ class PdoGsb{
 		$req =" UPDATE `repas` SET HEUREREPAS='$heure',DATEREPAS='$date',PRIXREPAS='$prix',NBRPLACESREPAS='$places',LIEUREPAS='$lieu' WHERE NUMREPAS='$idRepas'";
 	}
 
+<<<<<<< HEAD
 
+=======
+=======
+>>>>>>> a4ef41472f70e221dc9fb3f782455b142d21c832
+>>>>>>> 830a985e31f89a13fb1d864be07bcd287b4a7f5a
+>>>>>>> 3ee1f90afb288633ab55468ce887276c5cc9c54d
 
 /*
 	*Suppression des données d'un repas 
@@ -186,6 +200,10 @@ class PdoGsb{
 			}
 			return $lignes;
 	}
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3ee1f90afb288633ab55468ce887276c5cc9c54d
 
 	/*
 	*
@@ -202,6 +220,10 @@ class PdoGsb{
 
 	}
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3ee1f90afb288633ab55468ce887276c5cc9c54d
 	/*
 	*nombre d'action donnee dans participer
 	*
@@ -223,6 +245,10 @@ class PdoGsb{
    		$req = " DELETE FROM ACTION WHERE NUMACTION='$idAction'";
    		$rs =$this->monPdo->query($req);
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3ee1f90afb288633ab55468ce887276c5cc9c54d
 
 	/**
  * Crée un nouveau diner à partir des informations fournies en paramètre
@@ -233,7 +259,10 @@ class PdoGsb{
  * @param $nbPlace
  * @param $lieu
 */
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3ee1f90afb288633ab55468ce887276c5cc9c54d
 
 /** Retourne le nom d'une activité
 
@@ -262,6 +291,10 @@ class PdoGsb{
 		values(NULL,'$heure','$dateDiner','$prix','$nbPlace','$lieu')";
 		PdoGsb::$monPdo->exec($req);
 	}
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3ee1f90afb288633ab55468ce887276c5cc9c54d
 }
 
 ?>
