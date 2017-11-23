@@ -17,6 +17,10 @@ switch($uc){
 		include("Controleur/c_action.php");
 		break;
 	}
+	case 'c_gererDiner':{
+		include("Controleur/c_gererDiner.php");
+		break;
+	}
 }
 //include("Vue/v_pied.php") ;
 ?>
