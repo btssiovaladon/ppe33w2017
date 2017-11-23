@@ -32,5 +32,4 @@ function deconnecter(){
 	session_destroy();
 }
 
-
 ?>
