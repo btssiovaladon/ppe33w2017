@@ -13,27 +13,29 @@ switch($action){
 		$lieu = $_REQUEST['lieuDiner'];
 		valideInfosDiner($dateDiner,$heure,$prix,$nbPlace,$lieu);
 		if (nbErreurs() != 0 ){
-			include("vues/v_erreurs.php");
+			include("Vue/v_erreurs.php");
 		}
 		else{
 			$pdo->creeNouveauDiner($dateDiner,$heure,$prix,$nbPlace,$lieu);
 		}
 		break;
 	}
-<<<<<<< HEAD
+
 	case 'supprimerDiner':{
-		$idFrais = $_REQUEST['idDiner'];
-	    $pdo->supprimerDiner($idDiner);
+		$idRepas= $_REQUEST['idDiner'];
+	    $pdo->supprimerDiner($idRepas);
 		break;
 	}
 	case 'modifierDiner':{
 		
+		$pdo->modifierDiner($idRepas,$heure,$date,$prix,$places,$lieu);
+		break;
 	}
 }
 
 
 
-=======
+
 }
->>>>>>> fe2015c531a3f283bbfc0ee9665e938dcea63e7a
+
 ?>

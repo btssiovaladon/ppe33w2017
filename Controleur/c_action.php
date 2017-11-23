@@ -5,14 +5,14 @@
 $URL = "http://localhost/AMIS/ppe33w2017/";
 $action = $_REQUEST['action'];
 
-switch($action){
-	case 'choix':
-		$actions=$pdo->getAction();
-		include('vue/choix_action.php');
-	break;
-	
+switch($action){	
 	case 'modificationAction' :
-	
+	$action = $pdo->getInfoAction($_POST['idAction']);
+	$lesCommi = $pdo->getAllCommission();
+	$lesAmis = $pdo->getAllAmis();
+		if(isset($_POST['modifierInfo'])){
+			$pdo->modifierAction($_POST[''], $_POST[''], $_POST[''], $_POST[''], $_POST[''], $_POST[''], $action['NUMACTION']);
+		}
 	break;
 	
 	case 'supprAction' :
@@ -24,6 +24,7 @@ switch($action){
 		include("Vue/v_inscriptionsActivitéAmis.php");
 		break;
 	}
+	
 	
 	
 }
