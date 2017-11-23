@@ -94,8 +94,8 @@ class PdoGsb{
 	*@param $idRepas
 	*@retourne le diner contenant la mise à jour des données
 	*/
-	public function modifierRepas($idRepas){
-		$req =" UPDATE `repas` SET HEUREREPAS= '',DATEREPAS = '',PRIXREPAS ='',NBRPLACESREPAS='',LIEUREPAS='' WHERENUMREPAS=''";
+	public function modifierRepas($idRepas,$heure,$date,$prix,$places,$lieu){
+		$req =" UPDATE `repas` SET HEUREREPAS='$heure',DATEREPAS='$date',PRIXREPAS='$prix',NBRPLACESREPAS='$places',LIEUREPAS='$lieu' WHERE NUMREPAS='$idRepas'";
 		$rs = $this->monPdo->query($req);
 }
 /*
