@@ -123,7 +123,20 @@ class PdoGsb{
    		$req = " DELETE FROM `repas` WHERE NUMREPAS='$idRepas'";
    		$rs =$this->monPdo->query($req);
 }
-		
+
+/*
+	*Affichage des données d'un repas 
+	*
+	*@param $idRepas
+	*@Affiche les informations du diner par l'identifiant 
+	*/
+	public function getAllInfoDiner(){
+		$req = "SELECT * FROM repas";
+		$res =PdoGsb::$monPdo->query($req);
+		$repas =$res->fetchAll();
+		return $repas;
+	}
+	
 	/*
 	*Recupere les informations d'une action fourni
 	*

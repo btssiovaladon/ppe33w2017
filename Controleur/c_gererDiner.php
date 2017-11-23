@@ -1,10 +1,16 @@
 <?php
-include("vues/v_sommaire.php");
-$mois = getMois(date("d/m/Y"));
-$numAnnee =substr( $mois,0,4);
-$numMois =substr( $mois,4,2);
 $action = $_REQUEST['action'];
 switch($action){
+	case 'selectionDiner':{
+		$lesRepas= $pdo->getAllInfoDiner();
+		if(!isset($lesRepas)){
+			echo "aucun repas...";
+			break;
+		}
+		include("Vue/v_tableauDiner.php");
+		break;
+	}
+	
 	case 'validerCreationDiner':{
 		$dateDiner = $_REQUEST['dateFrais'];
 		$heure = $_REQUEST['heureDiner'];
@@ -31,11 +37,6 @@ switch($action){
 		$pdo->modifierDiner($idRepas,$heure,$date,$prix,$places,$lieu);
 		break;
 	}
-}
-
-
-
-
 }
 
 ?>

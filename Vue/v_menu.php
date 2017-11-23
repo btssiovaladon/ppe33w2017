@@ -21,7 +21,7 @@
 		  </ul>
 	   </li>
 	   
-	   <li class='active has-sub'><a href='#'><span>Gestion des dîners</span></a>
+	   <li class='active has-sub'><a href='index.php?controleur=c_gererDiner.php&action=selectionDiner'><span>Gestion des dîners</span></a>
 		  <ul>
 			 <li class='has-sub'><a href='#'><span>Créer un dîner</span></a></li>
 			 <li class='has-sub'><a href='#'><span>Modifier/Supprimer un dîner</span></a></li>
