@@ -87,11 +87,7 @@ class PdoGsb{
 		$req = "select ac.NUMAMIS as numero, NOMAMIS as nom, PRENOMAMIS as prenom, ADRESSERUEAMIS as adresse,ADRESSEVILLEAMIS as ville, CODEPOSTALAMIS as codePostal, TELEPHONEAMIS as telephone, MAILAMIS as mail from amis a INNER JOIN action ac on ac.NUMAMIS=a.NUMAMIS
 		where NUMACTION ='$idActivité'";	
 		$res = PdoGsb::$monPdo->query($req);
-<<<<<<< HEAD
-		$lesAmis = $res->fetchAll();
-=======
 		$leChef = $res->fetch();
->>>>>>> 03cf8bfb52210dd0d0069354b8231533741d6377
 		return $leChef; 
 	}
 	
@@ -118,11 +114,7 @@ class PdoGsb{
 		$req =" UPDATE `repas` SET HEUREREPAS= '$heure',DATEREPAS = '$date',PRIXREPAS ='$prix',NBRPLACESREPAS='$places',LIEUREPAS='$lieu' WHERE NUMREPAS='$idRepas'";
 		$rs = $this->monPdo->query($req);
 }
-<<<<<<< HEAD
-=======
 
-
->>>>>>> 03cf8bfb52210dd0d0069354b8231533741d6377
 /*
 	*Suppression des données d'un repas 
 	*
@@ -185,33 +177,21 @@ class PdoGsb{
 			return $lignes;
 	}
 
-<<<<<<< HEAD
 	/*
 	*
 	*retoune tous les repas 
 	*/
-=======
->>>>>>> 03cf8bfb52210dd0d0069354b8231533741d6377
+
 	public function getRepas(){
 		$req="SELECT * FROM REPAS";
 		$rs =PdoGsb::$monPdo->query($req);
-<<<<<<< HEAD
 		$ligne=array();
 		if($rs == true){
-			$ligne = $rs->fetchAll()
+			$ligne = $rs->fetchAll();
 		}
 		return $ligne;
-=======
-			$ligne=array();
-			if($rs == true){
-				$ligne = $rs->fetchAll();
-			}
-			return $ligne;
->>>>>>> 0d3082806ae608f2c1ec6d5b18ba3d0936dd6d3f
 
 	}
-<<<<<<< HEAD
-=======
 
 	/*
 	*nombre d'action donnee dans participer
@@ -234,6 +214,17 @@ class PdoGsb{
    		$req = " DELETE FROM ACTION WHERE NUMACTION='$idAction'";
    		$rs =$this->monPdo->query($req);
 }
+
+
+	/**
+ * Crée un nouveau diner à partir des informations fournies en paramètre
+ 
+ * @param $dateDiner
+ * @param $heure
+ * @param $prix
+ * @param $nbPlace
+ * @param $lieu
+*/
 
 /** Retourne le nom d'une activité
 
@@ -262,7 +253,6 @@ class PdoGsb{
 		values(NULL,'$heure','$dateDiner','$prix','$nbPlace','$lieu')";
 		PdoGsb::$monPdo->exec($req);
 	}
->>>>>>> 03cf8bfb52210dd0d0069354b8231533741d6377
 }
 
 ?>
