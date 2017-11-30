@@ -122,7 +122,6 @@ class PdoGsb{
 		
 		$req = "insert into action
 		values ('', '$num_ami', '$num_commi', '$libelle_act', '$montant_act', '$date_act', '$duree_act')";
-		echo $req;
 		PdoGsB::$monPdo->exec($req);
 		
 	}
