@@ -36,3 +36,6 @@
 		<td><?php echo $leChef['mail']; ?></td>
 	</tr>
 </table>
+
+<h2>Imprimer cette page</h2>
+<h4><?php echo "<a href=\"index.php?uc=c_action&action=a_imprActivitePDF\" target=\"_blank\" title=\"Imprimer en PDF\"><img src=\"./Image/pdf.png\" alt=\"Pdf\" height=\"60\" width=\"60\"/></a>"?></h4>
