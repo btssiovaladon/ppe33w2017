@@ -25,8 +25,8 @@ class PdoGsb{
 /**
  * Constructeur privé, crée l'instance de PDO qui sera sollicitée
  * pour toutes les méthodes de la classe
- */				
-	private function __construct(){
+ */	
+	function __construct(){
     	PdoGsb::$monPdo = new PDO(PdoGsb::$serveur.';'.PdoGsb::$bdd, PdoGsb::$user, PdoGsb::$mdp); 
 		PdoGsb::$monPdo->query("SET CHARACTER SET utf8");
 	}
@@ -100,8 +100,8 @@ class PdoGsb{
 	public function getAllActivite(){
 		$req = "select NUMACTION as numero, NUMAMIS as numeroAmis, NUMEROCOMMISSION as numeroCommission, LIBELLEACTION as nom, MONTANTACTION as montant, DATEACTION as date, DUREEACTION as duree from action";
 		$res = PdoGsb::$monPdo->query($req);
-		$lesActivites = $res->fetchAll();
-		return $lesActivites; 
+		$lesAmis = $res->fetchAll();
+		return $lesAmis; 
 	}
 	
 	/*
@@ -110,10 +110,21 @@ class PdoGsb{
 	*@param $idRepas
 	*/
 
+
 	public function modifierRepas($idRepas, $heure, $date, $prix, $places, $lieu){
 		$req =" UPDATE `repas` SET HEUREREPAS= '$heure',DATEREPAS = '$date',PRIXREPAS ='$prix',NBRPLACESREPAS='$places',LIEUREPAS='$lieu' WHERE NUMREPAS='$idRepas'";
 		$rs = $this->monPdo->query($req);
 }
+
+
+	/*
+
+	
+	
+	public function modifierRepas($idRepas,$heure,$date,$prix,$places,$lieu){
+		$req =" UPDATE `repas` SET HEUREREPAS='$heure',DATEREPAS='$date',PRIXREPAS='$prix',NBRPLACESREPAS='$places',LIEUREPAS='$lieu' WHERE NUMREPAS='$idRepas'";
+	}
+
 
 
 /*
@@ -193,6 +204,12 @@ class PdoGsb{
 	
 	
 
+
+	/*
+	*
+	*retoune tous les repas 
+	*/
+
 	public function getRepas(){
 		$req="SELECT * FROM REPAS";
 		$rs =PdoGsb::$monPdo->query($req);
@@ -204,6 +221,7 @@ class PdoGsb{
 		return $ligne;
 
 	}
+
 
 	/*
 	*nombre d'action donnee dans participer
@@ -226,6 +244,18 @@ class PdoGsb{
    		$req = " DELETE FROM ACTION WHERE NUMACTION='$idAction'";
    		$rs =$this->monPdo->query($req);
 }
+
+
+	/**
+ * Crée un nouveau diner à partir des informations fournies en paramètre
+ 
+ * @param $dateDiner
+ * @param $heure
+ * @param $prix
+ * @param $nbPlace
+ * @param $lieu
+*/
+
 
 /** Retourne le nom d'une activité
 
@@ -255,7 +285,7 @@ class PdoGsb{
 		PdoGsb::$monPdo->exec($req);
 	}
 
-	
+
 /**
  * Crée un nouvel amis à partir des informations fournies en paramètre.
  
@@ -275,6 +305,7 @@ class PdoGsb{
 		'$adresseComplementAmis','$adresseVilleAmis', '$codePostalAmis','$telephoneAmis','$mailAmis','$dateEntreAmis')";
 		PdoGsb::$monPdo->exec($req);
 	}
+
 }
 
 ?>

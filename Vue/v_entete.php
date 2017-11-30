@@ -18,6 +18,7 @@
 				</td>
 				<td id="right">
 
+
 					<?php 
 							if(isset($_SESSION['login'])){ //Si un utilisateur est connecté.
 						?>
