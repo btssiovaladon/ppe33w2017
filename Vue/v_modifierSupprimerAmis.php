@@ -3,27 +3,11 @@
 ?>
 
 
-<form action="indexFloManu.php?uc=c_action&action=modificationAction" method="POST">
 	<fieldset>
 		<legend>Modifier un ami </legend>
 		
 		
-		Liste commission : <select name="actionCommission" required>
-			<?php
-				foreach($lesCommi as $commi){
-					if($commi['NUMEROCOMMISSION']==$action['NUMEROCOMMISSION']){
-			?>
-						<option value="<?php echo $commi['NUMEROCOMMISSION']; ?>" selected > <?php echo $commi['LIBELLECOMMISSION']; ?> </option>
-						
-			<?php
-					}else{
-			?>
-						<option value="<?php echo $commi['NUMEROCOMMISSION']; ?>"> <?php echo $commi['LIBELLECOMMISSION']; ?> </option>
-			<?php	}
-				
-				}
-			?>
-		</select>
+
 		</br></br>
 		Liste amis : <select name="actionAmis" required>
 			<?php
@@ -42,14 +26,29 @@
 			?>
 		</select>
 		</br></br>
-		libellé action : <input type="text" name="libelleAction" value="<?php echo $action['LIBELLEACTION']; ?>" required />
+		Nom : <input type="text" name="libelleAction" value="<?php echo $ami['NOMAMIS']; ?>" required />
 		</br></br>
-		Montant action : <input type="text" name="montantAction" value="<?php echo $action['MONTANTACTION']; ?>" required />
+		Prenom : <input type="text" name="montantAction" value="<?php echo $ami['PRENOMAMIS']; ?>" required />
 		</br></br>
-		Date action : <input type="date" name="dateAction" value="<?php echo $action['DATEACTION']; ?>" required />
+		adresse : <input type="texte" name="dateAction" value="<?php echo $ami['ADRESSERUEAMIS']; ?>" required />
 		</br></br>
-		Durée action : <input type="text" name="dureeAction" value="<?php echo $action['DUREEACTION']; ?>" required />
+		complement adresse : <input type="text" name="dureeAction" value="<?php echo $ami['ADRESSECOMPLEMENTAMIS']; ?>" required />
+		</br></br>
+		ville : <input type="text" name="dureeAction" value="<?php echo $ami['ADRESSEVILLEAMIS']; ?>" required />
+		</br></br>
+		code postal : <input type="text" name="dureeAction" value="<?php echo $ami['CODEPOSTALAMIS']; ?>" required />
+		</br></br>
+		télephonne : <input type="text" name="dureeAction" value="<?php echo $ami['TELEPHONEAMIS']; ?>" required />
+		</br></br>
+		mail : <input type="text" name="dureeAction" value="<?php echo $ami['MAILAMIS']; ?>" required />
+		</br></br>
+		n° parrain 1 : <input type="text" name="dureeAction" value="<?php echo $ami['NUMPARRAIN1']; ?>" required />
+		</br></br>
+		n° parrain 2 : <input type="text" name="dureeAction" value="<?php echo $ami['NUMPARRAIN2']; ?>" required />
+		</br></br>
+		login : <input type="text" name="dureeAction" value="<?php echo $ami['Login']; ?>" required />
+		</br></br>
+		mdp : <input type="text" name="dureeAction" value="<?php echo $ami['MDP']; ?>" required />
 		</br></br>
 		<input type="submit" name="modifierInfo" value="Modifier">
 	</fieldset>
-</form>

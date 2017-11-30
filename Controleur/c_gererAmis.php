@@ -1,6 +1,6 @@
 <?php
-$amis = $_REQUEST['amis'];
-switch($amis){
+$action = $_REQUEST['action'];
+switch($action){
 	case 'a_ajouteAmis':{
 		//appel fonction verif
 		//si verif ok appel vue
@@ -8,12 +8,11 @@ switch($amis){
 		break;
 	
 	}
-	case 'modifierAmis':{
-	
+	case 'a_modifierAmis':{
+	include ("Vue/v_modifierSupprimerAmis.php");
+	break;
 	}
-	/*case 'validerCreationFrais':{
-		
-		
-		break;*/
+	
 }
+
 ?>

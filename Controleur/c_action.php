@@ -4,7 +4,6 @@
 // }
 $URL = "http://localhost/AMIS/ppe33w2017/";
 $action = $_REQUEST['action'];
-
 switch($action){	
 	case 'modificationAction' :{
 	$action = $pdo->getInfoAction($_POST['idAction']);
