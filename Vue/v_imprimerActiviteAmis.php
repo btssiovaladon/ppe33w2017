@@ -1,10 +1,4 @@
-<?php
-$activite=1;
-$lesAmis= $pdo->getAllAmisParActivité($activite);
-$leChef=$pdo->getChefActivite($activite);
-$nomActivite=$pdo->getNomActivite($activite);
-?>
-<h1>Activité <?php echo $nomActivite['nom']?></h1>
+<h1>Activité <?php echo $nomActivite['nom'];?></h1>
 <h2>Liste des participants à cette activité</h2>
 <table>
 	<th>Nom</th>

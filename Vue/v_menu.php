@@ -1,6 +1,6 @@
 <div id='cssmenu'>
 	<ul>
-	   <li><a href='#'><span>Accueil</span></a></li>
+	   <li><a href='http://localhost/Ami/ppe33w2017/'><span>Accueil</span></a></li>
 	   
 	   <li class='active has-sub'><a href='#'><span>Gestion des AMIS</span></a>
 		  <ul>
@@ -14,7 +14,7 @@
 			 <li class='has-sub'><a href='#'><span>Saisir une action</span></a></li>
 			 <li class='has-sub'><a href='#'><span>Modifier une action</span></a></li>
 			 <li class='has-sub'><a href='#'><span>Supprimer une action</span></a></li>
-			 <li class='has-sub'><a href="index.php?uc=c_action&action=a_inscription" title="Inscription AMIS à une activité"><span>Inscrire un AMIS à une action</span></a></li>
+			 <li class='has-sub'><a href="index.php?uc=c_action&action=a_inscription"><span>Inscrire un AMIS à une action</span></a></li>
 			 <li class='has-sub'><a href="index.php?uc=c_action&action=a_imprimerActivite"><span>Editer la liste des participants par action</span></a></li>
 			 <li class='has-sub'><a href='#'><span>Consulter les membres de l'action</span></a></li>
 			 <li class='has-sub'><a href='#'><span>Editer une étiquette</span></a></li>
@@ -33,7 +33,7 @@
 	   
 	   <li class='active has-sub'><a href='#'><span>Gestion du bureau et des commissions</span></a>
 		  <ul>
-			 <li class='has-sub'><a href='#'><span>Saisir un bureau</span></a></li>
+			 <li class='has-sub'><a href='Vue/v_saisieBureau.php'><span>Saisir un bureau</span></a></li>
 			 <li class='has-sub'><a href='#'><span>Modifier un bureau</span></a></li>
 			 <li class='has-sub'><a href='#'><span>Créer une commission</span></a></li>
 			 <li class='has-sub'><a href='#'><span>Modifier/Supprimer une commission</span></a></li>
