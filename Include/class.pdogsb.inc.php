@@ -177,23 +177,31 @@ class PdoGsb{
 			}
 			return $lignes;
 	}
+	
+	
+	public function getAllAmisCompletion($nomAmis){
+		$req="select * from amis where NOMAMIS like '".$nomAmis."%' ORDER by NOMAMIS, PRENOMAMIS";
+		
+		$rs = PdoGsb::$monPdo->query($req);
+			$lignes=array();
+			if($rs == true){
+				$lignes = $rs->fetchAll();
+			}
+			return $lignes;
+	}
+	
+	
+	
 
 	public function getRepas(){
 		$req="SELECT * FROM REPAS";
 		$rs =PdoGsb::$monPdo->query($req);
-<<<<<<< HEAD
+
 		$ligne=array();
 		if($rs == true){
-			$ligne = $rs->fetchAll()
+			$ligne = $rs->fetchAll();
 		}
 		return $ligne;
-=======
-			$ligne=array();
-			if($rs == true){
-				$ligne = $rs->fetchAll();
-			}
-			return $ligne;
->>>>>>> 0d3082806ae608f2c1ec6d5b18ba3d0936dd6d3f
 
 	}
 
@@ -244,6 +252,27 @@ class PdoGsb{
 		$dateFr = dateFrancaisVersAnglais($dateDiner);
 		$req = "insert into repas
 		values(NULL,'$heure','$dateDiner','$prix','$nbPlace','$lieu')";
+		PdoGsb::$monPdo->exec($req);
+	}
+
+	
+/**
+ * Crée un nouvel amis à partir des informations fournies en paramètre.
+ 
+ * @param $nomAmis
+ * @param $prenomAmis
+ * @param $adresseRueAmis
+ * @param $adresseComplementAmis
+ * @param $adresseVilleAmis
+ * @param $codePostalAmis
+ * @param $telephoneAmis
+ * @param $mailAmis
+ * @param $dateEntreAmis
+*/
+	public function creeNouvelAmis ($nomAmis, $prenomAmis, $adresseRueAmis, $adresseComplementAmis, $adresseVilleAmis, 
+									$codePostalAmis, $telephoneAmis, $mailAmis, $dateEntreeAmis){
+		$req = "INSERT INTO amis VALUES (NULL, '$nomAmis', '$prenomAmis','$adresseRueAmis',
+		'$adresseComplementAmis','$adresseVilleAmis', '$codePostalAmis','$telephoneAmis','$mailAmis','$dateEntreAmis')";
 		PdoGsb::$monPdo->exec($req);
 	}
 }

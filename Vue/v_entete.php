@@ -5,6 +5,7 @@
    <link rel="stylesheet" href="Style/styles.css">
    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
    <script src="script.js"></script>
+   <script src="JavaScript/envoiAmis.js"></script>
    <title>Club des AMIS</title>
 </head>
 	<table>
@@ -16,7 +17,7 @@
 					<h1>Club des AMIS</h1>
 				</td>
 				<td id="right">
-<<<<<<< HEAD
+
 					<?php 
 							if(isset($_SESSION['login'])){ //Si un utilisateur est connecté.
 						?>
@@ -27,7 +28,7 @@
 						<?php
 							}
 						?>
-=======
+
 					<div id="connect">
 								<div id="formulaireConnexion">
 									<h3>Connexion : </h3>
@@ -48,7 +49,7 @@
 									</form>
 								</div>
 					</div>
->>>>>>> 0d3082806ae608f2c1ec6d5b18ba3d0936dd6d3f
+
 				</td>
 			</tr>
 		</table>
