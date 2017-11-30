@@ -9,6 +9,16 @@
 	<th>Ville</th>
 	<th>Telephone</th>
 	<th>Adresse mail</th>
+	<tr>
+		<td><?php echo $leChef['nom'];?></td>
+		<td><?php echo $leChef['prenom']; ?></td> 
+		<td>Chef</td>
+		<td><?php echo $leChef['adresse'];?></td>
+		<td><?php echo $leChef['codePostal']; ?></td> 
+		<td><?php echo $leChef['ville']; ?></td>
+		<td><?php echo $leChef['telephone'];?></td>
+		<td><?php echo $leChef['mail']; ?></td>
+	</tr>
 <?php 
 	for($i=0;$i<count($lesAmis);$i++){
 ?>
@@ -25,14 +35,4 @@
 <?php 
 	}
 ?>
-	<tr>
-		<td><?php echo $leChef['nom'];?></td>
-		<td><?php echo $leChef['prenom']; ?></td> 
-		<td>Chef</td>
-		<td><?php echo $leChef['adresse'];?></td>
-		<td><?php echo $leChef['codePostal']; ?></td> 
-		<td><?php echo $leChef['ville']; ?></td>
-		<td><?php echo $leChef['telephone'];?></td>
-		<td><?php echo $leChef['mail']; ?></td>
-	</tr>
 </table>
