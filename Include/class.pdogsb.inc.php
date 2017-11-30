@@ -93,16 +93,14 @@ class PdoGsb{
 	*
 	*@param $idRepas
 	*@retourne le diner contenant la mise à jour des données
-	*/
-<<<<<<< HEAD
+
 	public function modifierRepas($idRepas, $heure, $date, $prix, $places, $lieu){
 		$req =" UPDATE `repas` SET HEUREREPAS= '$heure',DATEREPAS = '$date',PRIXREPAS ='$prix',NBRPLACESREPAS='$places',LIEUREPAS='$lieu' WHERENUMREPAS='$idRepas'";
 		$rs = $this->monPdo->query($req);
-=======
 
 	public function modifierRepas($idRepas,$heure,$date,$prix,$places,$lieu){
 		$req =" UPDATE `repas` SET HEUREREPAS='$heure',DATEREPAS='$date',PRIXREPAS='$prix',NBRPLACESREPAS='$places',LIEUREPAS='$lieu' WHERE NUMREPAS='$idRepas'";
->>>>>>> bf3d97cbad023e0682c6bf1ff0c5b0847d751ab0
+
 }
 /*
 	*Suppression des données d'un repas 
@@ -113,8 +111,21 @@ class PdoGsb{
 	public function supprimerRepas($idRepas){
    		$req = " DELETE FROM `repas` WHERE NUMREPAS='$idRepas'";
    		$rs =$this->monPdo->query($req);
-}
+	}
 	
+	/*
+	*Ajout d'une action
+	*@param $num_ami, $num_commi, $libelle_act, $montant_act, $date_act, $duree_act
+	*/
+	
+	public function ajouterAction($num_ami, $num_commi, $libelle_act, $montant_act, $date_act, $duree_act){
+		
+		$req = "insert into action
+		values ('', '$num_ami', '$num_commi', '$libelle_act', '$montant_act', '$date_act', '$duree_act')";
+		echo $req;
+		PdoGsB::$monPdo->exec($req);
+		
+	}
 }
 
 ?>

@@ -6,7 +6,7 @@ $action = $_REQUEST['action'];
 
 switch($action){
 	case 'choix':
-		$actions=$pdo->getAction();
+		//$actions=$pdo->getAction();
 		include('vue/choix_action.php');
 	break;
 	
@@ -18,11 +18,15 @@ switch($action){
 	
 	break;
 	
-	case 'a_inscription':{
-		$code = $_REQUEST['codeActivité'];
-		include("Vue/v_inscriptionActivitéAmis.php");
-		break;
-	}
+	case 'ajoutAction' :
+			include "vue/v_saisieAction.php";
+	break;
+	
+	case 'ajouterAct' :
+		$pdo->ajouterAction($_GET['num_ami'], $_GET['num_commi'], $_GET['libelle_act'], $_GET['montant_act'], 
+		$_GET['date_act'], $_GET['duree_act']);
+		
+	break;
 	
 	
 }
