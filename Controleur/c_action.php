@@ -43,6 +43,9 @@ switch($action){
 		break;
 	}
 	
-	
+	case 'a_imprActivitePDF':{
+		echo "<script>document.location.href=\"".$URL."Vue/v_imprActivitePDF.php\";</script>";
+		break;
+	}
 }
 ?>
