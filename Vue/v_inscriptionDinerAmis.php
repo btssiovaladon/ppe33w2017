@@ -16,18 +16,4 @@
 
 					<button name="Valider" type="submit" >Valider</button>
 			</form>
-
-
-		
-
-		
-		
-
-		<table>
-			<tr>
-				
-			</tr>
-		</table>
-
-
 </div>

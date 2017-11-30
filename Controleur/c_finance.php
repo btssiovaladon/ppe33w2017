@@ -11,7 +11,7 @@ switch($action){
 	
 	case 'EditionPDF' :
 		$actions=$pdo->getAction();
-		include('Vue/v_editionpdf.php');
+		include('Vue/v_releveAnnuelPdf.php');
 	
 	break;
 	
