@@ -9,6 +9,7 @@ switch($action){
 	
 	}
 	case 'a_modifierAmis':{
+	
 	include ("Vue/v_modifierSupprimerAmis.php");
 	break;
 	}

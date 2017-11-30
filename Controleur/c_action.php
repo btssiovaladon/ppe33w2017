@@ -26,11 +26,19 @@ switch($action){
 	
 	case 'a_inscription':{
 		// $code = $_REQUEST['codeActivité'];
+		$activite=1;
+		$lesAmis= $pdo->getAllAmisParActivité($activite);
+		$leChef=$pdo->getChefActivite($activite);
+		$nomActivite=$pdo->getNomActivite($activite);
 		include("Vue/v_inscriptionsActiviteAmis.php");
 		break;
 	}
 	
 	case 'a_imprimerActivite':{
+		$activite=1;
+		$lesAmis= $pdo->getAllAmisParActivité($activite);
+		$leChef=$pdo->getChefActivite($activite);
+		$nomActivite=$pdo->getNomActivite($activite);
 		include("Vue/v_imprimerActiviteAmis.php");
 		break;
 	}

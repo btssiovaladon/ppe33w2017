@@ -25,7 +25,7 @@ class PdoGsb{
 /**
  * Constructeur privé, crée l'instance de PDO qui sera sollicitée
  * pour toutes les méthodes de la classe
- */				
+ */	
 	private function __construct(){
     	PdoGsb::$monPdo = new PDO(PdoGsb::$serveur.';'.PdoGsb::$bdd, PdoGsb::$user, PdoGsb::$mdp); 
 		PdoGsb::$monPdo->query("SET CHARACTER SET utf8");
@@ -100,8 +100,8 @@ class PdoGsb{
 	public function getAllActivite(){
 		$req = "select NUMACTION as numero, NUMAMIS as numeroAmis, NUMEROCOMMISSION as numeroCommission, LIBELLEACTION as nom, MONTANTACTION as montant, DATEACTION as date, DUREEACTION as duree from action";
 		$res = PdoGsb::$monPdo->query($req);
-		$lesActivites = $res->fetchAll();
-		return $lesActivites; 
+		$lesAmis = $res->fetchAll();
+		return $lesAmis; 
 	}
 	
 	/*
@@ -115,8 +115,6 @@ class PdoGsb{
 		$req =" UPDATE `repas` SET HEUREREPAS= '$heure',DATEREPAS = '$date',PRIXREPAS ='$prix',NBRPLACESREPAS='$places',LIEUREPAS='$lieu' WHERE NUMREPAS='$idRepas'";
 		$rs = $this->monPdo->query($req);
 }
-
-
 
 
 	/*
@@ -194,16 +192,17 @@ class PdoGsb{
 
 	/*
 	*
-	*
+	*retoune tous les repas 
 	*/
+
 	public function getRepas(){
 		$req="SELECT * FROM REPAS";
 		$rs =PdoGsb::$monPdo->query($req);
-			$ligne=array();
-			if($rs == true){
-				$ligne = $rs->fetchAll();
-			}
-			return $ligne;
+		$ligne=array();
+		if($rs == true){
+			$ligne = $rs->fetchAll();
+		}
+		return $ligne;
 
 	}
 
