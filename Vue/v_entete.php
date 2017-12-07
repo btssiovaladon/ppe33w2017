@@ -4,53 +4,25 @@
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <link rel="stylesheet" href="Style/styles.css">
    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
-   <script src="script.js"></script>
+   <!--<script src="script.js"></script>-->
    <script src="JavaScript/envoiAmis.js"></script>
+   
    <title>Club des AMIS</title>
+   
 </head>
 	<table>
 			<tr>
 				<td id="left">
-					<img src="./Image/logo"/>
+					<!--<img src="./Image/logo"/>-->
 				</td>
 				<td id="center">
 					<h1>Club des AMIS</h1>
 				</td>
 				<td id="right">
-
-
-					<?php 
-							if(isset($_SESSION['login'])){ //Si un utilisateur est connecté.
-						?>
-								<div id="formulaireConnexion">
-									<h4> Bienvenue <?php echo $_SESSION['login'];?></h4>
-									<a href="pages\deconnection.php">Se déconnecter</a>
-								</div>
-						<?php
-							}
-						?>
-
-					<div id="connect">
-								<div id="formulaireConnexion">
-									<h3>Connexion : </h3>
-									<form method="POST" action="" >
-										<table id="connexion">
-										<form method="POST" action="index.php?uc=connexion&action=valideConnexion">
-											<tr>
-											   <td><label for="login"><strong>Nom de compte</strong></label></td>
-											   <td><input type="text" name="login" id="login"/></td>             
-											</tr>  
-										
-											<tr>
-											   <td><label for="mdp"><strong>Mot de passe</strong></label></td>
-											   <td><input type="password" name="mdp" id="mdp"/></td>
-											</tr>
-										</table>
-										<input class="btn_connexion" type="submit" name="connexion" value="Se connecter"/>
-									</form>
-								</div>
+					<div id="deconnexion">
+						<h4><?php echo $_SESSION['nomAmis']." ".$_SESSION['prenomAmis'] ?></h4>
+						<a href="indexKillian.php">Se déconnecter</a>
 					</div>
-
 				</td>
 			</tr>
 		</table>

@@ -21,7 +21,7 @@ function estConnecte(){
  * @param $prenom
  / @param $type
  */
-function connecter($id,$nom,$prenom,$type){
+function connecter($id,$nom,$prenom){
 //A compléter
 	
 }
@@ -30,23 +30,27 @@ function connecter($id,$nom,$prenom,$type){
  */
 function deconnecter(){
 	session_destroy();
+<<<<<<< HEAD
+}
+=======
+	$_SESSION=array();
 }
 
 /**
- * Indique si un tableau de valeurs est constitué d'entiers positifs ou nuls
+ * Transforme une date au format format anglais aaaa-mm-jj vers le format français jj/mm/aaaa 
  
- * @param $tabEntiers : le tableau
- * @return vrai ou faux
+ * @param $madate au format  aaaa-mm-jj
+ * @return la date au format format français jj/mm/aaaa
 */
-function estTableauEntiers($tabEntiers) {
-	$ok = true;
-	foreach($tabEntiers as $unEntier){
-		if(!estEntierPositif($unEntier)){
-		 	$ok=false; 
-		}
-	}
-	return $ok;
+function dateAnglaisVersFrancais($maDate){
+   @list($annee,$mois,$jour)=explode('-',$maDate);
+   $date="$jour"."/".$mois."/".$annee;
+   return $date;
 }
+
+/* gestion des erreurs*/
+>>>>>>> bd057134471b0b08df7d06c2d0c5f0f98f3ff680
+
 /**
  * Vérifie si une date est inférieure d'un an à la date actuelle
  
@@ -54,37 +58,10 @@ function estTableauEntiers($tabEntiers) {
  * @return vrai ou faux
 */
 function estDateDepassee($dateTestee){
-	$dateActuelle=date("d/m/Y");
-	@list($jour,$mois,$annee) = explode('/',$dateActuelle);
-	$annee--;
-	$AnPasse = $annee.$mois.$jour;
-	@list($jourTeste,$moisTeste,$anneeTeste) = explode('/',$dateTestee);
-	return ($anneeTeste.$moisTeste.$jourTeste < $AnPasse); 
-}
-/**
- * Vérifie la validité du format d'une date française jj/mm/aaaa 
+	
  
- * @param $date 
- * @return vrai ou faux
-*/
-function estDateValide($date){
-	$tabDate = explode('/',$date);
-	$dateOK = true;
-	if (count($tabDate) != 3) {
-	    $dateOK = false;
-    }
-    else {
-		if (!estTableauEntiers($tabDate)) {
-			$dateOK = false;
-		}
-		else {
-			if (!checkdate($tabDate[1], $tabDate[0], $tabDate[2])) {
-				$dateOK = false;
-			}
-		}
-    }
-	return $dateOK;
 }
+
 
 /**
  * Vérifie la validité des trois arguments : la date, le libellé du frais et le montant 
@@ -100,6 +77,7 @@ function valideInfosDiner($dateDiner,$heure,$prix,$nbPlace,$lieu){
 		ajouterErreur("Le champ date ne doit pas être vide");
 	}
 	else{
+<<<<<<< HEAD
 		if(!estDatevalide($dateFrais)){
 			ajouterErreur("Date invalide");
 		}	
@@ -108,6 +86,11 @@ function valideInfosDiner($dateDiner,$heure,$prix,$nbPlace,$lieu){
 				ajouterErreur("date d'enregistrement du frais dépassé, plus de 1 an");
 			}			
 		}
+=======
+		if(estDateDepassee($dateDiner)){
+			ajouterErreur("date d'enregistrement du diner dépassé, plus de 1 an");
+		}			
+>>>>>>> bd057134471b0b08df7d06c2d0c5f0f98f3ff680
 	}
 	if($libelle == ""){
 		ajouterErreur("Le champ description ne peut pas être vide");
