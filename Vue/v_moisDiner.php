@@ -1,5 +1,5 @@
 <p>
-<form action="index.php?controleur=c_gererDiner&action=tableaudiner" METHOD="POST">
+<form action="index.php?uc=c_gererDiner&action=tableaudiner" METHOD="POST">
 <select name="repas">
 <?php foreach ( $lesRepas as $leDiner){
 	$diner=$leDiner['NUMREPAS'];
