@@ -27,7 +27,7 @@ class PdoGsb{
  * Constructeur privé, crée l'instance de PDO qui sera sollicitée
  * pour toutes les méthodes de la classe
  */	
-	private function __construct(){
+	function __construct(){
     	PdoGsb::$monPdo = new PDO(PdoGsb::$serveur.';'.PdoGsb::$bdd, PdoGsb::$user, PdoGsb::$mdp); 
 		PdoGsb::$monPdo->query("SET CHARACTER SET utf8");
 	}
@@ -118,7 +118,6 @@ class PdoGsb{
 		$req =" UPDATE `repas` SET HEUREREPAS= '$heure',DATEREPAS = '$date',PRIXREPAS ='$prix',NBRPLACESREPAS='$places',LIEUREPAS='$lieu' WHERE NUMREPAS='$idRepas'";
 		$rs = $this->monPdo->query($req);
 }
-
 /*
 	*Suppression des données d'un repas 
 	*
@@ -180,7 +179,19 @@ class PdoGsb{
 			}
 			return $lignes;
 	}
+
 	
+	public function getAllAmisCompletion($nomAmis){
+		$req="select * from amis where NOMAMIS like '".$nomAmis."%' ORDER by NOMAMIS, PRENOMAMIS";
+		
+		$rs = PdoGsb::$monPdo->query($req);
+			$lignes=array();
+			if($rs == true){
+				$lignes = $rs->fetchAll();
+			}
+			return $lignes;
+	}
+
 	/*
 	*
 	*retoune tous les repas 
@@ -193,6 +204,7 @@ class PdoGsb{
 		if($rs == true){
 			$ligne = $rs->fetchAll();
 		}
+		return $ligne;
 	}
 
 	/*
@@ -216,6 +228,18 @@ class PdoGsb{
    		$req = " DELETE FROM ACTION WHERE NUMACTION='$idAction'";
    		$rs =$this->monPdo->query($req);
 }
+
+
+	/**
+ * Crée un nouveau diner à partir des informations fournies en paramètre
+ 
+ * @param $dateDiner
+ * @param $heure
+ * @param $prix
+ * @param $nbPlace
+ * @param $lieu
+*/
+
 
 /** Retourne le nom d'une activité
 
@@ -241,6 +265,26 @@ class PdoGsb{
 	public function creeNouveauDiner($dateDiner,$heure,$prix,$nbPlace,$lieu){
 		$req = "insert into repas
 		values(NULL,'$heure','$dateDiner',$prix,$nbPlace,'$lieu')";
+		PdoGsb::$monPdo->exec($req);
+	}
+
+/**
+ * Crée un nouvel amis à partir des informations fournies en paramètre.
+ 
+ * @param $nomAmis
+ * @param $prenomAmis
+ * @param $adresseRueAmis
+ * @param $adresseComplementAmis
+ * @param $adresseVilleAmis
+ * @param $codePostalAmis
+ * @param $telephoneAmis
+ * @param $mailAmis
+ * @param $dateEntreAmis
+*/
+	public function creeNouvelAmis ($nomAmis, $prenomAmis, $adresseRueAmis, $adresseComplementAmis, $adresseVilleAmis, 
+									$codePostalAmis, $telephoneAmis, $mailAmis, $dateEntreeAmis){
+		$req = "INSERT INTO amis VALUES (NULL, '$nomAmis', '$prenomAmis','$adresseRueAmis',
+		'$adresseComplementAmis','$adresseVilleAmis', '$codePostalAmis','$telephoneAmis','$mailAmis','$dateEntreAmis')";
 		PdoGsb::$monPdo->exec($req);
 	}
 }

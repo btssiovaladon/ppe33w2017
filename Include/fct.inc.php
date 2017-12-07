@@ -56,12 +56,8 @@ function dateAnglaisVersFrancais($maDate){
  * @return vrai ou faux
 */
 function estDateDepassee($dateTestee){
-	$dateActuelle=date("d/m/Y");
-	@list($jour,$mois,$annee) = explode('/',$dateActuelle);
-	$annee--;
-	$AnPasse = $annee.$mois.$jour;
-	@list($jourTeste,$moisTeste,$anneeTeste) = explode('/',$dateTestee);
-	return ($anneeTeste.$moisTeste.$jourTeste < $AnPasse); 
+	
+ 
 }
 
 
