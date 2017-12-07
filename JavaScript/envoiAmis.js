@@ -27,7 +27,7 @@ function envoiAmisajax(nom)
 
 			for (i=0; i<nb; i++) //boucle pour afficher tous les elements dans la liste
 			{
-			pers=personne[i].split('*'); //On sépare le code, le nom et le prénom
+			pers=amis[i].split('*'); //On sépare le code, le nom et le prénom
 			selectAmis.options[i].value=pers[0];//le code personne devient la valeur de la liste
 			selectAmis.options[i].text=pers[1]+ " " +pers[2];// le texte de la liste est composé de la concatenation du nom et du prénom
 			}
