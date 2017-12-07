@@ -5,7 +5,6 @@ if(!isset($_REQUEST['action'])){
 $URL = "http://localhost/AMIS/ppe33w2017/";
 $action = $_REQUEST['action'];
 
-
 switch($action){
 	case 'choix':
 		$actions=$pdo->getAllActivite();

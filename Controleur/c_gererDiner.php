@@ -4,6 +4,7 @@
 //$numMois =substr( $mois,4,2);
 $URL = "http://localhost/AMIS/ppe33w2017/";
 $action = $_REQUEST['action'];
+
 switch($action){
 
 	case 'validerCreationDiner':{
@@ -21,8 +22,14 @@ switch($action){
 		else{
 			$pdo->creeNouveauDiner($dateDiner,$heure,$prix,$nbPlace,$lieu);
 		}
-		break;
+		break; 
 		}
+
+		case 'afficherLesDiner':
+
+
+		break;
+
 		case 'supprimerDiner':{
 			$idRepas= $_REQUEST['idDiner'];
 			$pdo->supprimerDiner($idRepas);

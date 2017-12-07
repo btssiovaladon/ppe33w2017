@@ -121,8 +121,9 @@ class PdoGsb{
 	public function ajouterAction($num_ami, $num_commi, $libelle_act, $montant_act, $date_act, $duree_act){
 		
 		$req = "insert into action
-		values ('', '$num_ami', '$num_commi', '$libelle_act', '$montant_act', '$date_act', '$duree_act')";
+		values (NULL, '$num_ami', '$num_commi', '$libelle_act', '$montant_act', '$date_act', '$duree_act')";
 		PdoGsB::$monPdo->exec($req);
+		include("index.php");
 		
 	}
 }
