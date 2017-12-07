@@ -315,5 +315,28 @@ class PdoGsb{
 		PdoGsb::$monPdo->exec($req);
 	}
 }
+	/*
+	*retourne le montant total des repas
+	*
+	*/
+	
+	public function montantannuel(){
+		$req="SELECT a.NUMAMIS, NOMAMIS, PRENOMAMIS, DATEREPAS, NOMBREPERSONNES, PRIXREPAS, PRIXREPAS*NOMBREPERSONNES AS Montanttotal FROM `inviter` i INNER JOIN amis a on i.NUMAMIS = a.NUMAMIS INNER JOIN repas r on i.NUMREPAS=r.NUMREPAS order by i.NUMAMIS"
 
+		$res = PdoGsb::$monPdo->query($req);
+		$montant = $res->fetchAll();
+		return $montant; 
+	}
+	
+	/*
+	*retourne la cotisation annuelle
+	*
+	*/
+	
+	public function cotisation(){
+		$req="SELECT MONTANTCOTISATION FROM PARAMETRE"
+		$res = PdoGsb::$monPdo->query($req);
+		$montant = $res->fetchAll();
+		return $montant; 
+	}
 ?>
