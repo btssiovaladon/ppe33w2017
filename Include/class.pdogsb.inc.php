@@ -312,6 +312,25 @@ class PdoGsb{
 		'$adresseComplementAmis','$adresseVilleAmis', '$codePostalAmis','$telephoneAmis','$mailAmis','$dateEntreAmis')";
 		PdoGsb::$monPdo->exec($req);
 	}
+/**
+*Cette fonction permet de vérifier si un ami participe à une activité en temps que chef ou participants
+* @param $numAction le numéro de l'action à vérifier
+* @param $numAmis le numéro d'un ami à vérifier
+* @return Vrai s'il n'y est pas Faux sinon
+*/	
+	public function verifAmis($numAction,$numAmis){
+		$req ="SELECT COUNT(*) FROM PARTICIPER where NUMAMIS='$numAmis' and NUMACTION='$numAction'";
+		$req2 ="SELECT COUNT(*) FROM ACTION where NUMAMIS='$numAmis' and NUMACTION='$numAction'";
+		$res = PdoGsb::$monPdo->query($req);
+		$action = $res->fetch();
+		$res2 = PdoGsb::$monPdo->query($req2);
+		$action2 = $res2->fetch();
+		if ($action+$action2==0){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
 }
-
 ?>
