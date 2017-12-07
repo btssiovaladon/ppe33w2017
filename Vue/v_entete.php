@@ -17,49 +17,35 @@
 					<h1>Club des AMIS</h1>
 				</td>
 				<td id="right">
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 71484555d301e1a75568fd5b9f874d165d918eab
-					<?php 
-							if(isset($_SESSION['login'])){ //Si un utilisateur est connecté.
-						?>
-								<div id="formulaireConnexion">
-									<h4> Bienvenue <?php echo $_SESSION['login'];?></h4>
-									<a href="pages\deconnection.php">Se déconnecter</a>
-								</div>
-						<?php
-							}
-						?>
-<<<<<<< HEAD
-=======
-
->>>>>>> 71484555d301e1a75568fd5b9f874d165d918eab
-					<div id="connect">
-								<div id="formulaireConnexion">
-									<h3>Connexion : </h3>
-									<form method="POST" action="" >
-										<table id="connexion">
-										<form method="POST" action="index.php?uc=connexion&action=valideConnexion">
-											<tr>
-											   <td><label for="login"><strong>Nom de compte</strong></label></td>
-											   <td><input type="text" name="login" id="login"/></td>             
-											</tr>  
-										
-											<tr>
-											   <td><label for="mdp"><strong>Mot de passe</strong></label></td>
-											   <td><input type="password" name="mdp" id="mdp"/></td>
-											</tr>
-										</table>
-										<input class="btn_connexion" type="submit" name="connexion" value="Se connecter"/>
-									</form>
-								</div>
+				<?php 
+				if(isset($_SESSION['login'])){ //Si un utilisateur est connecté.
+				?>
+					<div id="formulaireConnexion">
+					<h4> Bienvenue <?php echo $_SESSION['login'];?></h4>
+					<a href="pages\deconnection.php">Se déconnecter</a>
 					</div>
-<<<<<<< HEAD
-=======
-
->>>>>>> 71484555d301e1a75568fd5b9f874d165d918eab
+				<?php
+				}
+				?>
+				<div id="connect">
+					<div id="formulaireConnexion">
+					<h3>Connexion : </h3>
+					<form method="POST" action="" >
+						<table id="connexion">
+						<form method="POST" action="index.php?uc=connexion&action=valideConnexion">
+							<tr>
+								<td><label for="login"><strong>Nom de compte</strong></label></td>
+								<td><input type="text" name="login" id="login"/></td>             
+							</tr>  
+							<tr>
+								<td><label for="mdp"><strong>Mot de passe</strong></label></td>
+								<td><input type="password" name="mdp" id="mdp"/></td>
+							</tr>
+						</table>
+						<input class="btn_connexion" type="submit" name="connexion" value="Se connecter"/>
+						</form>
+					</div>
+				</div>
 				</td>
 			</tr>
 		</table>
