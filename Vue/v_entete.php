@@ -21,7 +21,7 @@
 									<h3>Connexion : </h3>
 									<form method="POST" action="" >
 										<table id="connexion">
-										<form method="POST" action="index.php?uc=connexion&action=valideConnexion">
+										<form method="POST" action="indexKillian.php?uc=connexion&action=valideConnexion">
 											<tr>
 											   <td><label for="login"><strong>Nom de compte</strong></label></td>
 											   <td><input type="text" name="login" id="login"/></td>             
@@ -32,7 +32,7 @@
 											   <td><input type="password" name="mdp" id="mdp"/></td>
 											</tr>
 										</table>
-										<input class="btn_connexion" type="submit" name="connexion" value="Se connecter"/>
+										<input class="btn_connexion" type="submit" name="valideConnexion" value="Se connecter"/>
 									</form>
 								</div>
 					</div>
