@@ -12,7 +12,11 @@ $uc = $_REQUEST['uc'];
 switch($uc){
 	case 'connexion':{
 		include("Controleur/c_connexion.php");break;
+<<<<<<< HEAD
+
+=======
 	}
+>>>>>>> 06585ec1c8abb7e8156da71f3f7877cb89b5e084
 	case 'c_connexion':{
 		//include("controleurs/c_connexion.php");break;
 	}

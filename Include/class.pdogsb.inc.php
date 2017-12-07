@@ -117,15 +117,93 @@ class PdoGsb{
 	*Ajout d'une action
 	*@param $num_ami, $num_commi, $libelle_act, $montant_act, $date_act, $duree_act
 	*/
-	
 	public function ajouterAction($num_ami, $num_commi, $libelle_act, $montant_act, $date_act, $duree_act){
 		
 		$req = "insert into action
 		values (NULL, '$num_ami', '$num_commi', '$libelle_act', '$montant_act', '$date_act', '$duree_act')";
 		PdoGsB::$monPdo->exec($req);
 		include("index.php");
-		
 	}
+	/*
+	*retourne tous les amis
+	*
+	*/
+	public function getAllAmis(){
+		$req="SELECT * FROM AMIS";
+		$rs = PdoGsb::$monPdo->query($req);
+			$lignes=array();
+			if($rs == true){
+				$lignes = $rs->fetchAll();
+			}
+			return $lignes;
+	}
+	
+	
+	public function getAllAmisCompletion($nomAmis){
+		$req="select * from amis where NOMAMIS like '".$nomAmis."%' ORDER by NOMAMIS, PRENOMAMIS";
+		
+		$rs = PdoGsb::$monPdo->query($req);
+			$lignes=array();
+			if($rs == true){
+				$lignes = $rs->fetchAll();
+			}
+			return $lignes;
+	}
+	
+	
+	
+
+
+	/*
+	*
+	*retoune tous les repas 
+	*/
+
+	public function getRepas(){
+		$req="SELECT * FROM REPAS";
+		$rs =PdoGsb::$monPdo->query($req);
+
+		$ligne=array();
+		if($rs == true){
+			$ligne = $rs->fetchAll();
+		}
+		return $ligne;
+
+	}
+
+
+	/*
+	*nombre d'action donnee dans participer
+	*
+	*@idAction
+	*/
+	public function getnbActionParticiper($idAction){
+		$req = "SELECT COUNT(NUMACTION) AS nbAction FROM PARTICIPER WHERE NUMACTION = '$idAction'";
+		$res = PdoGsb::$monPdo->query($req);
+		$action = $res->fetch();
+		return $action;
+	}
+
+/**
+ * Crée un nouvel amis à partir des informations fournies en paramètre.
+ 
+ * @param $nomAmis
+ * @param $prenomAmis
+ * @param $adresseRueAmis
+ * @param $adresseComplementAmis
+ * @param $adresseVilleAmis
+ * @param $codePostalAmis
+ * @param $telephoneAmis
+ * @param $mailAmis
+ * @param $dateEntreAmis
+*/
+	public function creeNouvelAmis ($nomAmis, $prenomAmis, $adresseRueAmis, $adresseComplementAmis, $adresseVilleAmis, 
+									$codePostalAmis, $telephoneAmis, $mailAmis, $dateEntreeAmis){
+		$req = "INSERT INTO amis VALUES (NULL, '$nomAmis', '$prenomAmis','$adresseRueAmis',
+		'$adresseComplementAmis','$adresseVilleAmis', '$codePostalAmis','$telephoneAmis','$mailAmis','$dateEntreAmis')";
+		PdoGsb::$monPdo->exec($req);
+	}
+
 }
 
 ?>

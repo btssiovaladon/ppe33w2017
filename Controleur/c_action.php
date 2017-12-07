@@ -32,8 +32,8 @@ switch($action){
 		}else{
 			echo "supression impossible";
 		}
-	break;
 	}
+	break;
 	
 
 	case 'ajoutAction' :
