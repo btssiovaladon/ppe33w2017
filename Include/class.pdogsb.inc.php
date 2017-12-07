@@ -210,7 +210,6 @@ class PdoGsb{
 	
 	public function getAllAmisCompletion($nomAmis){
 		$req="select * from amis where NOMAMIS like '".$nomAmis."%' ORDER by NOMAMIS, PRENOMAMIS";
-		
 		$rs = PdoGsb::$monPdo->query($req);
 			$lignes=array();
 			if($rs == true){
