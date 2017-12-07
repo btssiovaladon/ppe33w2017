@@ -102,7 +102,7 @@ class PdoGsb{
 * @return un tableau contenant toutes les activités
 */
 	public function getAllActivite(){
-		$req = "select NUMACTION as numero, NUMAMIS as numeroAmis, NUMEROCOMMISSION as numeroCommission, LIBELLEACTION as nom, MONTANTACTION as montant, DATEACTION as date, DUREEACTION as duree from action";
+		$req = "select NUMACTION, NUMAMIS, NUMEROCOMMISSION, LIBELLEACTION, MONTANTACTION, DATEACTION, DUREEACTION from action";
 		$res = PdoGsb::$monPdo->query($req);
 		$lesAmis = $res->fetchAll();
 		return $lesAmis; 
@@ -210,7 +210,6 @@ class PdoGsb{
 	
 	public function getAllAmisCompletion($nomAmis){
 		$req="select * from amis where NOMAMIS like '".$nomAmis."%' ORDER by NOMAMIS, PRENOMAMIS";
-		
 		$rs = PdoGsb::$monPdo->query($req);
 			$lignes=array();
 			if($rs == true){
@@ -325,4 +324,31 @@ class PdoGsb{
 		return $row; 
 	}
 }
+<<<<<<< HEAD
+=======
+	/*
+	*retourne le montant total des repas
+	*
+	*/
+	
+	public function montantannuel(){
+		$req="SELECT a.NUMAMIS, NOMAMIS, PRENOMAMIS, DATEREPAS, NOMBREPERSONNES, PRIXREPAS, PRIXREPAS*NOMBREPERSONNES AS Montanttotal FROM `inviter` i INNER JOIN amis a on i.NUMAMIS = a.NUMAMIS INNER JOIN repas r on i.NUMREPAS=r.NUMREPAS order by i.NUMAMIS"
+
+		$res = PdoGsb::$monPdo->query($req);
+		$montant = $res->fetchAll();
+		return $montant; 
+	}
+	
+	/*
+	*retourne la cotisation annuelle
+	*
+	*/
+	
+	public function cotisation(){
+		$req="SELECT MONTANTCOTISATION FROM PARAMETRE"
+		$res = PdoGsb::$monPdo->query($req);
+		$montant = $res->fetchAll();
+		return $montant; 
+	}
+>>>>>>> 09233f8b24724482714cb151ae09c61f93f53e94
 ?>
