@@ -1,4 +1,3 @@
-<p>
 <form action="index.php?uc=c_gererDiner&action=tableaudiner" METHOD="POST">
 <select name="repas">
 <?php foreach ( $lesRepas as $leDiner){
