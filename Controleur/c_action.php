@@ -6,8 +6,8 @@ $action = $_REQUEST['action'];
 
 switch($action){
 	case 'choix':
-		$actions=$pdo->getAction();
-		include('vue/choix_action.php');
+		$actions=$pdo->getAllActivite();
+		include('vue/tab.php');
 	break;
 	
 	case 'modificationAction' :

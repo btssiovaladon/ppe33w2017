@@ -83,7 +83,7 @@ class PdoGsb{
 * @return un tableau contenant toutes les activités
 */
 	public function getAllActivite(){
-		$req = "select NUMACTION as numero, NUMAMIS as numeroAmis, NUMEROCOMMISSION as numeroCommission, LIBELLEACTION as nom, MONTANTACTION as montant, DATEACTION as date, DUREEACTION as duree from action";
+		$req = "select NUMACTION, NUMAMIS, NUMEROCOMMISSION, LIBELLEACTION, MONTANTACTION, DATEACTION, DUREEACTION from action";
 		$res = PdoGsb::$monPdo->query($req);
 		$lesAmis = $res->fetchAll();
 		return $lesAmis; 
