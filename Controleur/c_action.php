@@ -4,7 +4,6 @@
 // }
 $URL = "http://localhost/AMIS/ppe33w2017/";
 $action = $_REQUEST['action'];
-
 switch($action){	
 	case 'modificationAction' :{
 	$action = $pdo->getInfoAction($_POST['idAction']);
@@ -44,6 +43,9 @@ switch($action){
 		break;
 	}
 	
-	
+	case 'a_imprActivitePDF':{
+		echo "<script>document.location.href=\"".$URL."Vue/v_imprActivitePDF.php\";</script>";
+		break;
+	}
 }
 ?>

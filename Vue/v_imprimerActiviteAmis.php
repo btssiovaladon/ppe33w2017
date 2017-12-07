@@ -9,6 +9,16 @@
 	<th>Ville</th>
 	<th>Telephone</th>
 	<th>Adresse mail</th>
+	<tr>
+		<td><?php echo $leChef['nom'];?></td>
+		<td><?php echo $leChef['prenom']; ?></td> 
+		<td>Chef</td>
+		<td><?php echo $leChef['adresse'];?></td>
+		<td><?php echo $leChef['codePostal']; ?></td> 
+		<td><?php echo $leChef['ville']; ?></td>
+		<td><?php echo $leChef['telephone'];?></td>
+		<td><?php echo $leChef['mail']; ?></td>
+	</tr>
 <?php 
 	for($i=0;$i<count($lesAmis);$i++){
 ?>
@@ -25,14 +35,8 @@
 <?php 
 	}
 ?>
-	<tr>
-		<td><?php echo $leChef['nom'];?></td>
-		<td><?php echo $leChef['prenom']; ?></td> 
-		<td>Chef</td>
-		<td><?php echo $leChef['adresse'];?></td>
-		<td><?php echo $leChef['codePostal']; ?></td> 
-		<td><?php echo $leChef['ville']; ?></td>
-		<td><?php echo $leChef['telephone'];?></td>
-		<td><?php echo $leChef['mail']; ?></td>
-	</tr>
 </table>
+
+<h2>Imprimer cette page</h2>
+<h4><?php echo "<a href=\"index.php?uc=c_action&action=a_imprActivitePDF\" target=\"_blank\" title=\"Imprimer en PDF\"><img src=\"./Image/pdf.png\" alt=\"Pdf\" height=\"60\" width=\"60\"/></a>"?></h4>
+
