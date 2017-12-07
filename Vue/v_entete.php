@@ -4,14 +4,14 @@
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <link rel="stylesheet" href="Style/styles.css">
    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
-   <script src="script.js"></script>
+   <!--<script src="script.js"></script>-->
    <script src="JavaScript/envoiAmis.js"></script>
    <title>Club des AMIS</title>
 </head>
 	<table>
 			<tr>
 				<td id="left">
-					<img src="./Image/logo"/>
+					<!--<img src="./Image/logo"/>-->
 				</td>
 				<td id="center">
 					<h1>Club des AMIS</h1>
