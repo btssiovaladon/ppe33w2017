@@ -44,6 +44,9 @@ switch($action){
 		$pdo->ajouterAction($_POST['num_ami'], $_POST['num_commi'], $_POST['libelle_act'], $_POST['montant_act'], 
 		$_POST['date_act'], $_POST['duree_act']);
 		
+		$_REQUEST['action'] = 'choix';
+		include "Controleur/c_action.php";
+		
 	break;
 
 	case 'a_inscription':{

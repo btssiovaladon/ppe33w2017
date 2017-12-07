@@ -119,10 +119,11 @@ class PdoGsb{
 	*/
 	public function ajouterAction($num_ami, $num_commi, $libelle_act, $montant_act, $date_act, $duree_act){
 		
+		
 		$req = "insert into action
 		values (NULL, '$num_ami', '$num_commi', '$libelle_act', '$montant_act', '$date_act', '$duree_act')";
 		PdoGsB::$monPdo->exec($req);
-		include("index.php");
+		
 	}
 	/*
 	*retourne tous les amis
@@ -130,6 +131,16 @@ class PdoGsb{
 	*/
 	public function getAllAmis(){
 		$req="SELECT * FROM AMIS";
+		$rs = PdoGsb::$monPdo->query($req);
+			$lignes=array();
+			if($rs == true){
+				$lignes = $rs->fetchAll();
+			}
+			return $lignes;
+	}
+	
+	public function getAllCommission(){
+		$req="SELECT * FROM commission";
 		$rs = PdoGsb::$monPdo->query($req);
 			$lignes=array();
 			if($rs == true){
