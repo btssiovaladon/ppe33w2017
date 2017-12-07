@@ -1,12 +1,12 @@
 <?php
 echo"
 <h3>Ajouter un dîner</h3>
-<form method='POST' action='index.php?uc=gererDiner&action=validerCreationDiner'>
+<form method='POST' action='index.php?uc=c_gererDiner&action=validerCreationDiner'>
 <table class='tabNonQuadrille'>
 <tr>
 	<td>Date du dîner (jj/mois/aaaa)</td>
 	<td>
-		<input  type='text' name=dateDiner  size='30' maxlength='45'>
+		<input  type='date' name=dateDiner  size='30' maxlength='45'>
 	</td>
 </tr>
 <tr>

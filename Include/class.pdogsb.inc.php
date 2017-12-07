@@ -22,17 +22,20 @@ class PdoGsb{
       	private static $mdp='' ;	
 		private static $monPdo;
 		private static $monPdoGsb=null;
+		
 /**
  * Constructeur privé, crée l'instance de PDO qui sera sollicitée
  * pour toutes les méthodes de la classe
- */				
-	private function __construct(){
+ */	
+	function __construct(){
     	PdoGsb::$monPdo = new PDO(PdoGsb::$serveur.';'.PdoGsb::$bdd, PdoGsb::$user, PdoGsb::$mdp); 
 		PdoGsb::$monPdo->query("SET CHARACTER SET utf8");
 	}
+	
 	public function _destruct(){
 		PdoGsb::$monPdo = null;
 	}
+	
 /**
  * Fonction statique qui crée l'unique instance de la classe
  
@@ -87,6 +90,7 @@ class PdoGsb{
 		$req = "select ac.NUMAMIS as numero, NOMAMIS as nom, PRENOMAMIS as prenom, ADRESSERUEAMIS as adresse,ADRESSEVILLEAMIS as ville, CODEPOSTALAMIS as codePostal, TELEPHONEAMIS as telephone, MAILAMIS as mail from amis a INNER JOIN action ac on ac.NUMAMIS=a.NUMAMIS
 		where NUMACTION ='$idActivité'";	
 		$res = PdoGsb::$monPdo->query($req);
+		$lesAmis = $res->fetchAll();
 		$leChef = $res->fetch();
 		return $leChef; 
 	}
@@ -100,8 +104,8 @@ class PdoGsb{
 	public function getAllActivite(){
 		$req = "select NUMACTION as numero, NUMAMIS as numeroAmis, NUMEROCOMMISSION as numeroCommission, LIBELLEACTION as nom, MONTANTACTION as montant, DATEACTION as date, DUREEACTION as duree from action";
 		$res = PdoGsb::$monPdo->query($req);
-		$lesActivites = $res->fetchAll();
-		return $lesActivites; 
+		$lesAmis = $res->fetchAll();
+		return $lesAmis; 
 	}
 	
 	/*
@@ -110,24 +114,10 @@ class PdoGsb{
 	*@param $idRepas
 	*/
 
-
 	public function modifierRepas($idRepas, $heure, $date, $prix, $places, $lieu){
 		$req =" UPDATE `repas` SET HEUREREPAS= '$heure',DATEREPAS = '$date',PRIXREPAS ='$prix',NBRPLACESREPAS='$places',LIEUREPAS='$lieu' WHERE NUMREPAS='$idRepas'";
 		$rs = $this->monPdo->query($req);
-}	
-
-	/*
-
-	
-	
-	public function modifierRepas($idRepas,$heure,$date,$prix,$places,$lieu){
-		$req =" UPDATE `repas` SET HEUREREPAS='$heure',DATEREPAS='$date',PRIXREPAS='$prix',NBRPLACESREPAS='$places',LIEUREPAS='$lieu' WHERE NUMREPAS='$idRepas'";
-	}
-
-=======
->>>>>>> a4ef41472f70e221dc9fb3f782455b142d21c832
->>>>>>> 830a985e31f89a13fb1d864be07bcd287b4a7f5a
-
+}
 /*
 	*Suppression des données d'un repas 
 	*
@@ -138,7 +128,34 @@ class PdoGsb{
    		$req = " DELETE FROM `repas` WHERE NUMREPAS='$idRepas'";
    		$rs =$this->monPdo->query($req);
 }
-		
+
+/*
+	*Affichage des données d'un repas 
+	*
+	*@Affiche les informations des diner 
+	*/
+	public function getAllInfoDiner(){
+		$req = "SELECT * FROM repas";
+		$res =PdoGsb::$monPdo->query($req);
+		$repas =$res->fetchAll();
+		return $repas;
+	}
+
+
+/*
+	*Affichage de la date d'un repas 
+	*
+	*@param $idRepas
+	*@Affiche la date du diner par l'identifiant 
+	*/
+	public function getDateDiner($idRepas){
+		$req = "SELECT DATEREPAS FROM REPAS WHERE NUMREPAS='$idRepas'";
+		$res =PdoGsb::$monPdo->query($req);
+		$repas =$res->fetch();
+		return $repas;
+	}
+
+	
 	/*
 	*Recupere les informations d'une action fourni
 	*
@@ -190,22 +207,32 @@ class PdoGsb{
 			return $lignes;
 	}
 
+	
+	public function getAllAmisCompletion($nomAmis){
+		$req="select * from amis where NOMAMIS like '".$nomAmis."%' ORDER by NOMAMIS, PRENOMAMIS";
+		
+		$rs = PdoGsb::$monPdo->query($req);
+			$lignes=array();
+			if($rs == true){
+				$lignes = $rs->fetchAll();
+			}
+			return $lignes;
+	}
 
 	/*
 	*
-	*
+	*retoune tous les repas 
 	*/
+
 	public function getRepas(){
 		$req="SELECT * FROM REPAS";
 		$rs =PdoGsb::$monPdo->query($req);
-			$ligne=array();
-			if($rs == true){
-				$ligne = $rs->fetchAll();
-			}
-			return $ligne;
-
+		$ligne=array();
+		if($rs == true){
+			$ligne = $rs->fetchAll();
+		}
+		return $ligne;
 	}
-
 
 	/*
 	*nombre d'action donnee dans participer
@@ -240,6 +267,7 @@ class PdoGsb{
  * @param $lieu
 */
 
+
 /** Retourne le nom d'une activité
 
 * @param $numAction le numéro de l'action
@@ -262,12 +290,39 @@ class PdoGsb{
  * @param $lieu
 */
 	public function creeNouveauDiner($dateDiner,$heure,$prix,$nbPlace,$lieu){
-		$dateFr = dateFrancaisVersAnglais($dateDiner);
 		$req = "insert into repas
-		values(NULL,'$heure','$dateDiner','$prix','$nbPlace','$lieu')";
+		values(NULL,'$heure','$dateDiner',$prix,$nbPlace,'$lieu')";
 		PdoGsb::$monPdo->exec($req);
 	}
 
+/**
+ * Crée un nouvel amis à partir des informations fournies en paramètre.
+ 
+ * @param $nomAmis
+ * @param $prenomAmis
+ * @param $adresseRueAmis
+ * @param $adresseComplementAmis
+ * @param $adresseVilleAmis
+ * @param $codePostalAmis
+ * @param $telephoneAmis
+ * @param $mailAmis
+ * @param $dateEntreAmis
+*/
+	public function creeNouvelAmis ($nomAmis, $prenomAmis, $adresseRueAmis, $adresseComplementAmis, $adresseVilleAmis, 
+									$codePostalAmis, $telephoneAmis, $mailAmis, $dateEntreeAmis){
+		$req = "INSERT INTO amis VALUES (NULL, '$nomAmis', '$prenomAmis','$adresseRueAmis',
+		'$adresseComplementAmis','$adresseVilleAmis', '$codePostalAmis','$telephoneAmis','$mailAmis','$dateEntreAmis')";
+		PdoGsb::$monPdo->exec($req);
+	}
+	
+	public function getInfosVisiteur ($login, $MDP){
+		$req = "select NUMAMIS, NOMAMIS, PRENOMAMIS from amis where Login = :login and MDP = :MDP ";
+		$res = PdoGsb::$monPdo->prepare($req);
+		$res -> execute(array(
+				'login' => $login,
+				'MDP' => $MDP ));
+		$row = $res->fetch();
+		return $row; 
+	}
 }
-
 ?>

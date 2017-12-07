@@ -1,10 +1,4 @@
-<?php
-$activite=1;
-$lesAmis= $pdo->getAllAmisParActivité($activite);
-$leChef=$pdo->getChefActivite($activite);
-$nomActivite=$pdo->getNomActivite($activite);
-?>
-<h1>Activité <?php echo $nomActivite['nom']?></h1>
+<h1>Activité <?php echo $nomActivite['nom'];?></h1>
 <h2>Liste des participants à cette activité</h2>
 <table>
 	<th>Nom</th>
@@ -15,6 +9,16 @@ $nomActivite=$pdo->getNomActivite($activite);
 	<th>Ville</th>
 	<th>Telephone</th>
 	<th>Adresse mail</th>
+	<tr>
+		<td><?php echo $leChef['nom'];?></td>
+		<td><?php echo $leChef['prenom']; ?></td> 
+		<td>Chef</td>
+		<td><?php echo $leChef['adresse'];?></td>
+		<td><?php echo $leChef['codePostal']; ?></td> 
+		<td><?php echo $leChef['ville']; ?></td>
+		<td><?php echo $leChef['telephone'];?></td>
+		<td><?php echo $leChef['mail']; ?></td>
+	</tr>
 <?php 
 	for($i=0;$i<count($lesAmis);$i++){
 ?>
@@ -31,14 +35,8 @@ $nomActivite=$pdo->getNomActivite($activite);
 <?php 
 	}
 ?>
-	<tr>
-		<td><?php echo $leChef['nom'];?></td>
-		<td><?php echo $leChef['prenom']; ?></td> 
-		<td>Chef</td>
-		<td><?php echo $leChef['adresse'];?></td>
-		<td><?php echo $leChef['codePostal']; ?></td> 
-		<td><?php echo $leChef['ville']; ?></td>
-		<td><?php echo $leChef['telephone'];?></td>
-		<td><?php echo $leChef['mail']; ?></td>
-	</tr>
 </table>
+
+<h2>Imprimer cette page</h2>
+<h4><?php echo "<a href=\"index.php?uc=c_action&action=a_imprActivitePDF\" target=\"_blank\" title=\"Imprimer en PDF\"><img src=\"./Image/pdf.png\" alt=\"Pdf\" height=\"60\" width=\"60\"/></a>"?></h4>
+

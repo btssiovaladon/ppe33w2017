@@ -4,7 +4,6 @@
 // }
 $URL = "http://localhost/AMIS/ppe33w2017/";
 $action = $_REQUEST['action'];
-
 switch($action){	
 	case 'modificationAction' :{
 	$action = $pdo->getInfoAction($_POST['idAction']);
@@ -27,15 +26,26 @@ switch($action){
 	
 	case 'a_inscription':{
 		// $code = $_REQUEST['codeActivité'];
-		include("Vue/v_inscriptionsActivitéAmis.php");
+		$activite=1;
+		$lesAmis= $pdo->getAllAmisParActivité($activite);
+		$leChef=$pdo->getChefActivite($activite);
+		$nomActivite=$pdo->getNomActivite($activite);
+		include("Vue/v_inscriptionsActiviteAmis.php");
 		break;
 	}
 	
 	case 'a_imprimerActivite':{
+		$activite=1;
+		$lesAmis= $pdo->getAllAmisParActivité($activite);
+		$leChef=$pdo->getChefActivite($activite);
+		$nomActivite=$pdo->getNomActivite($activite);
 		include("Vue/v_imprimerActiviteAmis.php");
 		break;
 	}
 	
-	
+	case 'a_imprActivitePDF':{
+		echo "<script>document.location.href=\"".$URL."Vue/v_imprActivitePDF.php\";</script>";
+		break;
+	}
 }
 ?>
