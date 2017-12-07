@@ -13,10 +13,14 @@ switch($uc){
 	case 'connexion':{
 		include("Controleur/c_connexion.php");break;
 <<<<<<< HEAD
+	}
+=======
+<<<<<<< HEAD
 
 =======
 	}
 >>>>>>> 06585ec1c8abb7e8156da71f3f7877cb89b5e084
+>>>>>>> 71484555d301e1a75568fd5b9f874d165d918eab
 	case 'c_connexion':{
 		//include("controleurs/c_connexion.php");break;
 	}
