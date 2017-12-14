@@ -1,11 +1,13 @@
 <?php 
 //include("vue/v_entete.php");
+
 ?>
 
-
-<form action="indexThomas.php?uc=c_action&action=modificationAction" method="POST">
+<form action="index.php?uc=c_action&action=modificationAction" method="POST">
 	<fieldset>
 		<legend>Modifier une action </legend>
+		
+		<input type="hidden" name="idActionM" value="<?php echo $action['NUMACTION']; ?>" />
 		
 		
 		Liste commission : <select name="actionCommission" required>
@@ -40,11 +42,12 @@
 				
 				}
 			?>
+			
 		</select>
 		</br></br>
 		libellé action : <input type="text" name="libelleAction" value="<?php echo $action['LIBELLEACTION']; ?>" required />
 		</br></br>
-		Montant action : <input type="text" name="montantAction" value="<?php echo $action['MONTANTACTION']; ?>" required />
+		Montant action : <input type="number" name="montantAction" value="<?php echo $action['MONTANTACTION']; ?>" required />
 		</br></br>
 		Date action : <input type="date" name="dateAction" value="<?php echo $action['DATEACTION']; ?>" required />
 		</br></br>
