@@ -367,5 +367,18 @@ class PdoGsb{
 		$montant = $res->fetchAll();
 		return $montant; 
 	}
+	
+	public function enregistrerBureau($secretaire,$secretaireAdj,$tresorier,$tresorierAdj){
+		$req = "update amis set NUMFONCTION = 5 where NUMFONCTION!=5";
+		PdoGsb::$monPdo->exec($req);
+		$reqSec = "update amis set NUMFONCTION = 1 where NUMAMIS = $secretaire";
+		PdoGsb::$monPdo->exec($reqSec);
+		$reqSecAdj = "update amis set NUMFONCTION = 2 where NUMAMIS = $secretaireAdj";
+		PdoGsb::$monPdo->exec($reqSecAdj);
+		$reqTre = "update amis set NUMFONCTION = 3 where NUMAMIS = $tresorier";
+		PdoGsb::$monPdo->exec($reqTre);
+		$reqTreAdj = "update amis set NUMFONCTION = 4 where NUMAMIS = $tresorierAdj";
+		PdoGsb::$monPdo->exec($reqTreAdj);
+	}
 }
 ?>

@@ -53,5 +53,9 @@ switch($action){
 		echo "<script>document.location.href=\"".$URL."Vue/v_imprActivitePDF.php\";</script>";
 		break;
 	}
+	case 'saisirBureau' :{
+		include ('Vue/v_saisieBureau.php');
+		break;
+	}
 }
 ?>

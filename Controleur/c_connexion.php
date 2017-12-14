@@ -24,7 +24,6 @@ switch($action){
 			$nom =  $visiteur['NOMAMIS'];
 			$prenom = $visiteur['PRENOMAMIS'];
 			connecter($id,$nom,$prenom);
-			include("Vue/v_entete.php");
 		}
 		break;
 	}
