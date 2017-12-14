@@ -23,10 +23,14 @@ switch($action){
 			$id = $visiteur['NUMAMIS'];
 			$nom =  $visiteur['NOMAMIS'];
 			$prenom = $visiteur['PRENOMAMIS'];
-			connecter($id,$nom,$prenom);
+			$fonction = $visiteur['NUMFONCTION'];
+			connecter($id,$nom,$prenom,$fonction);
 			include("Vue/v_entete.php");
 		}
 		break;
+	case 'deconnecter':{
+		deconnecter();
+		include("indexKillian.php");
 	}
 	default :
 			include("Vue/v_connexion.php");
