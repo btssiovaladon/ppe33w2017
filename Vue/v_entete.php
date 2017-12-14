@@ -23,7 +23,7 @@
 					if(isset($_SESSION['nomAmis'])){?>
 					<div id="deconnexion">
 						<h4><?php echo $_SESSION['nomAmis']." ".$_SESSION['prenomAmis'] ?></h4>
-						<a action="indexKillian.php?uc=connexion&action=deconnecter">Se déconnecter</a>
+						<a href="indexKillian.php?uc=connexion&action=deconnecter">Se déconnecter</a>
 					</div>
 					<?php }?>
 				</td>

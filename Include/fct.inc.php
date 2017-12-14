@@ -23,6 +23,8 @@ function estConnecte(){
  */
 function connecter($id,$nom,$prenom,$fonction){
 //A compléter
+$_SESSION = array();
+
 	$_SESSION['idAmis']=$id;
 	$_SESSION['nomAmis']=$nom;
 	$_SESSION['prenomAmis']=$prenom;
