@@ -4,7 +4,13 @@
 // }
 $URL = "http://localhost/AMIS/ppe33w2017/";
 $action = $_REQUEST['action'];
-switch($action){	
+
+switch($action){
+	case 'choix':
+		$actions=$pdo->getAllActivite();
+		include('vue/tab.php');
+	break;
+		
 	case 'modificationAction' :{
 	$action = $pdo->getInfoAction($_POST['idAction']);
 	$lesCommi = $pdo->getAllCommission();
