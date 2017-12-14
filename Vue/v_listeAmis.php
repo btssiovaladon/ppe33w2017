@@ -1,4 +1,4 @@
-<form action="index.php?uc=c_gererAmis&action=selectionnerAmis" method="post">
+<form action="index.php?uc=c_gererAmisModif&action=selectionnerAmis" method="post">
 
 <label for="lstAmis" accesskey="n">Amis à selectionner : </label>
 <select id="lstAmis" name="lstAmis" onchange="submit()">

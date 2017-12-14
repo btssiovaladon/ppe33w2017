@@ -2,7 +2,7 @@
 //include("vue/v_entete.php");
 ?>
 
-<form action="index.php?uc=c_gererAmis&action=a_modification" method="post">
+<form action="index.php?uc=c_gererAmisModif&action=a_modification" method="post">
 	<fieldset>
 		<legend>Modifier un ami </legend>
 		

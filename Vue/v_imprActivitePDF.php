@@ -93,6 +93,7 @@ for($i=0;$i<count($lesAmis);$i++){
 	$pdf->Cell(24,6,utf8_decode($lesAmis[$i]['ville']),1,0,'C');
 	$pdf->Cell(22,6,utf8_decode($lesAmis[$i]['telephone']),1,0,'C');
 	$pdf->Cell(34,6,utf8_decode($lesAmis[$i]['mail']),1,0,'C');
+	$pdf->Ln(6);
 }
 $pdf->AliasNbPages();
 $pdf->Output();
