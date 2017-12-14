@@ -10,6 +10,7 @@
    <title>Club des AMIS</title>
    
 </head>
+
 <table>
 	<tr>
 		<td id="left">
@@ -32,3 +33,26 @@
 <?php
 include("Vue/v_menu.php") ;
 ?>
+
+	<table>
+			<tr>
+				<td id="left">
+					<!--<img src="./Image/logo"/>-->
+				</td>
+				<td id="center">
+					<h1>Club des AMIS</h1>
+				</td>
+				<td id="right">
+				<?php  
+					if(isset($_SESSION['nomAmis'])){?>
+					<div id="deconnexion">
+						<h4><?php echo $_SESSION['nomAmis']." ".$_SESSION['prenomAmis'] ?></h4>
+						<a action="indexKillian.php?uc=connexion&action=deconnecter">Se déconnecter</a>
+					</div>
+					<?php }?>
+				</td>
+			</tr>
+		</table>
+		<?php
+		include("Vue/v_menu.php") ;
+		?>
