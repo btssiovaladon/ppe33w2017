@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Jeu 23 Novembre 2017 à 11:27
+-- Généré le :  Jeu 14 Décembre 2017 à 10:33
 -- Version du serveur :  5.6.15-log
 -- Version de PHP :  5.5.8
 
@@ -61,6 +61,7 @@ CREATE TABLE IF NOT EXISTS `amis` (
   `NUMPARRAIN2` smallint(2) DEFAULT NULL,
   `Login` varchar(30) DEFAULT NULL,
   `MDP` varchar(30) DEFAULT NULL,
+  `MONTANTANNUEL` int(3) DEFAULT NULL,
   PRIMARY KEY (`NUMAMIS`),
   KEY `I_FK_AMIS_FONCTION` (`NUMFONCTION`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -69,8 +70,13 @@ CREATE TABLE IF NOT EXISTS `amis` (
 -- Contenu de la table `amis`
 --
 
-INSERT INTO `amis` (`NUMAMIS`, `NUMFONCTION`, `NOMAMIS`, `PRENOMAMIS`, `ADRESSERUEAMIS`, `ADRESSECOMPLEMENTAMIS`, `ADRESSEVILLEAMIS`, `CODEPOSTALAMIS`, `TELEPHONEAMIS`, `MAILAMIS`, `DATEENTREEAMIS`, `NUMPARRAIN1`, `NUMPARRAIN2`, `Login`, `MDP`) VALUES
-(1, 1, 'Arnaud', 'Florent', 'qqpart', 'qqpart', 'qqpart', '87000', '0215457898', 'Arnaud.florent@florent.com', '2017-11-16', NULL, NULL, '', '');
+INSERT INTO `amis` (`NUMAMIS`, `NUMFONCTION`, `NOMAMIS`, `PRENOMAMIS`, `ADRESSERUEAMIS`, `ADRESSECOMPLEMENTAMIS`, `ADRESSEVILLEAMIS`, `CODEPOSTALAMIS`, `TELEPHONEAMIS`, `MAILAMIS`, `DATEENTREEAMIS`, `NUMPARRAIN1`, `NUMPARRAIN2`, `Login`, `MDP`, `MONTANTANNUEL`) VALUES
+(1, 1, 'Arnaud', 'Florent', 'qqpart', 'qqpart', 'qqpart', '87000', '0215457898', 'Arnaud.florent@florent.com', '2017-11-16', NULL, NULL, '123', '456', NULL),
+(2, 2, 'Fourgeaud', 'Killian', '2 rue vers labas', '', 'Icilabas', '54120', '0600000015', 'lalala@hotmail.fr', '2017-12-21', NULL, NULL, 'labas', 'ici', NULL),
+(3, 3, 'MonsieurMoi', 'ToujoursMoi', '1 rue moimeme', NULL, 'MoimemeCity', '87549', '0684578458', 'Moimeme@hotmail.fr', '2017-12-11', NULL, NULL, 'moi', 'meme', NULL),
+(4, 4, 'Larry', 'Scott', '4 rue du monsieur', NULL, 'Ls City', '63214', '0685214569', 'Ls@hotmail.fr', '2017-12-25', NULL, NULL, 'l', 's', NULL),
+(5, 5, 'Snow', 'Man', '6 rue sakai', NULL, 'Sakaiville', '45682', '0512457458', 'Snowman@hotmail.fr', '2017-12-02', NULL, NULL, 'snow', 'man', NULL),
+(6, 2, 'Dino', 'Saure', '8 rue dyalongtemps', NULL, 'Dinoville', '84521', '0921542587', 'Dinosaure@hotmail.fr', '2017-12-30', NULL, NULL, 'dino', 'saure', NULL);
 
 -- --------------------------------------------------------
 
@@ -107,10 +113,21 @@ CREATE TABLE IF NOT EXISTS `commission` (
 --
 
 CREATE TABLE IF NOT EXISTS `fonction` (
-  `NUMFONCTION` smallint(1) NOT NULL,
+  `NUMFONCTION` smallint(1) NOT NULL AUTO_INCREMENT,
   `NOMFONCTION` char(32) DEFAULT NULL,
   PRIMARY KEY (`NUMFONCTION`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+
+--
+-- Contenu de la table `fonction`
+--
+
+INSERT INTO `fonction` (`NUMFONCTION`, `NOMFONCTION`) VALUES
+(1, 'Secrétaire'),
+(2, 'Secrétaire-Adjoint'),
+(3, 'Trésorier'),
+(4, 'Trésorier-Adjoint'),
+(5, 'Membre');
 
 -- --------------------------------------------------------
 

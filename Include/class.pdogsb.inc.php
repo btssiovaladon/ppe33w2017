@@ -17,7 +17,7 @@
 
 class PdoGsb{   		
       	private static $serveur='mysql:host=localhost';
-      	private static $bdd='dbname=ppeamis';   		
+      	private static $bdd='dbname=amis';   		
       	private static $user='root' ;    		
       	private static $mdp='' ;	
 		private static $monPdo;
@@ -173,23 +173,19 @@ class PdoGsb{
 	*
 	*/
 	public function modifierAction($numAmis, $numComi, $libelle, $montant, $date, $duree, $numAction){
-		$req =" UPDATE ACTION SET NUMAMIS= ?,NUMEROCOMMISSION = ?,LIBELLEACTION =?, MONTANTACTION=?, DATEACTION=?, DUREEACTION=? WHERE NUMACTION=?";
-		$prep = PdoGsb::$monPdoGsb->prepare($req);
-		$prep->execute(array($numAmis,$numComi,$libelle,$montant,$date,$duree,$numAction));
+		$req =" UPDATE ACTION SET NUMAMIS= '$numAmis', NUMEROCOMMISSION = '$numComi',LIBELLEACTION ='$libelle', MONTANTACTION='$montant', DATEACTION='$date', DUREEACTION='$duree' WHERE NUMACTION='$numAction'";
+		PdoGsb::$monPdo->query($req);
 }
 
 	/*
 	*retourne toutes les commissions
 	*
-	*/
-	public function getAllCommission(){
-		$req="SELECT * FROM COMMISSION";
-		$rs = PdoGsb::$monPdo->query($req);
-			$lignes=array();
-			if($rs == true){
-				$lignes = $rs->fetchAll();
-			}
-			return $lignes;
+	*/	
+		public function getAllCommission(){
+		$req = "SELECT * FROM COMMISSION";
+		$res = PdoGsb::$monPdo->query($req);
+		$lesCommi = $res->fetchAll();
+		return $lesCommi; 
 	}
 	
 	/*
@@ -251,7 +247,7 @@ class PdoGsb{
 	*/
 	public function supprimerAction($idAction){
    		$req = " DELETE FROM ACTION WHERE NUMACTION='$idAction'";
-   		$rs =$this->monPdo->query($req);
+   		PdoGsb::$monPdo->query($req);
 }
 
 
@@ -276,7 +272,6 @@ class PdoGsb{
 		$res = PdoGsb::$monPdo->query($req);
 		$nomAct = $res->fetch();
 		return $nomAct; 
-
 	}
 /**
  * Crée un nouveau diner à partir des informations fournies en paramètre
@@ -292,6 +287,36 @@ class PdoGsb{
 		values(NULL,'$heure','$dateDiner',$prix,$nbPlace,'$lieu')";
 		PdoGsb::$monPdo->exec($req);
 	}
+
+		/*
+	*retourne tous les amis
+	*
+	*/
+	public function getAmis($num){
+		$req="SELECT * FROM AMIS WHERE NUMAMIS='$num' ";
+		$res = PdoGsb::$monPdo->query($req);
+		$nomAmis= $res->fetch();
+		return $nomAmis; 
+			
+	}
+	
+	/*
+	*Modification des données d'un ami
+	*
+	*
+	*/
+	public function modifierAmi($nom,$prenom,$num){
+		/*$req =" UPDATE AMIS SET NOMAMIS= ?,PRENOMAMIS = ?,ADRESSERUEAMIS =?, ADRESSECOMPLEMENTAMIS=?, ADRESSEVILLEAMIS=?, CODEPOSTALAMIS=?, TELEPHONEAMIS=?,TELEPHONEAMIS=?, MAILAMIS=?, DATEENTREEAMIS=?, NUMPARRAIN1=?, NUMPARRAIN2=?, LOGIN=?, MDP=? WHERE NUMAMIS=?";
+		$prep = PdoGsb::$monPdoGsb->query($req);
+		$parm=array($data["nom"],$data["prenom"], $data["adresse"], $data["complementAmis"], $data["ville"], $data["codePostal"],$data["telephone"],$data["mail"],$data["numparrain1"], $data["numparrain2"], $data["login"], $data["mdp"]);
+		//$this->exexute($prep,$parm);*/
+		$req =" UPDATE AMIS SET NOMAMIS= ?,PRENOMAMIS = ? WHERE NUMAMIS=?";
+		$prep = PdoGsb::$monPdoGsb->prepare($req);
+		$prep->execute(array($nom,$prenom,$num));
+		
+		}
+}
+
 
 /**
  * Crée un nouvel amis à partir des informations fournies en paramètre.
@@ -334,8 +359,9 @@ class PdoGsb{
 		}
 	}
 
+
 	public function getInfosVisiteur ($login, $MDP){
-		$req = "select NUMAMIS, NOMAMIS, PRENOMAMIS from amis where Login = :login and MDP = :MDP ";
+		$req = "select NUMAMIS, NOMAMIS, PRENOMAMIS, NUMFONCTION from amis where Login = :login and MDP = :MDP ";
 		$res = PdoGsb::$monPdo->prepare($req);
 		$res -> execute(array(
 				'login' => $login,
