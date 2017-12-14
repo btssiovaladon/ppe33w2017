@@ -17,7 +17,7 @@
 
 class PdoGsb{   		
       	private static $serveur='mysql:host=localhost';
-      	private static $bdd='dbname=amis';   		
+      	private static $bdd='dbname=ppeamis';   		
       	private static $user='root' ;    		
       	private static $mdp='' ;	
 		private static $monPdo;
@@ -314,9 +314,7 @@ class PdoGsb{
 		$prep = PdoGsb::$monPdoGsb->prepare($req);
 		$prep->execute(array($nom,$prenom,$num));
 		
-		}
-}
-
+	}
 
 /**
  * Crée un nouvel amis à partir des informations fournies en paramètre.
@@ -331,10 +329,8 @@ class PdoGsb{
  * @param $mailAmis
  * @param $dateEntreAmis
 */
-	public function creeNouvelAmis ($nomAmis, $prenomAmis, $adresseRueAmis, $adresseComplementAmis, $adresseVilleAmis, 
-									$codePostalAmis, $telephoneAmis, $mailAmis, $dateEntreeAmis){
-		$req = "INSERT INTO amis VALUES (NULL, '$nomAmis', '$prenomAmis','$adresseRueAmis',
-		'$adresseComplementAmis','$adresseVilleAmis', '$codePostalAmis','$telephoneAmis','$mailAmis','$dateEntreAmis')";
+	public function creeNouvelAmis ($nomAmis, $prenomAmis, $adresseRueAmis, $adresseComplementAmis, $adresseVilleAmis,$codePostalAmis, $telephoneAmis, $mailAmis, $dateEntreeAmis){
+		$req = "INSERT INTO amis VALUES (NULL, '$nomAmis', '$prenomAmis','$adresseRueAmis','$adresseComplementAmis','$adresseVilleAmis', '$codePostalAmis','$telephoneAmis','$mailAmis','$dateEntreAmis')";
 		PdoGsb::$monPdo->exec($req);
 	}
 
