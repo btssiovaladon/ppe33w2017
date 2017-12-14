@@ -17,7 +17,7 @@ switch($action){
 		$visiteur = $pdo->getInfosVisiteur($login,$mdp);
 		if(!is_array( $visiteur)){
 			$erreur[0]="Login ou mot de passe incorrect";
-			include("vues/v_erreurs.php");			
+			include("Vue/v_erreurs.php");			
 		}
 		else{
 			$id = $visiteur['NUMAMIS'];
