@@ -335,7 +335,7 @@ class PdoGsb{
 	}
 
 	public function getInfosVisiteur ($login, $MDP){
-		$req = "select NUMAMIS, NOMAMIS, PRENOMAMIS from amis where Login = :login and MDP = :MDP ";
+		$req = "select NUMAMIS, NOMAMIS, PRENOMAMIS, NUMFONCTION from amis where Login = :login and MDP = :MDP ";
 		$res = PdoGsb::$monPdo->prepare($req);
 		$res -> execute(array(
 				'login' => $login,
