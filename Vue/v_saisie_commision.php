@@ -2,7 +2,7 @@
 <html>
 		<form action="" method="POST">
 			<fieldset>
-					choix commision <select name="choix_personne">
+					choix commision <select name="choix_commision">
 						<?php  foreach ($tab as $tab) { ?>
 							<option> <?php echo $tab[$i] ?> </option>
 						<?php } ?>
@@ -23,7 +23,7 @@
 		<fieldset>
 
 			<form>
-				choix fonction <select name="choix_personne">
+				choix fonction <select name="choix_fonction">
 					<?php ?>
 					<option> président </option>
 					<option> secretaire </option>
