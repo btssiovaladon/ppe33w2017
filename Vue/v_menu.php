@@ -5,7 +5,7 @@
 	   <li class='active has-sub'><a href='#'><span>Gestion des AMIS</span></a>
 		  <ul>
 			 <li class='has-sub'><a href='#'><span>Créer un AMIS</span></a></li>
-			 <li class='has-sub'><a href="index.php?uc=c_gererAmis&action=a_modifierAmis"><span>Modifier/Supprimer un AMIS</span></a></li>
+			 <li class='has-sub'><a href="index.php?uc=c_gererAmis&action=a_selectionnerAmis"><span>Modifier/Supprimer un AMIS</span></a></li>
 		  </ul>
 	   </li>
 	   

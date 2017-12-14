@@ -268,7 +268,33 @@ class PdoGsb{
 		values(NULL,'$heure','$dateDiner','$prix','$nbPlace','$lieu')";
 		PdoGsb::$monPdo->exec($req);
 	}
-
+		/*
+	*retourne tous les amis
+	*
+	*/
+	public function getAmis($num){
+		$req="SELECT * FROM AMIS WHERE NUMAMIS='$num' ";
+		$res = PdoGsb::$monPdo->query($req);
+		$nomAmis= $res->fetch();
+		return $nomAmis; 
+			
+	}
+	
+	/*
+	*Modification des données d'un ami
+	*
+	*
+	*/
+	public function modifierAmi($nom,$prenom,$num){
+		/*$req =" UPDATE AMIS SET NOMAMIS= ?,PRENOMAMIS = ?,ADRESSERUEAMIS =?, ADRESSECOMPLEMENTAMIS=?, ADRESSEVILLEAMIS=?, CODEPOSTALAMIS=?, TELEPHONEAMIS=?,TELEPHONEAMIS=?, MAILAMIS=?, DATEENTREEAMIS=?, NUMPARRAIN1=?, NUMPARRAIN2=?, LOGIN=?, MDP=? WHERE NUMAMIS=?";
+		$prep = PdoGsb::$monPdoGsb->query($req);
+		$parm=array($data["nom"],$data["prenom"], $data["adresse"], $data["complementAmis"], $data["ville"], $data["codePostal"],$data["telephone"],$data["mail"],$data["numparrain1"], $data["numparrain2"], $data["login"], $data["mdp"]);
+		//$this->exexute($prep,$parm);*/
+		$req =" UPDATE AMIS SET NOMAMIS= ?,PRENOMAMIS = ? WHERE NUMAMIS=?";
+		$prep = PdoGsb::$monPdoGsb->prepare($req);
+		$prep->execute(array($nom,$prenom,$num));
+		
+		}
 }
 
 ?>
