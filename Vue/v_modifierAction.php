@@ -1,5 +1,5 @@
 <?php 
-//include("vue/v_entete.php");
+//include("vue/v_entete.php"); aaaaaaaaa
 ?>
 
 
