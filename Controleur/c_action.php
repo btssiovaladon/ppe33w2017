@@ -4,6 +4,7 @@
 // }
 $URL = "http://localhost/Amis/ppe33w2017/";
 $action = $_REQUEST['action'];
+
 switch($action){
 	case 'choix':
 		$actions=$pdo->getAllActivite();
@@ -24,6 +25,7 @@ switch($action){
 				echo "* supression impossible ";
 			}
 		}
+
 	break;
 		
 	case 'modificationAction' :{

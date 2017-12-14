@@ -101,7 +101,7 @@ class PdoGsb{
 * @return un tableau contenant toutes les activités
 */
 	public function getAllActivite(){
-		$req = "select NUMACTION as numero, NUMAMIS as numeroAmis, NUMEROCOMMISSION as numeroCommission, LIBELLEACTION as nom, MONTANTACTION as montant, DATEACTION as date, DUREEACTION as duree from action";
+		$req = "select NUMACTION, NUMAMIS, NUMEROCOMMISSION, LIBELLEACTION, MONTANTACTION, DATEACTION, DUREEACTION from action";
 		$res = PdoGsb::$monPdo->query($req);
 		$lesAmis = $res->fetchAll();
 		return $lesAmis; 
@@ -127,7 +127,34 @@ class PdoGsb{
    		$req = " DELETE FROM `repas` WHERE NUMREPAS='$idRepas'";
    		$rs =$this->monPdo->query($req);
 }
-		
+
+/*
+	*Affichage des données d'un repas 
+	*
+	*@Affiche les informations des diner 
+	*/
+	public function getAllInfoDiner(){
+		$req = "SELECT * FROM repas";
+		$res =PdoGsb::$monPdo->query($req);
+		$repas =$res->fetchAll();
+		return $repas;
+	}
+
+
+/*
+	*Affichage de la date d'un repas 
+	*
+	*@param $idRepas
+	*@Affiche la date du diner par l'identifiant 
+	*/
+	public function getDateDiner($idRepas){
+		$req = "SELECT DATEREPAS FROM REPAS WHERE NUMREPAS='$idRepas'";
+		$res =PdoGsb::$monPdo->query($req);
+		$repas =$res->fetch();
+		return $repas;
+	}
+
+	
 	/*
 	*Recupere les informations d'une action fourni
 	*
@@ -178,7 +205,6 @@ class PdoGsb{
 	
 	public function getAllAmisCompletion($nomAmis){
 		$req="select * from amis where NOMAMIS like '".$nomAmis."%' ORDER by NOMAMIS, PRENOMAMIS";
-		
 		$rs = PdoGsb::$monPdo->query($req);
 			$lignes=array();
 			if($rs == true){
@@ -281,6 +307,60 @@ class PdoGsb{
 		'$adresseComplementAmis','$adresseVilleAmis', '$codePostalAmis','$telephoneAmis','$mailAmis','$dateEntreAmis')";
 		PdoGsb::$monPdo->exec($req);
 	}
-}
 
+/**
+*Cette fonction permet de vérifier si un ami participe à une activité en temps que chef ou participant
+* @param $numAction le numéro de l'action à vérifier
+* @param $numAmis le numéro d'un ami à vérifier
+* @return Vrai s'il n'y est pas Faux sinon
+*/	
+	public function verifAmis($numAction,$numAmis){
+		$req ="SELECT COUNT(*) FROM PARTICIPER where NUMAMIS='$numAmis' and NUMACTION='$numAction'";
+		$req2 ="SELECT COUNT(*) FROM ACTION where NUMAMIS='$numAmis' and NUMACTION='$numAction'";
+		$res = PdoGsb::$monPdo->query($req);
+		$action = $res->fetch();
+		$res2 = PdoGsb::$monPdo->query($req2);
+		$action2 = $res2->fetch();
+		if ($action+$action2==0){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+
+	public function getInfosVisiteur ($login, $MDP){
+		$req = "select NUMAMIS, NOMAMIS, PRENOMAMIS from amis where Login = :login and MDP = :MDP ";
+		$res = PdoGsb::$monPdo->prepare($req);
+		$res -> execute(array(
+				'login' => $login,
+				'MDP' => $MDP ));
+		$row = $res->fetch();
+		return $row; 
+	}
+	
+	/*
+	*retourne le montant total des repas
+	*
+	*/
+	
+	public function montantannuel(){
+		$req="SELECT a.NUMAMIS, NOMAMIS, PRENOMAMIS, DATEREPAS, NOMBREPERSONNES, PRIXREPAS, PRIXREPAS*NOMBREPERSONNES AS Montanttotal FROM `inviter` i INNER JOIN amis a on i.NUMAMIS = a.NUMAMIS INNER JOIN repas r on i.NUMREPAS=r.NUMREPAS order by i.NUMAMIS";
+		$res = PdoGsb::$monPdo->query($req);
+		$montant = $res->fetchAll();
+		return $montant; 
+	}
+	
+	/*
+	*retourne la cotisation annuelle
+	*
+	*/
+	
+	public function cotisation(){
+		$req="SELECT MONTANTCOTISATION FROM PARAMETRE";
+		$res = PdoGsb::$monPdo->query($req);
+		$montant = $res->fetchAll();
+		return $montant; 
+	}
+}
 ?>

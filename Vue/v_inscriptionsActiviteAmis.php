@@ -5,8 +5,14 @@
 	</p>
 	<form id="formulaire" action="#" method="POST">
 		<p>
-			<label class="labelinput" for="rech">Ajouter :</label>
-			<input type="text" name="rech" id="rech" class="ui-autocomplete" />
+			<!--<label class="labelinput" for="rech">Ajouter :</label>
+			<input type="text" name="rech" id="rech" class="ui-autocomplete" />-->
+			Liste des amis :
+			<td align="left"><input type="text" id ="rechercheAmis" name="rechercheAmis" onkeyup="envoiAmisajax(this.value);"></td>
+
+			<select id="listeAmis" size="18">
+	
+			</select>
 			<input type="submit" name="go" id="go" class="bouton" value="Ajouter à la liste"/>
 		</p>
 	</form>

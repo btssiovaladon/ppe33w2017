@@ -4,9 +4,16 @@
   
 //----- DEFINIR LE DOCUMENT AU FORMAT HTML (et balises spécifiques Html2Pdf) -----
 
+
+/*"SELECT numamis, montantcotisation, montantaction, prixrepas, (montantcotisation + montantaction + prixrepas) AS cotisationtotale 
+		FROM amis a INNER JOIN action ac on a.numamis=ac.numamis
+		INNER JOIN 
+		GROUP BY numamis"*/
+
 ?>
 
 <page>
+						<h1>Relevé annuel</h1>
 
 
 

@@ -1,8 +1,3 @@
-<?php 
-//include("vue/v_entete.php");
-
-?>
-
 <form action="index.php?uc=c_action&action=modificationAction" method="POST">
 	<fieldset>
 		<legend>Modifier une action </legend>
