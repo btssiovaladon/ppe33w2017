@@ -5,7 +5,7 @@
    <link rel="stylesheet" href="Style/styles.css">
    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
    <!--<script src="script.js"></script>-->
-   <script src="JavaScript/envoiAmis.js"></script>
+  
    <title>Club des AMIS</title>
 </head>
 	<table>
