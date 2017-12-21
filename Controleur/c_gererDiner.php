@@ -80,5 +80,17 @@
 			include("Vue/v_imprimerDinerPDF.php");
 			break;
 		}
+		case 'consultationDiner':{
+			$idDiner=$_POST['Consultation3'];
+			$lesParticipants = $pdo->getInfoParticipantRepas($idDiner);
+			include("Vue/v_consultationDiner.php");
+			break;
+		}
+		case 'supprimerParticipant':{
+			$idPart=$_GET['id'];
+			$idDiner=$_GET['idRepas'];
+			$pdo->supprimerParticipant($idPart,$idDiner);
+			break;
+		}
 	}
 ?>
