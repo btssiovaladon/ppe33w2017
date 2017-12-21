@@ -24,8 +24,13 @@ function estConnecte(){
 function connecter($id,$nom,$prenom,$fonction){
 //A compléter
 <<<<<<< HEAD
+<<<<<<< HEAD
 	
 =======
+=======
+$_SESSION = array();
+
+>>>>>>> 412c99da1fab06678a48782edb308cc73615032d
 	$_SESSION['idAmis']=$id;
 	$_SESSION['nomAmis']=$nom;
 	$_SESSION['prenomAmis']=$prenom;

@@ -1,8 +1,4 @@
-
-﻿<form method="post" action="index.php?uc=c_action&action=choix">
-<table>
-	
-﻿<?php
+<?php
 include "include/fct.inc.php";
 
 ?>
@@ -22,7 +18,7 @@ include "include/fct.inc.php";
 </form>
 <?php if (isset ($_POST['valeur1'])){
 ?>
-<table>
+<table border="1">
 	<tr>
 	   <td>Nom activité</td>
 	   <td>Ajouter un participant</td>
