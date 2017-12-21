@@ -1,14 +1,12 @@
 <?php 
-<<<<<<< HEAD
 if(!isset($_REQUEST['action'])){
 	 $_REQUEST['action'] = 'choix';
 }
 $URL = "http://localhost/AMIS/ppe33w2017/";
-=======
 // if(!isset($_REQUEST['action'])){
 	// $_REQUEST['action'] = 'choix';
 // }
->>>>>>> 412c99da1fab06678a48782edb308cc73615032d
+
 $action = $_REQUEST['action'];
 
 switch($action){
