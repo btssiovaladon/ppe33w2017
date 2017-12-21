@@ -1,7 +1,7 @@
 <?php
 require_once("Include/fct.inc.php");
 require_once("Include/class.pdogsb.inc.php");
-//include("Vue/v_entete.php") ; 
+include("Vue/v_entete.php") ; 
 session_start();
 
 $estConnecte = estConnecte();

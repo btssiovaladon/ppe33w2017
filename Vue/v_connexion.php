@@ -1,6 +1,6 @@
 <div id="connexion">
 	<div id="formulaireConnexion">
-		<h3>Connexion : </h3>
+		<h3>Connexion : <?php echo $erreur; ?></h3>
 		<form method="POST" action="indexKillian.php?uc=connexion&action=valideConnexion" >
 			<table id="connexion">
 				<tr>

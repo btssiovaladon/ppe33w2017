@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 include "include/fct.inc.php";
 
 ?>
@@ -18,7 +18,7 @@ include "include/fct.inc.php";
 </form>
 <?php if (isset ($_POST['valeur1'])){
 ?>
-<table>
+<table border="1">
 	<tr>
 	   <td>Nom activité</td>
 	   <td>Ajouter un participant</td>
@@ -30,14 +30,32 @@ include "include/fct.inc.php";
 	</tr>
 
 	<tr>
+		<td>
+		<select name="idAction" type="text">
+			<?php
+			foreach ($actions as $action){
+				$numaction =$action['numero'];
+				$nomaction = $action['nom'];
+			?>
+			<option selected value="<?php echo $numaction ?>"><?php echo $nomaction ?></option>
+			<?php } ?>
+			</select> 
+		</td>
+		<td> <input type="submit" value="ajouter" name="ajouter"> </input> </td>
+		<td> <input type="submit" value="consulter" name="consulter"> </input> </td>
+		<td> <input  type="submit" value="modifier" name="modifier"> </input></td>
+		<td> <input type="submit" value="supprimer" name="supprimer" onclick="if(!confirm('Etes vous sur de vouloir supprimer ?')) return false;"> </input> </td>
+
 		<td> <?php echo $_POST['valeur1'] ?> </td>
 		<td> <input type="submit" value="ajouter" name="ajouter"> </input> </td>
 		<td> <input type="submit" value="consulter" name="consulter"> </input> </td>
 		<td> <input type="submit" value="modifier" name="modifier"> </input> </td>
 		<td> <input type="submit" value="supprimer" name="supprimer"> </input> </td>
+
 		<td> <input type="submit" value="imprimer" name="imprimer"> </input> </td>
 		<td> <input type="submit" value="imprimer" name="imprimer2"> </input> </td>
 	</tr>
-
 </table>
+</form>
 <?php } ?>
+

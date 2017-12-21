@@ -21,17 +21,30 @@ function estConnecte(){
  * @param $prenom
  / @param $type
  */
-function connecter($id,$nom,$prenom){
+function connecter($id,$nom,$prenom,$fonction){
 //A compléter
+<<<<<<< HEAD
+<<<<<<< HEAD
+	
+=======
+=======
+$_SESSION = array();
+
+>>>>>>> 412c99da1fab06678a48782edb308cc73615032d
 	$_SESSION['idAmis']=$id;
 	$_SESSION['nomAmis']=$nom;
 	$_SESSION['prenomAmis']=$prenom;
+	$_SESSION['numFonction']=$fonction;
+>>>>>>> 6e0276d6b95d256cc30ac24cfc0bc2a008d292ee
 }
 /**
  * Détruit la session active
  */
 function deconnecter(){
 	session_destroy();
+<<<<<<< HEAD
+}
+=======
 	$_SESSION=array();
 }
 
@@ -48,6 +61,7 @@ function dateAnglaisVersFrancais($maDate){
 }
 
 /* gestion des erreurs*/
+>>>>>>> bd057134471b0b08df7d06c2d0c5f0f98f3ff680
 
 /**
  * Vérifie si une date est inférieure d'un an à la date actuelle
@@ -65,72 +79,44 @@ function estDateDepassee($dateTestee){
 
 
 /**
- * Vérifie la validité des cinq arguments : la date, l'heure du diner, le prix, le nombre de place et le lieu
+ * Vérifie la validité des trois arguments : la date, le libellé du frais et le montant 
  
  * des message d'erreurs sont ajoutés au tableau des erreurs
  
- * @param $dateDiner 
- * @param $heure
- * @param $prix
- * @param $nbPlace
- * @param $lieu
+ * @param $dateFrais 
+ * @param $libelle 
+ * @param $montant
  */
 function valideInfosDiner($dateDiner,$heure,$prix,$nbPlace,$lieu){
-	if($dateDiner==""){
+	if($dateFrais==""){
 		ajouterErreur("Le champ date ne doit pas être vide");
 	}
 	else{
+<<<<<<< HEAD
+		if(!estDatevalide($dateFrais)){
+			ajouterErreur("Date invalide");
+		}	
+		else{
+			if(estDateDepassee($dateFrais)){
+				ajouterErreur("date d'enregistrement du frais dépassé, plus de 1 an");
+			}			
+		}
+=======
 		if(estDateDepassee($dateDiner)){
 			ajouterErreur("date d'enregistrement du diner dépassé, plus de 1 an");
 		}			
+>>>>>>> bd057134471b0b08df7d06c2d0c5f0f98f3ff680
 	}
-	if($heure == ""){
-		ajouterErreur("Le champ heure ne peut pas être vide");
+	if($libelle == ""){
+		ajouterErreur("Le champ description ne peut pas être vide");
 	}
-	if($prix == ""){
+	if($montant == ""){
 		ajouterErreur("Le champ montant ne peut pas être vide");
 	}
-	else{
-		if(!is_numeric($prix) ){
+	else
+		if( !is_numeric($montant) ){
 			ajouterErreur("Le champ montant doit être numérique");
 		}
-	}
-	if($nbPlace == ""){
-		ajouterErreur("Le champ nombre de place ne peut pas être vide");
-	}
-	else{
-		if(!is_numeric($nbPlace) ){
-			ajouterErreur("Le champ montant doit être numérique");
-		}
-	}
-	if($lieu == ""){
-		ajouterErreur("Le champ lieu ne peut pas être vide");
-	}
-}
-
-/**
- * Ajoute le libellé d'une erreur au tableau des erreurs 
- 
- * @param $msg : le libellé de l'erreur 
- */
-function ajouterErreur($msg){
-   if (! isset($_REQUEST['erreurs'])){
-      $_REQUEST['erreurs']=array();
-	} 
-   $_REQUEST['erreurs'][]=$msg;
-}
-/**
- * Retoune le nombre de lignes du tableau des erreurs 
- 
- * @return le nombre d'erreurs
- */
-function nbErreurs(){
-   if (!isset($_REQUEST['erreurs'])){
-	   return 0;
-	}
-	else{
-	   return count($_REQUEST['erreurs']);
-	}
 }
 
 ?>
