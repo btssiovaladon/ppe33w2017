@@ -434,5 +434,27 @@ class PdoGsb{
 		$reqTreAdj = "update amis set NUMFONCTION = 4 where NUMAMIS = $tresorierAdj";
 		PdoGsb::$monPdo->exec($reqTreAdj);
 	}
+	
+	/*
+	*Récupération des informations des participants pour un repas
+	*
+	*@param $idRepas
+	*/
+	public function getInfoParticipantRepas($idRepas){
+		$req = "SELECT i.NUMAMIS,NOMAMIS,PRENOMAMIS,NOMBREPERSONNES FROM INVITER i JOIN AMIS a ON i.NUMAMIS=a.NUMAMIS WHERE NUMREPAS=$idRepas";
+		$res = PdoGsb::$monPdo->query($req);
+		$repas = $res->fetchAll();
+		return $repas;
+	}
+	
+	/*
+	*Supprimer le participant d'un repas
+	*
+	*@param $idAmis
+	*/
+	public function supprimerParticipant($idAmis,$idRepas){
+		$req = "DELETE FROM INVITER WHERE NUMAMIS=$idAmis AND NUMREPAS=$idRepas";
+		$res = PdoGsb::$monPdo->query($req);
+	}
 }
 ?>
