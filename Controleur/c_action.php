@@ -2,7 +2,6 @@
 // if(!isset($_REQUEST['action'])){
 	// $_REQUEST['action'] = 'choix';
 // }
-$URL = "http://localhost/Amis/ppe33w2017/";
 $action = $_REQUEST['action'];
 
 switch($action){

@@ -1,8 +1,4 @@
-
-﻿<form method="post" action="index.php?uc=c_action&action=choix">
-<table>
-	
-﻿<?php
+<?php
 include "include/fct.inc.php";
 
 ?>
