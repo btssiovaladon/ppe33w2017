@@ -17,7 +17,7 @@
 
 class PdoGsb{   		
       	private static $serveur='mysql:host=localhost';
-      	private static $bdd='dbname=ppeamis';   		
+      	private static $bdd='dbname=ppeamis2';   		
       	private static $user='root' ;    		
       	private static $mdp='' ;	
 		private static $monPdo;
@@ -233,7 +233,30 @@ class PdoGsb{
 		}
 		return $ligne;
 	}
+	/*récupération des repas par l'identifiant
+	*
+	*@paramètre $idRepas
+	*
+	*/
+	public function getRepasById($idRepas){
+			$req= "SELECT * FROM REPAS WHERE NUMREPAS=$idRepas";
+			$rs = PdoGsb::$monPdo->query($req);
+			$rec=$rs->fetchAll();
+			return $rec;
+	}
 
+	/*
+	*récupère les participants  grâce l'dentifiant des amis et l'dentifiant d'un repas
+	*
+	*@param  $idRepas
+	*
+	*/
+	public function getParticipantRepas($idRepas){
+		$req="SELECT * FROM AMIS a INNER JOIN Inviter i ON i.numamis=a.numamis where NUMREPAS='$idRepas'";
+		$res = PdoGsb::$monPdo->query($req);
+		$participant= $res->fetchAll();
+		return $participant;
+	}
 	/*
 	*nombre d'action donnee dans participer
 	*
