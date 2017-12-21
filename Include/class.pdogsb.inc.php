@@ -181,12 +181,6 @@ class PdoGsb{
 				$lignes = $rs->fetchAll();
 			}
 			return $lignes;
-	*/
-		public function getAllCommission(){
-		$req = "SELECT * FROM COMMISSION";
-		$res = PdoGsb::$monPdo->query($req);
-		$lesCommi = $res->fetchAll();
-		return $lesCommi;
 	}
 	
 	public function getAllCommission(){
