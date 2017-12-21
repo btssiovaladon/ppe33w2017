@@ -367,5 +367,18 @@ class PdoGsb{
 		$montant = $res->fetchAll();
 		return $montant; 
 	}
+	
+	/*
+	*Affichage de la date d'un repas 
+	*
+	*@param $idRepas
+	*@Affiche la date du diner par l'identifiant 
+	*/
+	public function getIdDiner($idRepas){
+		$req = "SELECT NUMREPAS FROM REPAS WHERE NUMREPAS='$idRepas'";
+		$res =PdoGsb::$monPdo->query($req);
+		$repas =$res->fetch();
+		return $repas;
+	}	
 }
 ?>

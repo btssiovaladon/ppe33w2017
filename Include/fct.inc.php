@@ -56,8 +56,11 @@ function dateAnglaisVersFrancais($maDate){
  * @return vrai ou faux
 */
 function estDateDepassee($dateTestee){
-	
- 
+	if(strtotime($dateTestee)>time()){
+		return False;
+	}else{
+		return True;
+	}
 }
 
 

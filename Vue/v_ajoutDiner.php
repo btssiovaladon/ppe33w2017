@@ -12,7 +12,7 @@ echo"
 <tr>
 	<td>Heure du dîner</td>
 	<td>
-		<input  type='text' name=heureDiner  size='50' maxlength='100'>
+		<input  type='time' name=heureDiner  size='50' maxlength='100'>
 	</td>
 </tr>
 <tr>

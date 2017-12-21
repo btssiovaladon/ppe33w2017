@@ -61,6 +61,7 @@ switch($action){
 		$lesRepas= $pdo->getAllInfoDiner();
 		$idRepas=$_POST['repas'];
 		$dateRepas= $pdo->getDateDiner($idRepas);
+		$IdRepas= $pdo->getIdDiner($idRepas);
 		include("Vue/v_moisDiner.php");
 		include("Vue/v_tableauDiner.php");
 		break;
