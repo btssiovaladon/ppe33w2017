@@ -103,10 +103,6 @@ class PdoGsb{
 		$req =" UPDATE `repas` SET HEUREREPAS= '$heure',DATEREPAS = '$date',PRIXREPAS ='$prix',NBRPLACESREPAS='$places',LIEUREPAS='$lieu' WHERENUMREPAS='$idRepas'";
 		$rs = $this->monPdo->query($req);
 	}
-	public function modifierRepas($idRepas,$heure,$date,$prix,$places,$lieu){
-		$req =" UPDATE `repas` SET HEUREREPAS='$heure',DATEREPAS='$date',PRIXREPAS='$prix',NBRPLACESREPAS='$places',LIEUREPAS='$lieu' WHERE NUMREPAS='$idRepas'";
-
-	}
 /*
 	*Suppression des données d'un repas 
 	*
