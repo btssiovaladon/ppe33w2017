@@ -28,6 +28,9 @@ switch($action){
 			$id = $visiteur['NUMAMIS'];
 			$nom =  $visiteur['NOMAMIS'];
 			$prenom = $visiteur['PRENOMAMIS'];
+
+			connecter($id,$nom,$prenom);
+
 			$fonction = $visiteur['NUMFONCTION'];
 			connecter($id,$nom,$prenom,$fonction);
 			include("Vue/v_entete.php");
