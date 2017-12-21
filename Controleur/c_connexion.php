@@ -1,35 +1,53 @@
 ﻿<?php
-if(!isset($_REQUEST['action']))
-	{$_REQUEST['action'] = 'demandeConnexion';
+if(!isset($_REQUEST['action']) |
+	(count($_SESSION)==0 & $_REQUEST['action'])!= 'valideConnexion'){
+		$_REQUEST['action'] = 'demandeConnexion';
+		$_SESSION = array();
 }
+
 $action = $_REQUEST['action'];
-switch($action)
-	{case 'demandeConnexion':{
-		
-		break;
-	}
-	case 'valideConnexion':
-	{	$login = $_REQUEST['login'];
-		$mdp = $_REQUEST['mdp'];
-		$visiteur = $pdo->getInfosVisiteur($login,$mdp);
-		if(!is_array( $visiteur)){
-			$erreur[0]="Login ou mot de passe incorrect";
-			include("vues/v_erreurs.php");
-		
-		}
-		else
-		{	$id = $visiteur['id'];
-			$nom =  $visiteur['nom'];
-			$prenom = $visiteur['prenom'];
-			connecter($id,$nom,$prenom);
-		}
-		break;
-	}
-	default :
-	{	
-		break;
-	}
+$erreur="";
+
+switch($action){
+	case 'accueil':
+	break;
 	
-	include("vues/v_entete.php");
+	case 'valideConnexion':
+		$login=$_REQUEST['login'];
+		$mdp=$_REQUEST['mdp'];
+		$visiteur = $pdo->getInfosVisiteur($login,$mdp);
+		
+		if(!is_array( $visiteur)){
+			$erreur ="Login ou mot de passe incorrect";
+			include("Vue/v_connexion.php");	
+		}
+		
+		else{
+			
+			
+			$id = $visiteur['NUMAMIS'];
+			$nom =  $visiteur['NOMAMIS'];
+			$prenom = $visiteur['PRENOMAMIS'];
+
+			connecter($id,$nom,$prenom);
+
+			$fonction = $visiteur['NUMFONCTION'];
+			connecter($id,$nom,$prenom,$fonction);
+			include("Vue/v_entete.php");
+		}
+		
+		break;
+	
+	case 'deconnecter':
+		deconnecter();
+		$_REQUEST['action'] = 'demandeConnexion';
+	
+	
+	default :
+			include("Vue/v_connexion.php");
+		break;
+	
+	
 }
+
 ?>

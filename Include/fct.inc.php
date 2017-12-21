@@ -21,11 +21,14 @@ function estConnecte(){
  * @param $prenom
  / @param $type
  */
-function connecter($id,$nom,$prenom,$type){
+function connecter($id,$nom,$prenom,$fonction){
 //A compléter
+$_SESSION = array();
+
 	$_SESSION['idAmis']=$id;
 	$_SESSION['nomAmis']=$nom;
 	$_SESSION['prenomAmis']=$prenom;
+	$_SESSION['numFonction']=$fonction;
 }
 /**
  * Détruit la session active
