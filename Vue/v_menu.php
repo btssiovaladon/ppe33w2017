@@ -1,7 +1,4 @@
-<?php
-if($_SESSION['numFonction']==3){
-?>
-	<div id='cssmenu'>
+<div id='cssmenu'>
 		<ul>
 		   <li><a href='http://localhost/Amis/ppe33w2017/'><span>Accueil</span></a></li>
 		   
@@ -45,9 +42,18 @@ if($_SESSION['numFonction']==3){
 				 <li class='has-sub'><a href='#'><span>Consulter les membres d'une commission</span></a></li>
 			  </ul>
 		   </li>
-		   
-		</ul>
-	</div>
+<?php
+if($_SESSION['numFonction']!=5){
+?>		   
+			<li class='active has-sub'><a href='#'><span>Gestion financière</span></a>
+			  <ul>
+				 <li class='has-sub'><a href='#'><span>Saisir une cotisation annuelle</span></a></li>
+				 <li class='has-sub'><a href='#'><span>Édition d'un relevé annuel</span></a></li>
+				 <li class='has-sub'><a href='#'><span>Saisir le réglement d'un AMIS</span></a></li>
+			  </ul>
+		   </li>
 <?php	
 }
-?>
+?>		   
+		</ul>
+	</div>
