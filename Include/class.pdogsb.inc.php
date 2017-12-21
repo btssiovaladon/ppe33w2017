@@ -176,19 +176,12 @@ class PdoGsb{
 	public function getAllAmis(){
 		$req="SELECT * FROM AMIS";
 		$rs = PdoGsb::$monPdo->query($req);
-<<<<<<< HEAD
+
 		$lignes=array();
 		if($rs == true){
 			$lignes = $rs->fetchAll();
 		}
 		return $lignes;
-=======
-			$lignes=array();
-			if($rs == true){
-				$lignes = $rs->fetchAll();
-			}
-			return $lignes;
->>>>>>> 83ad435ee15e48ddf763e1a4adaf17a40b22d21d
 	}
 	
 	public function getAllCommission(){
