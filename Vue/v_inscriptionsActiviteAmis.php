@@ -5,9 +5,15 @@
 	</p>
 	<form id="formulaire" action="#" method="POST">
 		<p>
-			<label class="labelinput" for="rech">Ajouter :</label>
-			<input type="text" name="rech" id="rech" class="ui-autocomplete" />
-			<input type="submit" name="go" id="go" class="bouton" value="Ajouter à la liste"/>
+			<!--<label class="labelinput" for="rech">Ajouter :</label>
+			<input type="text" name="rech" id="rech" class="ui-autocomplete" />-->
+			Liste des amis :
+			<td align="left"><input type="text" id ="rechercheAmis" name="rechercheAmis" onkeyup="envoiAmisajax(this.value);"></td>
+
+			<select id="listeAmis" size="18">
+	
+			</select>
+			<input type="button" name="go" id="go" class="bouton" value="Ajouter à la liste" onclick="addRow(document.getElementById('listePersonne'));"/>
 		</p>
 	</form>
 	<form id="formulaire2" action="#" method="POST">
@@ -15,11 +21,13 @@
 		<table class="listePersonne" name="listePersonne" id="listePersonne">
 		<caption>Personnes choisies </caption>
 		<tr>
+			<td style="display:none">1</td>
 			<td>aaa</td>
 			<td>rrr</td>
 			<td bgcolor="#FF0000" onclick="supprimerLigne(this.parentNode.rowIndex);">X</td>
 		</tr>
 		<tr>
+			<td style="display:none">2</td>
 			<td>aaab</td>
 			<td>rrr</td>
 			<td bgcolor="#FF0000" onclick="supprimerLigne(this.parentNode.rowIndex);">X</td>
@@ -80,9 +88,29 @@ function GetLigne(){
 	var longueur = arrayLignes.length;//on peut donc appliquer la propriété length
 	return longueur;
 }
+function addRow(elmt)
+{
+	var Text="X";
+	var Text1="nom";
+    var tr = document.createElement('tr');
+    elmt.appendChild(tr);
+    var td = document.createElement('td');
+    tr.appendChild(td);
+	
+    var tdText = document.createTextNode(Text1);
+    td.appendChild(tdText);
+
+	var td4 = document.createElement('td');
+	td4.onclick = function() {supprimerLigne(this.parentNode.rowIndex);};
+    tr.appendChild(td4);
+	
+    var tdText4 = document.createTextNode(Text);
+    td4.appendChild(tdText4);
+}
+
 </script>
 <script>
-	var litseamis = <?php echo json_encode($listeamis['nom']); ?>;
+	var litseamis = <?php echo json_encode($listeamis[3]); ?>;
 	$("#rech").autocomplete({
 		source : listeamis,
 		autofocus:true

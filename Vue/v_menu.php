@@ -5,15 +5,13 @@
 	   <li class='active has-sub'><a href='#'><span>Gestion des AMIS</span></a>
 		  <ul>
 			 <li class='has-sub'><a href='#'><span>Créer un AMIS</span></a></li>
-			 <li class='has-sub'><a href="index.php?uc=c_gererAmis&action=a_modifierAmis"><span>Modifier/Supprimer un AMIS</span></a></li>
+			 <li class='has-sub'><a href="index.php?uc=c_gererAmisModif&action=a_selectionnerAmis"><span>Modifier/Supprimer un AMIS</span></a></li>
 		  </ul>
 	   </li>
 	   
 	   <li class='active has-sub'><a href='#'><span>Gestion des actions</span></a>
 		  <ul>
-			 <li class='has-sub'><a href='#'><span>Saisir une action</span></a></li>
-			 <li class='has-sub'><a href='#'><span>Modifier une action</span></a></li>
-			 <li class='has-sub'><a href='#'><span>Supprimer une action</span></a></li>
+			 <li class='has-sub'><a href='index.php?uc=c_action&action=choix'><span>Tableau des actions</span></a></li>
 			 <li class='has-sub'><a href="index.php?uc=c_action&action=a_inscription"><span>Inscrire un AMIS à une action</span></a></li>
 			 <li class='has-sub'><a href="index.php?uc=c_action&action=a_imprimerActivite"><span>Editer la liste des participants par action</span></a></li>
 			 <li class='has-sub'><a href='#'><span>Consulter les membres de l'action</span></a></li>
@@ -33,7 +31,7 @@
 	   
 	   <li class='active has-sub'><a href='#'><span>Gestion du bureau et des commissions</span></a>
 		  <ul>
-			 <li class='has-sub'><a href='Vue/v_saisieBureau.php'><span>Saisir un bureau</span></a></li>
+			 <li class='has-sub'><a href="indexKillian.php?uc=c_action&action=saisirBureau"><span>Saisir un bureau</span></a></li>
 			 <li class='has-sub'><a href='#'><span>Modifier un bureau</span></a></li>
 			 <li class='has-sub'><a href='#'><span>Créer une commission</span></a></li>
 			 <li class='has-sub'><a href='#'><span>Modifier/Supprimer une commission</span></a></li>
@@ -44,4 +42,4 @@
 	   </li>
 	   
 	</ul>
-	</div>
+</div>

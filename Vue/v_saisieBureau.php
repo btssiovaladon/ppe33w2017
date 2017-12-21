@@ -1,76 +1,36 @@
 <h1> Saisie d'un bureau </h1>
 
 
+<form method="post" action="indexKillian.php?uc=c_bureau&action=enregistrerBureau">
+	<h2> Secrétaire </h2>
+	<td align="left"><input type="text" id ="rechercheAmis" name="rechercheAmis" onkeyup="envoiAmisajax(this.value);"></td>
+	<select id="listeAmis" size="18">
+	</select>
 
-<h2> Secrétaire </h2>
+	<input type="hidden" name="secretaire" value="secretaire" />
 
-<form method="post" action="cible.php">
 
-	<input type="text" id ="nomPers" name="NOM_PERSONNE" onkeyup="javascript:envoipersajax(this.value)"></td> <br />
-	Liste des personnes : <br />
-	<select id="listePers" size="18">
+	<h2> Secrétaire-adjoint </h2>
+	<td align="left"><input type="text" id ="rechercheAmis" name="rechercheAmis" onkeyup="envoiAmisajax(this.value);"></td>
+	<select id="listeAmis" size="18">
+	</select>
+
+	<input type="hidden" name="secretaire" value="secretaire" />
+
+	<h2> Trésorier </h2>
+	<td align="left"><input type="text" id ="rechercheAmis" name="rechercheAmis" onkeyup="envoiAmisajax(this.value);"></td>
+	<select id="listeAmis" size="18">
+	</select>
+
+	<input type="hidden" name="secretaire" value="secretaire" />
+
+	<h2> Trésorier-adjoint </h2>
+	<td align="left"><input type="text" id ="rechercheAmis" name="rechercheAmis" onkeyup="envoiAmisajax(this.value);"></td>
+	<select id="listeAmis" size="18">
 	</select>
 
 	<input type="hidden" name="secretaire" value="secretaire" />
 	
-	<input type="submit" value="Valider" />
+	<input type="submit" value="Valider" onclick="if(!confirm('Enregistrer ce bureau ?')) return false;"/>
 </form>
-<?php
-/* liste des amis (nom - prénom) et return numAmis*/
-/*numCommission*/
-/*numFonction*/
-?>
 
-<h2> Secrétaire-adjoint </h2>
-<form method="post" action="cible.php">
-
-	<input type="text" id ="nomPers" name="NOM_PERSONNE" onkeyup="javascript:envoipersajax(this.value)"></td> <br />
-	Liste des personnes : <br />
-	<select id="listePers" size="18">
-	</select>
-
-	<input type="hidden" name="secretaire" value="secretaire" />
-	
-	<input type="submit" value="Valider" />
-</form>
-<?php
-/* liste des amis (nom - prénom) et return numAmis*/
-/*numCommission*/
-/*numFonction*/
-?>
-
-<h2> Trésorier </h2>
-<form method="post" action="cible.php">
-
-	<input type="text" id ="nomPers" name="NOM_PERSONNE" onkeyup="javascript:envoipersajax(this.value)"></td> <br />
-	Liste des personnes : <br />
-	<select id="listePers" size="18">
-	</select>
-
-	<input type="hidden" name="secretaire" value="secretaire" />
-	
-	<input type="submit" value="Valider" />
-</form>
-<?php
-/* liste des amis (nom - prénom) et return numAmis*/
-/*numCommission*/
-/*numFonction*/
-?>
-
-<h2> Trésorier-adjoint </h2>
-<form method="post" action="cible.php">
-
-	<input type="text" id ="nomPers" name="NOM_PERSONNE" onkeyup="javascript:envoipersajax(this.value)"></td> <br />
-	Liste des personnes : <br />
-	<select id="listePers" size="18">
-	</select>
-
-	<input type="hidden" name="secretaire" value="secretaire" />
-	
-	<input type="submit" value="Valider" />
-</form>
-<?php
-/* liste des amis (nom - prénom) et return numAmis*/
-/*numCommission*/
-/*numFonction*/
-?>

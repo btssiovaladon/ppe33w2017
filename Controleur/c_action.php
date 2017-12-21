@@ -8,7 +8,6 @@ $action = $_REQUEST['action'];
 switch($action){
 	case 'choix':
 		$actions=$pdo->getAllActivite();
-<<<<<<< HEAD
 		include('vue/choix_action.php');
 	break;
 	
@@ -16,11 +15,10 @@ switch($action){
 }
 
 switch($action){	
-=======
+
 		include('vue/tab.php');
 	break;
-		
->>>>>>> bd057134471b0b08df7d06c2d0c5f0f98f3ff680
+	
 	case 'modificationAction' :{
 	$action = $pdo->getInfoAction($_POST['idAction']);
 	$lesCommi = $pdo->getAllCommission();
